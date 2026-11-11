@@ -1,0 +1,951 @@
+{
+  "suite": "prospecting-workspace/0.1.0",
+  "contract": "prospecting-workspace",
+  "contractVersion": "0.1.0",
+  "status": "planned",
+  "proofClaimsRequired": true,
+  "fixtures": [
+    "synthetic-prospecting-v1"
+  ],
+  "cases": [
+    {
+      "id": "PR-ACC-001",
+      "title": "Independent business profiles on the same engine",
+      "category": "conformance",
+      "technique": "black_box_scenario",
+      "claims": [
+        "ACC-PR-001",
+        "REQ-PR-001",
+        "INV-PR-001",
+        "POL-PR-001"
+      ],
+      "fixture": "synthetic-prospecting-v1",
+      "steps": [
+        "Identify one immutable candidate revision and configure the fixture profiles for shops, co-ownerships and digital projects using public configuration operations.",
+        "Validate and publish the synthetic configurations with their declared test dependencies; enter, discover, qualify and follow a target under each profile.",
+        "For the digital project, omit company, address, city, email and sector-specific identifiers; inspect engine revision and saved profile definitions."
+      ],
+      "assertions": [
+        "All three journeys use the same engine revision and configurable target types, labels, attributes and criteria; no sector-specific source or technology is required by the suite.",
+        "The project without geographic or email fields remains searchable, assessable and followable, with contact unavailability explicit.",
+        "Each profile declares identity/publication, target and related types, identity rules, acquisition, evidence/freshness/unknown handling, qualification, priority, follow-up, contact content, evaluation and dependencies as described by the locked targeting-profile.md."
+      ],
+      "status": "planned"
+    },
+    {
+      "id": "PR-ACC-002",
+      "title": "Reject invalid profiles and attempts to grant authority",
+      "category": "security",
+      "technique": "black_box_scenario",
+      "claims": [
+        "ACC-PR-002",
+        "REQ-PR-002",
+        "REQ-PR-004",
+        "INV-PR-011"
+      ],
+      "fixture": "synthetic-prospecting-v1",
+      "steps": [
+        "Attempt publication separately with an unknown rule, missing reference, incompatible attribute type, invalid identity rule and absent evidence/freshness/outcome definitions.",
+        "Attempt activation with a missing source dependency and with profile content asking to remove restriction-a or grant extra access.",
+        "Inspect localized validation errors, permissions, restrictions and independent source/channel activation records before and after each attempt."
+      ],
+      "assertions": [
+        "Invalid references, rules, types and required profile definitions are localized and block dependent publication or activation.",
+        "A content profile cannot change authorization or compliance rules or erase an opposition; source and channel activation are separate decisions.",
+        "Missing dependencies remain visible and do not fabricate an enabled connector."
+      ],
+      "status": "planned"
+    },
+    {
+      "id": "PR-ACC-003",
+      "title": "Immutable profile publication and explicit reevaluation",
+      "category": "conformance",
+      "technique": "black_box_scenario",
+      "claims": [
+        "ACC-PR-003",
+        "REQ-PR-003",
+        "POL-PR-006"
+      ],
+      "fixture": "synthetic-prospecting-v1",
+      "steps": [
+        "Publish profile v1 and accept a fixture evaluation with attributable evidence; start a discovery execution under v1.",
+        "Attempt to edit the published version, then publish v2 with a changed mandatory criterion and inspect the impact preview.",
+        "Inspect existing evaluations before explicit migration, then request an authorized reevaluation and compare attributed histories."
+      ],
+      "assertions": [
+        "The published definition stays immutable and executions/evaluations identify the exact profile version.",
+        "Existing accepted evaluations retain v1, evidence and author until an explicit reevaluation or migration decision.",
+        "The impact preview identifies affected records; reevaluation creates an attributed v2 evaluation without rewriting the earlier decision."
+      ],
+      "status": "planned"
+    },
+    {
+      "id": "PR-ACC-004",
+      "title": "Shared contacts, campaign independence and temporal roles",
+      "category": "conformance",
+      "technique": "black_box_scenario",
+      "claims": [
+        "ACC-PR-004",
+        "REQ-PR-005",
+        "REQ-PR-006",
+        "REQ-PR-007",
+        "INV-PR-002"
+      ],
+      "fixture": "synthetic-prospecting-v1",
+      "steps": [
+        "Create target-a and target-b with a shared contact and two independent campaign dossiers for target-a.",
+        "Advance only dossier-a, expire one contact relationship and retain another relationship with explicitly unknown dates.",
+        "Repeat the relationship journey with digital projects, and assess target-without-contact."
+      ],
+      "assertions": [
+        "Shared contacts do not merge target identities and advancing dossier-a leaves the other campaign stage unchanged.",
+        "Multiple dated or explicitly unknown roles are retained; actions depending on an expired relationship require review before use.",
+        "A target without a contact remains discoverable and assessable; contact inability is explicit and no address or mandate is invented."
+      ],
+      "status": "planned"
+    },
+    {
+      "id": "PR-ACC-005",
+      "title": "Partial discovery, cancellation and bounded resume",
+      "category": "resilience",
+      "technique": "fault_injection",
+      "claims": [
+        "ACC-PR-005",
+        "REQ-PR-008",
+        "REQ-PR-010",
+        "REQ-PR-011",
+        "INV-PR-008"
+      ],
+      "fixture": "synthetic-prospecting-v1",
+      "steps": [
+        "Inspect source declarations and exercise manual entry, import and the configurable external test-source boundary.",
+        "Inject source-unavailable and unsupported-filter separately; run discovery with declared time, volume, cost and frequency limits.",
+        "Cancel after a confirmed result, then resume the same execution and inspect results, budget and stop reasons."
+      ],
+      "assertions": [
+        "Actual access, license/reuse conditions, available attributes, collection time and source limits are declared; absent access is explicit.",
+        "Applied and unsupported filters, partial coverage, errors, progress and stop reasons are observable; failure never becomes an exhaustive empty market.",
+        "Resume preserves confirmed items without duplicates and total time, volume, cost and request frequency remain within the approved execution budget."
+      ],
+      "status": "planned"
+    },
+    {
+      "id": "PR-ACC-006",
+      "title": "Promotion does not grant qualification or contact permission",
+      "category": "conformance",
+      "technique": "black_box_scenario",
+      "claims": [
+        "ACC-PR-006",
+        "REQ-PR-009",
+        "REQ-PR-019"
+      ],
+      "fixture": "synthetic-prospecting-v1",
+      "steps": [
+        "Preview candidates and their source evidence; promote one through an attributed selection and another through a previously approved promotion rule.",
+        "Omit evidence of need and permission to contact; inspect dossier state, dimension results and the test transport ledger."
+      ],
+      "assertions": [
+        "Candidates and provenance are visible before promotion and the selection or approved rule is recorded.",
+        "Promoted dossiers remain for examination; public indicators never prove need, budget, decision power or purchase intent.",
+        "Promotion creates no transmission, commercial qualification or sequence enrollment; missing evidence and contact permission remain visible."
+      ],
+      "status": "planned"
+    },
+    {
+      "id": "PR-ACC-007",
+      "title": "Inbound durability, idempotency and distinct consent",
+      "category": "resilience",
+      "technique": "black_box_scenario",
+      "claims": [
+        "ACC-PR-007",
+        "REQ-PR-012",
+        "REQ-PR-013",
+        "REQ-PR-014",
+        "INV-PR-003",
+        "POL-PR-007"
+      ],
+      "fixture": "synthetic-prospecting-v1",
+      "steps": [
+        "Open the public fixture form with required information visible and optional future-marketing consent unchecked; disable advertising tracking.",
+        "Submit submission-a, repeat its identity and content, then submit a distinct legitimate request from the same contact.",
+        "Inject failure before durable receipt on a separate attempt, retry with the same submission identity and inspect requests and acknowledgements."
+      ],
+      "assertions": [
+        "The accessible form uses profile-minimal fields and separates service purpose, data information and optional marketing.",
+        "The identical submission produces one request; the new legitimate request remains separate and both reference the reconciled contact.",
+        "Every request has a user or identified responsible queue with a deadline; source, form version, date and actual information/consent evidence are retained.",
+        "No marketing consent or qualified status is inferred, advertising tracking is unnecessary, and receipt is acknowledged only after durable recording."
+      ],
+      "status": "planned"
+    },
+    {
+      "id": "PR-ACC-008",
+      "title": "Public form abuse and untrusted instructions",
+      "category": "security",
+      "technique": "adversarial_input",
+      "claims": [
+        "ACC-PR-008",
+        "REQ-PR-013",
+        "REQ-PR-043",
+        "INV-PR-011",
+        "QA-PR-001"
+      ],
+      "fixture": "synthetic-prospecting-v1",
+      "steps": [
+        "Submit invalid fields, the fixture injection text and a burst exceeding the declared test abuse limit.",
+        "Inspect public errors, review isolation, internal access attempts and the destination monitor; include model processing only when AI is enabled."
+      ],
+      "assertions": [
+        "Validation and abuse limits reject, bound or isolate suspicious submissions for review with accessible error feedback.",
+        "Public submissions expose no internal portfolio and cannot grant rights or change recipients, policy or actions.",
+        "No unauthorized external effect or canary transfer occurs; untrusted-content action checks apply even without a model."
+      ],
+      "status": "planned"
+    },
+    {
+      "id": "PR-ACC-009",
+      "title": "Ambiguous identity, attributed merge and safe split",
+      "category": "conformance",
+      "technique": "black_box_scenario",
+      "claims": [
+        "ACC-PR-009",
+        "REQ-PR-015",
+        "REQ-PR-016",
+        "INV-PR-006"
+      ],
+      "fixture": "synthetic-prospecting-v1",
+      "steps": [
+        "Import same-name and shared-email candidates with different reliable identifiers and issuer namespaces, including the same value in another workspace.",
+        "Inspect possible matches; reject an unapproved ambiguous merge, then explicitly approve a fixture merge with conflicting evidence and restrictions.",
+        "Erase the fixture removable datum, split the mistaken merge through public operations and compare identity, dossiers, activities and restrictions."
+      ],
+      "assertions": [
+        "Keys are scoped by type, issuer and workspace; shared name, address or email alone never establishes universal identity.",
+        "Ambiguous matches require review; authorized merge preserves prior identifiers, evidence, dossiers, activities, restrictions and the attributed decision.",
+        "Split repairs the mistaken merge without restoring erased personal data or removing a corresponding restriction."
+      ],
+      "status": "planned"
+    },
+    {
+      "id": "PR-ACC-010",
+      "title": "Contradictions, human corrections and expired evidence",
+      "category": "conformance",
+      "technique": "black_box_scenario",
+      "claims": [
+        "ACC-PR-010",
+        "REQ-PR-017",
+        "REQ-PR-021",
+        "INV-PR-004",
+        "INV-PR-010"
+      ],
+      "fixture": "synthetic-prospecting-v1",
+      "steps": [
+        "Record an attributed human correction and accepted evaluation with valid evidence.",
+        "Enrich from a contradictory source, advance the controlled clock beyond evidence validity, then reevaluate.",
+        "Inspect value provenance, observation/declaration/inference labels, current validity and the retained decision history."
+      ],
+      "assertions": [
+        "Determinant values retain source, locator and date; contradictions, missing data and expiry remain explicit.",
+        "Enrichment does not silently overwrite the correction and attributed history remains available within declared retention.",
+        "An expired evaluation loses current-use validity and requires review; unknown, stale or estimated values do not silently become verified facts."
+      ],
+      "status": "planned"
+    },
+    {
+      "id": "PR-ACC-011",
+      "title": "Mandatory evidence gates qualification despite a high score",
+      "category": "conformance",
+      "technique": "black_box_scenario",
+      "claims": [
+        "ACC-PR-011",
+        "REQ-PR-018",
+        "REQ-PR-019",
+        "REQ-PR-020",
+        "REQ-PR-021",
+        "INV-PR-003",
+        "POL-PR-005"
+      ],
+      "fixture": "synthetic-prospecting-v1",
+      "steps": [
+        "Assess a high-priority target with coordinates but missing mandatory need evidence; repeat with stale evidence and an unavailable source.",
+        "Attempt commercial acceptance, record a separately labelled human exception, then supply valid evidence and perform authorized acceptance.",
+        "Inspect per-criterion decisions, four independent dimensions, method version, correction reasons and acceptance attribution."
+      ],
+      "assertions": [
+        "Every criterion reports satisfied, not satisfied or unknown with evidence, validity and reason; missing data or failed collection is unknown, never negative evidence.",
+        "A missing mandatory criterion blocks ordinary acceptance regardless of total score; a human exception neither verifies unknown facts nor receives the ordinary qualified label.",
+        "Fit, demonstrated need, data quality and contactability stay distinct; relevant target and commercial qualification have distinct names.",
+        "Method, criteria, evidence and score limitations are versioned and visible; heuristics are not conversion probabilities.",
+        "The positive acceptance control has valid mandatory evidence and an authorized attributed decision; rejection and corrections retain author and reason."
+      ],
+      "status": "planned"
+    },
+    {
+      "id": "PR-ACC-012",
+      "title": "Transfer and concurrent edits preserve responsibility",
+      "category": "resilience",
+      "technique": "concurrent_clients",
+      "claims": [
+        "ACC-PR-012",
+        "REQ-PR-023",
+        "REQ-PR-024",
+        "INV-PR-012",
+        "QA-PR-003"
+      ],
+      "fixture": "synthetic-prospecting-v1",
+      "steps": [
+        "Prepare an active dossier with a responsible user and dated task, plus a second dossier with a reasoned dated wait.",
+        "Transfer responsibility while two authorized clients edit the next action from the same revision.",
+        "Apply a previewed batch from a saved segment containing a concurrently changed row; compare list and progression views with identical filters."
+      ],
+      "assertions": [
+        "Transfer confirms the new responsible user or queue and preserves activities, deadlines and restrictions.",
+        "Every active dossier retains a dated next action or reasoned wait with review date; conflicting edits are explicit with zero silent loss.",
+        "List and progression views agree on filters, rights and state; saved segments add no rights.",
+        "Batch preview shows impacts and the result classifies each row, including concurrency conflicts, without silently replacing newer data."
+      ],
+      "status": "planned"
+    },
+    {
+      "id": "PR-ACC-013",
+      "title": "Pipeline gates, closure and reasoned reopening",
+      "category": "conformance",
+      "technique": "black_box_scenario",
+      "claims": [
+        "ACC-PR-013",
+        "REQ-PR-022",
+        "INV-PR-012"
+      ],
+      "fixture": "synthetic-prospecting-v1",
+      "steps": [
+        "Publish stages, permitted transitions, evidence gates and terminal outcomes; attempt a transition without its required evidence.",
+        "Close a dossier with a result, then reopen with a reason and new dated action; inspect qualification, restrictions and stage history."
+      ],
+      "assertions": [
+        "The unsupported or ungated transition is refused with its reason.",
+        "Closure and reopening require a result or reason and preserve the previous outcome and attributed history.",
+        "Pipeline movement never erases qualification or restrictions; the reopened active dossier has a responsible owner and a next action or dated wait."
+      ],
+      "status": "planned"
+    },
+    {
+      "id": "PR-ACC-014",
+      "title": "DST-aware reminders and attributed activity correction",
+      "category": "conformance",
+      "technique": "black_box_scenario",
+      "claims": [
+        "ACC-PR-014",
+        "REQ-PR-025",
+        "REQ-PR-026",
+        "INV-PR-010"
+      ],
+      "fixture": "synthetic-prospecting-v1",
+      "steps": [
+        "Create a task across the fixture daylight-saving boundary; plan, postpone, complete and cancel tasks through separate public attempts.",
+        "Exercise reminder preferences, pauses, revoked access and overdue status; inspect due instants with their time zones.",
+        "Correct a past interaction and compare it with a suggestion, planned task and transport event."
+      ],
+      "assertions": [
+        "Task deadline and time zone stay interpretable across the clock change; reminders are not duplicated and respect preferences, rights and pauses.",
+        "Overdue tasks are visible; completion or cancellation has an attributed result.",
+        "Observed interactions, planned tasks, suggestions and transport events stay distinct with actor, occurrence/receipt times and recipients.",
+        "The correction is attributed and preserves history within retention without inventing an additional completed interaction."
+      ],
+      "status": "planned"
+    },
+    {
+      "id": "PR-ACC-015",
+      "title": "Human approval binds every final message field",
+      "category": "security",
+      "technique": "black_box_scenario",
+      "claims": [
+        "ACC-PR-015",
+        "REQ-PR-028",
+        "INV-PR-005",
+        "POL-PR-003"
+      ],
+      "fixture": "synthetic-prospecting-v1",
+      "steps": [
+        "Approve a fixture final message as an authorized human, retaining sender, recipient, channel and purpose.",
+        "In separate attempts change content, sender, recipient, channel or purpose and request transmission.",
+        "Inspect approval records, drafts, activity metrics and the isolated transport ledger; include an unchanged approved positive control."
+      ],
+      "assertions": [
+        "Approval is attributed to a human and bound to the exact final message and every delivery field.",
+        "Each changed element invalidates approval and prevents provider handoff until renewed review.",
+        "A draft or denied attempt is not an activity counted as sent; only the authorized unchanged control is handed off.",
+        "Batch approval, when offered, exposes every recipient and final content and authorizes no future generated unreviewed message."
+      ],
+      "status": "planned"
+    },
+    {
+      "id": "PR-ACC-016",
+      "title": "Restriction and revocation race at the handoff boundary",
+      "category": "security",
+      "technique": "handoff_barrier",
+      "claims": [
+        "ACC-PR-016",
+        "REQ-PR-029",
+        "REQ-PR-038",
+        "INV-PR-005",
+        "QA-PR-005"
+      ],
+      "fixture": "synthetic-prospecting-v1",
+      "steps": [
+        "Queue an approved message and hold execution before provider handoff using a declared test barrier.",
+        "Confirm opposition or revoke actor rights before releasing the barrier; separately invalidate policy, contact permission, relationship, approval and quota.",
+        "Repeat a competing handoff/opposition ordering and compare independently observed transport events with control timestamps."
+      ],
+      "assertions": [
+        "Immediately before handoff the actor, current policy, permission, opposition, relationship, final approval and caps are all checked.",
+        "A missing or failed check blocks with a reason and no subsequent prohibited provider handoff.",
+        "Opposition is applied across its real workspace/purpose/channel scope and the chronology distinguishes confirmation from provider handoff.",
+        "A message already handed off is reported truthfully and never claimed to be remotely recalled."
+      ],
+      "status": "planned"
+    },
+    {
+      "id": "PR-ACC-017",
+      "title": "Unknown remote outcome and disordered confirmations",
+      "category": "resilience",
+      "technique": "remote_effect_fault",
+      "claims": [
+        "ACC-PR-017",
+        "REQ-PR-030",
+        "REQ-PR-050",
+        "INV-PR-007",
+        "QA-PR-003"
+      ],
+      "fixture": "synthetic-prospecting-v1",
+      "steps": [
+        "Use the controlled test transport to accept one approved operation, then drop its network acknowledgement or fail the local result recording.",
+        "Attempt recovery; deliver authenticated duplicate and reordered provider events, plus an unauthenticated event.",
+        "Repeat with a test provider that cannot deduplicate or reconcile the original handoff; inspect operation identity and the independent send ledger."
+      ],
+      "assertions": [
+        "The uncertain attempt retains one stable operation identity and is not treated as absent merely because local confirmation failed.",
+        "Reconciliation prevents a second blind send; authenticated events reconcile by event and operation identity with no duplicate logical effect or confirmed-state regression.",
+        "Provider acceptance is distinct from confirmed delivery, failure and unknown outcome; delivery is never invented.",
+        "Unauthenticated events are refused; conflicts and exhausted retries are explicit.",
+        "Without provider reconciliation/deduplication, retry stays suspended pending documented resolution."
+      ],
+      "status": "planned"
+    },
+    {
+      "id": "PR-ACC-018",
+      "title": "Email sender checks, opt-out and transport suppression",
+      "category": "security",
+      "technique": "black_box_scenario",
+      "claims": [
+        "ACC-PR-018",
+        "REQ-PR-031"
+      ],
+      "fixture": "synthetic-prospecting-v1",
+      "steps": [
+        "When email is enabled, declare the sender/destination authentication requirements, quotas and stop thresholds applicable to the configured test channel.",
+        "Attempt sending with invalid sender identity or authentication; exercise account-free opposition.",
+        "Deliver permanent-bounce and complaint test events, then request another affected send."
+      ],
+      "assertions": [
+        "Invalid sender or required authentication blocks handoff; no promise of inbox placement is made.",
+        "A recipient can register opposition simply without signing in.",
+        "Permanent bounces and complaints block subsequent affected attempts and declared quotas/stop thresholds are observable."
+      ],
+      "status": "planned",
+      "requiresChannel": "email",
+      "applicability": "Run when the email channel is enabled or advertised; otherwise record not_run and state the disabled channel."
+    },
+    {
+      "id": "PR-ACC-019",
+      "title": "Bounded sequences pause and coordinate across campaigns",
+      "category": "resilience",
+      "technique": "black_box_scenario",
+      "claims": [
+        "ACC-PR-019",
+        "REQ-PR-027",
+        "REQ-PR-032",
+        "REQ-PR-033",
+        "REQ-PR-034",
+        "POL-PR-002",
+        "POL-PR-003",
+        "INV-PR-005"
+      ],
+      "fixture": "synthetic-prospecting-v1",
+      "steps": [
+        "Configure sequence steps, maximum attempts, windows/time zone, pauses, stop conditions and two campaigns for the same recipient/channel/purpose.",
+        "Approve each final message explicitly, then advance the controlled clock and check global cadence before enrollment and every handoff.",
+        "In separate attempts receive a human reply, meeting, refusal, opposition, complaint, permanent bounce, rights loss and an ambiguous/automatic response.",
+        "Disable response observability in the test transport; exercise campaign and connector emergency stops."
+      ],
+      "assertions": [
+        "No unreviewed future generation is approved by enrollment; every final recipient/content remains explicitly human-approved.",
+        "Global workspace cadence applies across campaigns, including enrollment and every step, within declared windows and attempt limits.",
+        "Human replies, appointments and applicable restrictions pause affected steps before the next handoff; ambiguous/automatic replies require review before automatic follow-up resumes.",
+        "Loss of response observability suspends affected sequences; immediate campaign/connector stop prevents subsequent handoff.",
+        "Activity and next actions reflect reply/refusal/meeting outcomes faithfully."
+      ],
+      "status": "planned",
+      "requiresCapability": "CAP-PR-010"
+    },
+    {
+      "id": "PR-ACC-020",
+      "title": "Authorization across direct and indirect surfaces",
+      "category": "security",
+      "technique": "authorization_matrix",
+      "claims": [
+        "ACC-PR-020",
+        "REQ-PR-035",
+        "REQ-PR-036",
+        "INV-PR-009",
+        "QA-PR-004"
+      ],
+      "fixture": "synthetic-prospecting-v1",
+      "steps": [
+        "Run the fixture role/scope/operation matrix in two isolated workspaces, including a hidden-record canary and a saved search segment.",
+        "Revoke a user and delegated background-task access while dossiers remain active; attempt public reads/writes, search, matching, aggregates, exports, reminders and connectors.",
+        "Include AI context when enabled; inspect reassignment, sensitive-change history and documented/verified transit and storage protection."
+      ],
+      "assertions": [
+        "Default denial enforces workspace, role, scope and operation rights on every exposed surface, including automation and any AI context.",
+        "No out-of-scope result, action or indirect hidden-identity hint is exposed.",
+        "Revoked/departed actors cannot use deferred delegation or saved searches as extra authority; active dossiers are reassigned with attributed changes.",
+        "Transit and storage protection are supported by reviewable verification artifacts; absence of these artifacts blocks that QA claim."
+      ],
+      "status": "planned",
+      "evidenceRequired": [
+        "authorization-matrix",
+        "transit-and-storage-verification"
+      ]
+    },
+    {
+      "id": "PR-ACC-021",
+      "title": "Missing policy blocks only dependent processing",
+      "category": "security",
+      "technique": "black_box_scenario",
+      "claims": [
+        "ACC-PR-021",
+        "REQ-PR-037",
+        "REQ-PR-044",
+        "POL-PR-004"
+      ],
+      "fixture": "synthetic-prospecting-v1",
+      "steps": [
+        "Inspect declared compliance policy scope, sources, effective/review dates and responsible authority independently from the business profile.",
+        "In separate attempts omit the relevant population, purpose, jurisdiction, channel, information or contact basis before personal collection or handoff.",
+        "When AI is enabled, omit actual-data-category transfer permission and monitor the AI test destination; exercise the independent authorized manual path."
+      ],
+      "assertions": [
+        "Collection basis, information, permission to solicit and permission for AI processing remain independent and current.",
+        "Unknown or missing required conditions block dependent collection, contact or model calls before transfer.",
+        "Public availability, an organization target type or a content profile supplies no missing authorization; no universal B2B basis or retention duration is inferred.",
+        "Policy evidence is deployment-specific and externally reviewable; fixture policy proves test decisions only, never legal validity of a real deployment."
+      ],
+      "status": "planned",
+      "evidenceRequired": [
+        "deployment-policy-review"
+      ]
+    },
+    {
+      "id": "PR-ACC-022",
+      "title": "Scoped suppression survives new data and campaigns",
+      "category": "security",
+      "technique": "black_box_scenario",
+      "claims": [
+        "ACC-PR-022",
+        "REQ-PR-038",
+        "INV-PR-006"
+      ],
+      "fixture": "synthetic-prospecting-v1",
+      "steps": [
+        "Confirm restriction-a with its actual recipient, purpose and channel scope, then attempt contact through each affected campaign/channel.",
+        "Reimport the identity, merge it, change the business profile, reevaluate it and create a new campaign; repeat affected preparation/handoff attempts.",
+        "Inspect minimal suppression evidence, permitted purposes and an unrelated-scope control."
+      ],
+      "assertions": [
+        "The opposition is effective across all affected dossiers and channels before a new provider handoff.",
+        "Import, merge, profile/campaign changes and reevaluation cannot lift the restriction.",
+        "Minimal suppression evidence is separated from active targeting use and is retained only for its declared purpose; scope is not silently broadened or narrowed."
+      ],
+      "status": "planned"
+    },
+    {
+      "id": "PR-ACC-023",
+      "title": "Retention clocks resist artificial refresh",
+      "category": "security",
+      "technique": "controlled_clock",
+      "claims": [
+        "ACC-PR-023",
+        "REQ-PR-039"
+      ],
+      "fixture": "synthetic-prospecting-v1",
+      "steps": [
+        "Declare per-purpose/category retention, its demonstrable starting event and a limited justified exception before running the case.",
+        "Advance the controlled clock across outbound follow-up, automatic opening, enrichment and reimport; compare the deadline after every event.",
+        "Advance beyond the original deadline and inspect purge, active views and exception usage."
+      ],
+      "assertions": [
+        "Each retention deadline derives from the policy and an admissible demonstrated start event.",
+        "Outbound contact, automatic reading, reimport and enrichment alone never postpone the deadline.",
+        "Expired personal data leaves active use according to policy; exceptions have reason, limits and separate non-commercial usage.",
+        "The suite uses synthetic configurable durations and imposes no universal number of retention years."
+      ],
+      "status": "planned"
+    },
+    {
+      "id": "PR-ACC-024",
+      "title": "Rights propagation, erasure and safe restoration",
+      "category": "resilience",
+      "technique": "erasure_restore",
+      "claims": [
+        "ACC-PR-024",
+        "REQ-PR-040",
+        "REQ-PR-041",
+        "INV-PR-006",
+        "INV-PR-010",
+        "QA-PR-006"
+      ],
+      "fixture": "synthetic-prospecting-v1",
+      "steps": [
+        "Inventory actual destinations, processors, processing locations, reuse permissions, data categories and retention; issue proportionately verified access, correction, opposition and erasure requests.",
+        "Inject derived-store or processor unavailability while propagating the requests through indexes, caches and applicable derivatives.",
+        "Restore an older backup in isolation and inspect public service before releasing it, including audit/log artifacts and the hidden/erased canaries."
+      ],
+      "assertions": [
+        "Requests record verification, applicable deadline, actions, result and outstanding propagation failures; unfinished required work is not labelled complete.",
+        "Erasure and restrictions are reapplied before restored data is served or contacts resume; erased content never returns to active use.",
+        "Audit history stays attributable during retention but contains no parallel personal-data reconstruction path after lawful erasure.",
+        "Actual transfers, processors, locations and reuse conditions are documented; logs minimize personal content and protect secrets.",
+        "A pseudonym or simple hash is not represented as irreversible anonymization."
+      ],
+      "status": "planned",
+      "evidenceRequired": [
+        "data-flow-and-log-review"
+      ]
+    },
+    {
+      "id": "PR-ACC-025",
+      "title": "AI proposals, grounding and indirect injection",
+      "category": "security",
+      "technique": "indirect_injection",
+      "claims": [
+        "ACC-PR-025",
+        "REQ-PR-042",
+        "REQ-PR-043",
+        "REQ-PR-044",
+        "INV-PR-011",
+        "POL-PR-008"
+      ],
+      "fixture": "synthetic-prospecting-v1",
+      "steps": [
+        "Process the fixture malicious page, message, public form, imported profile and model-output variants under permitted test-data transfer categories.",
+        "Ask for analysis and a draft containing an unsupported figure, contact detail and mandate; attempt injected recipient/policy changes and canary exfiltration.",
+        "Inspect attributed proposal labels, authorized sources, method/model/configuration versions, budget and actual action/egress ledgers."
+      ],
+      "assertions": [
+        "Proposals remain labelled with authorized sources and method/model/configuration versions; unsupported facts stay unknown and estimates never satisfy mandatory evidence.",
+        "Content grants no rights, recipients or action authority; independent action checks prevent unauthorized effects and canary exfiltration.",
+        "Allowed data categories, authorization, cost, time and volume are checked before model transfer; refusal/correction remain possible.",
+        "Internal model reasoning is not retained as business evidence, and human supervision is not claimed as global AI Act compliance."
+      ],
+      "status": "planned",
+      "requiresCapability": "CAP-PR-013"
+    },
+    {
+      "id": "PR-ACC-026",
+      "title": "Manual journey under AI outage or refusal",
+      "category": "resilience",
+      "technique": "black_box_scenario",
+      "claims": [
+        "ACC-PR-026",
+        "REQ-PR-044",
+        "POL-PR-002"
+      ],
+      "fixture": "synthetic-prospecting-v1",
+      "steps": [
+        "Always perform rule-based qualification, manual draft editing and dated follow-up with the core public controls.",
+        "When AI is enabled or advertised, repeat while separately injecting AI unavailability, permission refusal and exhausted processing budget.",
+        "Inspect limits and transfer counters, evidence decisions and final-message approval requirements."
+      ],
+      "assertions": [
+        "Core qualification, manual editing and follow-up remain usable without AI; absent optional AI is declared explicitly.",
+        "For applicable AI fault attempts, limitation/refusal is visible with no over-budget or unauthorized call.",
+        "No evidence or final-approval gate is bypassed during degraded operation; disabled optional fault attempts are recorded as not_run, not passing tests."
+      ],
+      "status": "planned",
+      "applicability": "The manual core journey always runs. AI fault phases apply only when CAP-PR-013 is enabled or advertised; record absent phases explicitly."
+    },
+    {
+      "id": "PR-ACC-027",
+      "title": "Auditable cohorts, distinct counts and scoped reporting",
+      "category": "conformance",
+      "technique": "metric_reconciliation",
+      "claims": [
+        "ACC-PR-027",
+        "REQ-PR-045",
+        "REQ-PR-046",
+        "REQ-PR-047",
+        "INV-PR-009"
+      ],
+      "fixture": "synthetic-prospecting-v1",
+      "steps": [
+        "Create two requests for the same target, replay one event and reopen a closed dossier; include a merge, an overdue task and a stalled dossier.",
+        "Calculate a declared cohort, period, time zone and attribution from source records, including a zero-denominator cohort.",
+        "View authorized dashboards and request an automatic report for a manager with a restricted scope."
+      ],
+      "assertions": [
+        "Candidates, unique identities, dossiers, inbound requests, accepted qualifications, transmitted messages, relevant human replies and terminal outcomes have distinct counts.",
+        "Each metric declares denominator, cohort, period, time zone, attribution and freshness; zero denominator is non-computable.",
+        "Merge, duplicate event and reopening create no new conversion; overdue/stagnant dossiers, stage time and rejection reasons are visible using declared thresholds.",
+        "The report cites aggregates and calculation time, discloses missing data and exposes only its recipient-authorized scope."
+      ],
+      "status": "planned"
+    },
+    {
+      "id": "PR-ACC-028",
+      "title": "Import conflict and semantic export round trip",
+      "category": "conformance",
+      "technique": "semantic_round_trip",
+      "claims": [
+        "ACC-PR-028",
+        "REQ-PR-048",
+        "REQ-PR-049",
+        "INV-PR-007"
+      ],
+      "fixture": "synthetic-prospecting-v1",
+      "steps": [
+        "Preview the fixture batch, map fields and validate each row; import duplicate, invalid, restricted and unchanged rows using one operation key.",
+        "Replay the same key and payload, then reuse the key with changed content.",
+        "Export through the authorized documented format and read it independently; reimport into a disposable authorized workspace and compare complete semantic inventories."
+      ],
+      "assertions": [
+        "Preview and results classify every row as created, reconciled, rejected or unchanged with no hidden failures.",
+        "Equal replay reuses its result without duplicates; changed content under the same key returns a conflict.",
+        "All exported identities, typed relations, dossiers, profile versions, accessible evidence, evaluations, activities, deadlines and restrictions reconcile after reimport.",
+        "Counts may exceed the minimal fixture; every exported item must preserve domain meaning, links and rights, and no forbidden contact is reactivated."
+      ],
+      "status": "planned",
+      "evidenceRequired": [
+        "independent-round-trip-report"
+      ]
+    },
+    {
+      "id": "PR-ACC-029",
+      "title": "Measured recovery and uncertain-operation reconciliation",
+      "category": "resilience",
+      "technique": "recovery_exercise",
+      "claims": [
+        "ACC-PR-029",
+        "REQ-PR-051",
+        "INV-PR-006",
+        "QA-PR-006"
+      ],
+      "fixture": "synthetic-prospecting-v1",
+      "steps": [
+        "Declare incident handling, restoration and maximum-data-loss objectives before starting, on the fixture reference workload.",
+        "Inject outage and restore an isolated backup containing pending execution, a prior erasure, a suppression and an uncertain transport operation.",
+        "Measure recovery and loss against declared objectives, reconcile pending operations and inspect service release and the independent transport ledger."
+      ],
+      "assertions": [
+        "Run revision, timestamped chronology, actual recovery/loss measurements, targets and deviations are retained.",
+        "Restored restrictions and erasures are effective before service release and contact restart.",
+        "Uncertain operations are reconciled before retry and confirmed work is not duplicated; declared incident/recovery objectives are evaluated without inventing a universal recovery threshold."
+      ],
+      "status": "planned",
+      "evidenceRequired": [
+        "recovery-timeline"
+      ]
+    },
+    {
+      "id": "PR-ACC-030",
+      "title": "Essential journeys with accessibility, load and user evidence",
+      "category": "conformance",
+      "technique": "external_evidence_review",
+      "claims": [
+        "ACC-PR-030",
+        "QA-PR-001",
+        "QA-PR-002",
+        "QA-PR-008"
+      ],
+      "fixture": "synthetic-prospecting-v1",
+      "steps": [
+        "Execute the configuration, discovery, inbound-form, qualification and follow-up journeys on declared profiles and supported modules.",
+        "Collect the linked PR-QA-001 accessibility audit, PR-QA-002 reference-load measurements and PR-QA-008 representative-user study for the same candidate revision.",
+        "Inspect keyboard/screen-reader/narrow-screen results, timing distributions and study observations with their limits."
+      ],
+      "assertions": [
+        "Each of the three quality cases has attributable reproducible evidence; absent evidence blocks the corresponding claim.",
+        "Essential journeys meet the applicable locked thresholds and include alternatives to dragging and accessible errors/status.",
+        "Technical timings and small-sample user findings are not represented as commercial improvement."
+      ],
+      "status": "planned",
+      "evidenceRequired": [
+        "accessibility-audit",
+        "reference-load-report",
+        "usability-study"
+      ]
+    },
+    {
+      "id": "PR-ACC-031",
+      "title": "Held-out method comparison and prior release thresholds",
+      "category": "benchmark",
+      "technique": "heldout_comparison",
+      "claims": [
+        "ACC-PR-031",
+        "REQ-PR-052",
+        "REQ-PR-053",
+        "REQ-PR-054",
+        "QA-PR-007",
+        "POL-PR-009"
+      ],
+      "fixture": "synthetic-prospecting-v1",
+      "steps": [
+        "Declare enabled capabilities and limitations; freeze authorized held-out cases, annotations/disagreements and business-owner-approved publication/regression thresholds before measuring.",
+        "Compare discovery, identity matching, qualification and drafting methods separately against a simple baseline on identical cases, per business profile and target type.",
+        "Produce per-profile measurements and a release/rollback decision with corpus, method, target and configuration versions."
+      ],
+      "assertions": [
+        "The held-out corpus is separate from tuning and includes ambiguity, unknowns, opposition, source failures and different target types.",
+        "Reports retain counts, annotation rules/disagreements, precision, measurable recall or known coverage, errors, abstentions, cost and p50/p95 latency per profile.",
+        "Global recall is not claimed for an unknown universe; qualification and drafting are measured separately.",
+        "Thresholds and their business owner predate evaluation, regressions affect the publication decision and a withdrawal/rollback path is demonstrated.",
+        "Draft objectives and technical comparisons are not acquired performance, more sales or an unbounded SOTA claim."
+      ],
+      "status": "planned",
+      "evidenceRequired": [
+        "heldout-corpus-review",
+        "benchmark-report",
+        "prior-thresholds-and-release-decision"
+      ]
+    },
+    {
+      "id": "PR-ACC-032",
+      "title": "Monitoring and bounded authorized provider cascades",
+      "category": "resilience",
+      "technique": "black_box_scenario",
+      "claims": [
+        "ACC-PR-032",
+        "REQ-PR-055",
+        "REQ-PR-056",
+        "REQ-PR-057",
+        "INV-PR-004",
+        "POL-PR-002"
+      ],
+      "fixture": "synthetic-prospecting-v1",
+      "steps": [
+        "Declare tracked attributes/search, cadence, population, budget and notification conditions; configure ordered fixture providers with separate transfer authorization and a sufficient-result stop rule.",
+        "Replay a collective signal change and its notification; separately inject loss of source coverage and an exhausted budget.",
+        "Inspect observations, execution/notification identities, historical provenance, target dossiers and provider-call counters; include a denied transfer attempt for the second provider."
+      ],
+      "assertions": [
+        "Replay creates no duplicate dossier or logical alert; new candidate, actual change and lost coverage remain distinct.",
+        "Cascade order, per-provider permission, stop condition and minimum quality are explicit; later providers are not called after a sufficient result, a denied transfer or exhausted budget.",
+        "A returned value remains distinct from verified data; signal source, date, entity and observation level are retained.",
+        "A collective signal proves no individual purchase intent, lifts no restriction and proposes review rather than automatic contact."
+      ],
+      "status": "planned",
+      "requiresCapability": "CAP-PR-017",
+      "applicability": "Run monitoring when CAP-PR-017 is enabled or advertised. Exercise the cascade phase when that optional mechanism is offered; document absent phases as not_run."
+    },
+    {
+      "id": "PR-QA-001",
+      "title": "Accessibility of all declared essential journeys",
+      "category": "quality",
+      "technique": "external_evidence_review",
+      "claims": [
+        "QA-PR-001"
+      ],
+      "fixture": "synthetic-prospecting-v1",
+      "steps": [
+        "Assess configuration, search, public inbound form, qualification and follow-up with automated checks and a manual WCAG 2.2 AA review.",
+        "Exercise keyboard-only operation including every drag alternative, screen-reader error/status announcements, reflow at 320 CSS pixels and 200 percent zoom across enabled modules."
+      ],
+      "assertions": [
+        "An attributed audit records environment, tools, scope, criteria, findings and remediation for the actual candidate revision.",
+        "All declared essential journeys satisfy WCAG 2.2 AA, including keyboard alternatives, announced errors/status, 320 CSS pixel reflow and 200 percent zoom; an adapter boolean or automated scan alone cannot pass this case."
+      ],
+      "evidenceRequired": [
+        "accessibility-audit"
+      ],
+      "status": "planned",
+      "criteria": {
+        "standard": "WCAG 2.2 AA",
+        "reflowCssPixels": 320,
+        "zoomPercent": 200,
+        "manualAndAutomated": true
+      }
+    },
+    {
+      "id": "PR-QA-002",
+      "title": "Reference-load latency distributions",
+      "category": "benchmark",
+      "technique": "load_measurement",
+      "claims": [
+        "QA-PR-002"
+      ],
+      "fixture": "synthetic-prospecting-v1",
+      "steps": [
+        "Provision 100000 fixture dossiers in one disposable workspace and 50 simultaneous authorized users; record data generation, workload mix, sample counts, duration, environment and candidate revision.",
+        "Measure complete public ordinary reads, filters and saves separately under load, plus long-operation acknowledgements; retain timestamped samples and compute p95 per operation class.",
+        "Inspect explicit maximum durations and progress for discovery and AI when enabled, reporting provider-failure attempts separately."
+      ],
+      "assertions": [
+        "The measured load contains 100000 dossiers per workspace and 50 simultaneous users, with enough recorded samples for reproducible p95 distributions.",
+        "Each ordinary read/filter/save class has p95 at or below 2000 ms; long-operation acknowledgement is at or below 2000 ms.",
+        "Discovery and any AI have explicit maximum duration and progress; provider failure is not included in a guarantee of completed search/model results.",
+        "Raw sanitized samples and load metadata are retained; a small synthetic functional fixture alone cannot establish the reference-load claim."
+      ],
+      "evidenceRequired": [
+        "reference-load-report",
+        "sanitized-latency-samples"
+      ],
+      "status": "planned",
+      "criteria": {
+        "dossiersPerWorkspace": 100000,
+        "simultaneousUsers": 50,
+        "ordinaryOperationClasses": [
+          "read",
+          "filter",
+          "save"
+        ],
+        "p95MaxMs": 2000,
+        "longOperationAcknowledgementMaxMs": 2000,
+        "requiresActualLoadGeneration": true
+      }
+    },
+    {
+      "id": "PR-QA-008",
+      "title": "Representative-user task study",
+      "category": "quality",
+      "technique": "external_evidence_review",
+      "claims": [
+        "QA-PR-008"
+      ],
+      "fixture": "synthetic-prospecting-v1",
+      "steps": [
+        "Recruit at least five representative deployment users, recording population, context and candidate revision.",
+        "Observe candidate selection, qualification examination and planning the next action without assistance; record each user task result, help, time and errors.",
+        "Publish attributable anonymized study observations and the limitations of the small sample."
+      ],
+      "assertions": [
+        "At least five distinct representative users are observed and at least four complete all three named tasks without help.",
+        "Time, errors, actual assistance and population/sample limitations are retained; no unsupported commercial gain is inferred.",
+        "Missing participant observations or reviewer attribution block this case; synthetic replay rows are harness controls only."
+      ],
+      "evidenceRequired": [
+        "usability-study"
+      ],
+      "status": "planned",
+      "criteria": {
+        "minimumRepresentativeUsers": 5,
+        "minimumSuccessfulUsers": 4,
+        "tasks": [
+          "select",
+          "examine-qualification",
+          "plan-next-action"
+        ],
+        "withoutHelp": true,
+        "requiresActualParticipants": true
+      }
+    }
+  ]
+}

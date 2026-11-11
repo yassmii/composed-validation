@@ -1,0 +1,1931 @@
+{
+  "suite": "wealth-advisory/0.1.0",
+  "contract": "wealth-advisory",
+  "contractVersion": "0.1.0",
+  "contractSchemaVersion": "0.2",
+  "contractSha256": "d51dcabc5031a5f8cb75e374daeeef303c65e2821efd8670d9ced4c7c601265f",
+  "status": "planned",
+  "proofClaimsRequired": true,
+  "fixtures": [
+    "synthetic-wealth-v1"
+  ],
+  "cases": [
+    {
+      "id": "WAD-ACC-001",
+      "title": "Mission et périmètre du conseil",
+      "category": "conformance",
+      "technique": "black_box_scenario",
+      "acceptanceId": "ACC-WAD-001",
+      "claims": [
+        "ACC-WAD-001",
+        "REQ-WAD-001",
+        "REQ-WAD-002",
+        "POL-WAD-001"
+      ],
+      "fixture": "synthetic-wealth-v1",
+      "status": "planned",
+      "verification": {
+        "methods": [
+          "automated"
+        ],
+        "boundary": "public-interface",
+        "case_kinds": [
+          "positive",
+          "negative"
+        ]
+      },
+      "checks": [
+        {
+          "id": "WAD-ACC-001/automated/positive",
+          "method": "automated",
+          "boundary": "public-interface",
+          "kind": "positive",
+          "status": "planned",
+          "steps": [
+            "Préparer, à partir de la fixture synthétique, le contexte du cas ACC-WAD-001 : Une mission avec un conseiller déclaré pour un domaine, un domaine exclu et un dossier de personnes physiques.",
+            "Exercer la dimension positive par les opérations publiques autorisées : Préparer puis tenter de valider un conseil dans chacun des deux domaines et un conseil autonome de personne morale.",
+            "Relire les réponses, versions, droits et événements effectifs ; conserver les artefacts nécessaires à leur interprétation."
+          ],
+          "assertions": [
+            "Le périmètre et les conditions de mission sont retrouvables ; seul le domaine explicitement couvert est admissible, les autres demandes sont bloquées ou orientées sans statut de conformité inventé.",
+            "Les observations proviennent de l’interface publique du candidat ; un booléen de conformité ou un rapport construit depuis les résultats attendus n’est pas une preuve."
+          ],
+          "evidence": "Mission relue et observations des validations admises/refusées avec leurs raisons.",
+          "requiresExternalReview": false
+        },
+        {
+          "id": "WAD-ACC-001/automated/negative",
+          "method": "automated",
+          "boundary": "public-interface",
+          "kind": "negative",
+          "status": "planned",
+          "steps": [
+            "Préparer, à partir de la fixture synthétique, le contexte du cas ACC-WAD-001 : Une mission avec un conseiller déclaré pour un domaine, un domaine exclu et un dossier de personnes physiques.",
+            "Exercer la dimension negative par les opérations publiques autorisées : Préparer puis tenter de valider un conseil dans chacun des deux domaines et un conseil autonome de personne morale.",
+            "Relire les réponses, versions, droits et événements effectifs ; conserver les artefacts nécessaires à leur interprétation."
+          ],
+          "assertions": [
+            "Le périmètre et les conditions de mission sont retrouvables ; seul le domaine explicitement couvert est admissible, les autres demandes sont bloquées ou orientées sans statut de conformité inventé.",
+            "Les observations proviennent de l’interface publique du candidat ; un booléen de conformité ou un rapport construit depuis les résultats attendus n’est pas une preuve."
+          ],
+          "evidence": "Mission relue et observations des validations admises/refusées avec leurs raisons.",
+          "requiresExternalReview": false
+        }
+      ],
+      "steps": [
+        "Une mission avec un conseiller déclaré pour un domaine, un domaine exclu et un dossier de personnes physiques.",
+        "Préparer puis tenter de valider un conseil dans chacun des deux domaines et un conseil autonome de personne morale."
+      ],
+      "assertions": [
+        "Le périmètre et les conditions de mission sont retrouvables ; seul le domaine explicitement couvert est admissible, les autres demandes sont bloquées ou orientées sans statut de conformité inventé.",
+        "Mission relue et observations des validations admises/refusées avec leurs raisons."
+      ]
+    },
+    {
+      "id": "WAD-ACC-002",
+      "title": "Inconnues et bilan partiel",
+      "category": "conformance",
+      "technique": "black_box_scenario",
+      "acceptanceId": "ACC-WAD-002",
+      "claims": [
+        "ACC-WAD-002",
+        "REQ-WAD-003",
+        "INV-WAD-001",
+        "POL-WAD-004"
+      ],
+      "fixture": "synthetic-wealth-v1",
+      "status": "planned",
+      "verification": {
+        "methods": [
+          "automated"
+        ],
+        "boundary": "public-interface",
+        "case_kinds": [
+          "positive",
+          "negative"
+        ]
+      },
+      "checks": [
+        {
+          "id": "WAD-ACC-002/automated/positive",
+          "method": "automated",
+          "boundary": "public-interface",
+          "kind": "positive",
+          "status": "planned",
+          "steps": [
+            "Préparer, à partir de la fixture synthétique, le contexte du cas ACC-WAD-002 : Une donnée familiale connue, une donnée inconnue, une réponse refusée et une pièce datée.",
+            "Exercer la dimension positive par les opérations publiques autorisées : Enregistrer puis relire le recueil et un bilan partiel.",
+            "Relire les réponses, versions, droits et événements effectifs ; conserver les artefacts nécessaires à leur interprétation."
+          ],
+          "assertions": [
+            "Les états, sources et dates sont conservés ; une inconnue ne devient ni zéro ni une réponse confirmée et le bilan révèle ses limites.",
+            "Les observations proviennent de l’interface publique du candidat ; un booléen de conformité ou un rapport construit depuis les résultats attendus n’est pas une preuve."
+          ],
+          "evidence": "Recueil relu et restitution partielle avec les états attendus.",
+          "requiresExternalReview": false
+        },
+        {
+          "id": "WAD-ACC-002/automated/negative",
+          "method": "automated",
+          "boundary": "public-interface",
+          "kind": "negative",
+          "status": "planned",
+          "steps": [
+            "Préparer, à partir de la fixture synthétique, le contexte du cas ACC-WAD-002 : Une donnée familiale connue, une donnée inconnue, une réponse refusée et une pièce datée.",
+            "Exercer la dimension negative par les opérations publiques autorisées : Enregistrer puis relire le recueil et un bilan partiel.",
+            "Relire les réponses, versions, droits et événements effectifs ; conserver les artefacts nécessaires à leur interprétation."
+          ],
+          "assertions": [
+            "Les états, sources et dates sont conservés ; une inconnue ne devient ni zéro ni une réponse confirmée et le bilan révèle ses limites.",
+            "Les observations proviennent de l’interface publique du candidat ; un booléen de conformité ou un rapport construit depuis les résultats attendus n’est pas une preuve."
+          ],
+          "evidence": "Recueil relu et restitution partielle avec les états attendus.",
+          "requiresExternalReview": false
+        }
+      ],
+      "steps": [
+        "Une donnée familiale connue, une donnée inconnue, une réponse refusée et une pièce datée.",
+        "Enregistrer puis relire le recueil et un bilan partiel."
+      ],
+      "assertions": [
+        "Les états, sources et dates sont conservés ; une inconnue ne devient ni zéro ni une réponse confirmée et le bilan révèle ses limites.",
+        "Recueil relu et restitution partielle avec les états attendus."
+      ]
+    },
+    {
+      "id": "WAD-ACC-003",
+      "title": "Objectifs contradictoires et arbitrage",
+      "category": "conformance",
+      "technique": "black_box_scenario",
+      "acceptanceId": "ACC-WAD-003",
+      "claims": [
+        "ACC-WAD-003",
+        "REQ-WAD-004",
+        "REQ-WAD-012"
+      ],
+      "fixture": "synthetic-wealth-v1",
+      "status": "planned",
+      "verification": {
+        "methods": [
+          "automated"
+        ],
+        "boundary": "public-interface",
+        "case_kinds": [
+          "positive",
+          "negative"
+        ]
+      },
+      "checks": [
+        {
+          "id": "WAD-ACC-003/automated/positive",
+          "method": "automated",
+          "boundary": "public-interface",
+          "kind": "positive",
+          "status": "planned",
+          "steps": [
+            "Préparer, à partir de la fixture synthétique, le contexte du cas ACC-WAD-003 : Deux objectifs contradictoires, de liquidité à court terme et de placement indisponible à long terme.",
+            "Exercer la dimension positive par les opérations publiques autorisées : Renseigner leurs porteurs, montants, horizons, priorités et un arbitrage explicite.",
+            "Relire les réponses, versions, droits et événements effectifs ; conserver les artefacts nécessaires à leur interprétation."
+          ],
+          "assertions": [
+            "Le conflit initial reste identifiable et seul l’arbitrage renseigné modifie la priorité ; aucune priorité automatique ne remplace le choix.",
+            "Les observations proviennent de l’interface publique du candidat ; un booléen de conformité ou un rapport construit depuis les résultats attendus n’est pas une preuve."
+          ],
+          "evidence": "Objectifs et historique avant/après arbitrage.",
+          "requiresExternalReview": false
+        },
+        {
+          "id": "WAD-ACC-003/automated/negative",
+          "method": "automated",
+          "boundary": "public-interface",
+          "kind": "negative",
+          "status": "planned",
+          "steps": [
+            "Préparer, à partir de la fixture synthétique, le contexte du cas ACC-WAD-003 : Deux objectifs contradictoires, de liquidité à court terme et de placement indisponible à long terme.",
+            "Exercer la dimension negative par les opérations publiques autorisées : Renseigner leurs porteurs, montants, horizons, priorités et un arbitrage explicite.",
+            "Relire les réponses, versions, droits et événements effectifs ; conserver les artefacts nécessaires à leur interprétation."
+          ],
+          "assertions": [
+            "Le conflit initial reste identifiable et seul l’arbitrage renseigné modifie la priorité ; aucune priorité automatique ne remplace le choix.",
+            "Les observations proviennent de l’interface publique du candidat ; un booléen de conformité ou un rapport construit depuis les résultats attendus n’est pas une preuve."
+          ],
+          "evidence": "Objectifs et historique avant/après arbitrage.",
+          "requiresExternalReview": false
+        }
+      ],
+      "steps": [
+        "Deux objectifs contradictoires, de liquidité à court terme et de placement indisponible à long terme.",
+        "Renseigner leurs porteurs, montants, horizons, priorités et un arbitrage explicite."
+      ],
+      "assertions": [
+        "Le conflit initial reste identifiable et seul l’arbitrage renseigné modifie la priorité ; aucune priorité automatique ne remplace le choix.",
+        "Objectifs et historique avant/après arbitrage."
+      ]
+    },
+    {
+      "id": "WAD-ACC-004",
+      "title": "Conditions de connaissance client et refus de validation",
+      "category": "conformance",
+      "technique": "black_box_scenario",
+      "acceptanceId": "ACC-WAD-004",
+      "claims": [
+        "ACC-WAD-004",
+        "REQ-WAD-005",
+        "REQ-WAD-017",
+        "POL-WAD-004"
+      ],
+      "fixture": "synthetic-wealth-v1",
+      "status": "planned",
+      "verification": {
+        "methods": [
+          "automated"
+        ],
+        "boundary": "public-interface",
+        "case_kinds": [
+          "positive",
+          "negative"
+        ]
+      },
+      "checks": [
+        {
+          "id": "WAD-ACC-004/automated/positive",
+          "method": "automated",
+          "boundary": "public-interface",
+          "kind": "positive",
+          "status": "planned",
+          "steps": [
+            "Préparer, à partir de la fixture synthétique, le contexte du cas ACC-WAD-004 : Un profil de service de conseil en investissement et un dossier dont la capacité de perte ou une réponse de durabilité requise manque.",
+            "Exercer la dimension positive par les opérations publiques autorisées : Tenter de valider une préconisation puis compléter les réponses et traiter les incohérences.",
+            "Relire les réponses, versions, droits et événements effectifs ; conserver les artefacts nécessaires à leur interprétation."
+          ],
+          "assertions": [
+            "La première validation est refusée avec les conditions manquantes ; la seconde n’est admissible que si toutes les conditions pertinentes sont satisfaites, avec réponses et versions retrouvables.",
+            "Les observations proviennent de l’interface publique du candidat ; un booléen de conformité ou un rapport construit depuis les résultats attendus n’est pas une preuve."
+          ],
+          "evidence": "Résultats des deux tentatives et profil de conditions d’entrée utilisé.",
+          "requiresExternalReview": false
+        },
+        {
+          "id": "WAD-ACC-004/automated/negative",
+          "method": "automated",
+          "boundary": "public-interface",
+          "kind": "negative",
+          "status": "planned",
+          "steps": [
+            "Préparer, à partir de la fixture synthétique, le contexte du cas ACC-WAD-004 : Un profil de service de conseil en investissement et un dossier dont la capacité de perte ou une réponse de durabilité requise manque.",
+            "Exercer la dimension negative par les opérations publiques autorisées : Tenter de valider une préconisation puis compléter les réponses et traiter les incohérences.",
+            "Relire les réponses, versions, droits et événements effectifs ; conserver les artefacts nécessaires à leur interprétation."
+          ],
+          "assertions": [
+            "La première validation est refusée avec les conditions manquantes ; la seconde n’est admissible que si toutes les conditions pertinentes sont satisfaites, avec réponses et versions retrouvables.",
+            "Les observations proviennent de l’interface publique du candidat ; un booléen de conformité ou un rapport construit depuis les résultats attendus n’est pas une preuve."
+          ],
+          "evidence": "Résultats des deux tentatives et profil de conditions d’entrée utilisé.",
+          "requiresExternalReview": false
+        }
+      ],
+      "steps": [
+        "Un profil de service de conseil en investissement et un dossier dont la capacité de perte ou une réponse de durabilité requise manque.",
+        "Tenter de valider une préconisation puis compléter les réponses et traiter les incohérences."
+      ],
+      "assertions": [
+        "La première validation est refusée avec les conditions manquantes ; la seconde n’est admissible que si toutes les conditions pertinentes sont satisfaites, avec réponses et versions retrouvables.",
+        "Résultats des deux tentatives et profil de conditions d’entrée utilisé."
+      ]
+    },
+    {
+      "id": "WAD-ACC-005",
+      "title": "Quotes-parts, dettes et enveloppes sans double compte",
+      "category": "conformance",
+      "technique": "black_box_scenario",
+      "acceptanceId": "ACC-WAD-005",
+      "claims": [
+        "ACC-WAD-005",
+        "REQ-WAD-006",
+        "REQ-WAD-007",
+        "REQ-WAD-008",
+        "INV-WAD-002"
+      ],
+      "fixture": "synthetic-wealth-v1",
+      "status": "planned",
+      "verification": {
+        "methods": [
+          "automated"
+        ],
+        "boundary": "public-interface",
+        "case_kinds": [
+          "positive",
+          "boundary"
+        ]
+      },
+      "checks": [
+        {
+          "id": "WAD-ACC-005/automated/positive",
+          "method": "automated",
+          "boundary": "public-interface",
+          "kind": "positive",
+          "status": "planned",
+          "steps": [
+            "Préparer, à partir de la fixture synthétique, le contexte du cas ACC-WAD-005 : Un bien de 400 000 EUR détenu à 60/40, une dette de 100 000 EUR imputée explicitement à 60/40, une enveloppe de 50 000 EUR détaillée en supports totalisant 50 000 EUR.",
+            "Exercer la dimension positive par les opérations publiques autorisées : Calculer les bilans individuel et consolidé aux mêmes dates et droits.",
+            "Relire les réponses, versions, droits et événements effectifs ; conserver les artefacts nécessaires à leur interprétation."
+          ],
+          "assertions": [
+            "Le groupe présente 450 000 EUR d’actifs, 100 000 EUR de dettes et 350 000 EUR nets. Hors enveloppe attribuée séparément, les parts du bien net sont 180 000 et 120 000 EUR ; les supports ne doublent pas l’enveloppe.",
+            "Les observations proviennent de l’interface publique du candidat ; un booléen de conformité ou un rapport construit depuis les résultats attendus n’est pas une preuve."
+          ],
+          "evidence": "Détails des propriétaires/débiteurs, calculs et réconciliation avec les valeurs attendues.",
+          "requiresExternalReview": false
+        },
+        {
+          "id": "WAD-ACC-005/automated/boundary",
+          "method": "automated",
+          "boundary": "public-interface",
+          "kind": "boundary",
+          "status": "planned",
+          "steps": [
+            "Préparer, à partir de la fixture synthétique, le contexte du cas ACC-WAD-005 : Un bien de 400 000 EUR détenu à 60/40, une dette de 100 000 EUR imputée explicitement à 60/40, une enveloppe de 50 000 EUR détaillée en supports totalisant 50 000 EUR.",
+            "Exercer la dimension boundary par les opérations publiques autorisées : Calculer les bilans individuel et consolidé aux mêmes dates et droits.",
+            "Relire les réponses, versions, droits et événements effectifs ; conserver les artefacts nécessaires à leur interprétation."
+          ],
+          "assertions": [
+            "Le groupe présente 450 000 EUR d’actifs, 100 000 EUR de dettes et 350 000 EUR nets. Hors enveloppe attribuée séparément, les parts du bien net sont 180 000 et 120 000 EUR ; les supports ne doublent pas l’enveloppe.",
+            "Les observations proviennent de l’interface publique du candidat ; un booléen de conformité ou un rapport construit depuis les résultats attendus n’est pas une preuve."
+          ],
+          "evidence": "Détails des propriétaires/débiteurs, calculs et réconciliation avec les valeurs attendues.",
+          "requiresExternalReview": false
+        }
+      ],
+      "steps": [
+        "Un bien de 400 000 EUR détenu à 60/40, une dette de 100 000 EUR imputée explicitement à 60/40, une enveloppe de 50 000 EUR détaillée en supports totalisant 50 000 EUR.",
+        "Calculer les bilans individuel et consolidé aux mêmes dates et droits."
+      ],
+      "assertions": [
+        "Le groupe présente 450 000 EUR d’actifs, 100 000 EUR de dettes et 350 000 EUR nets. Hors enveloppe attribuée séparément, les parts du bien net sont 180 000 et 120 000 EUR ; les supports ne doublent pas l’enveloppe.",
+        "Détails des propriétaires/débiteurs, calculs et réconciliation avec les valeurs attendues."
+      ]
+    },
+    {
+      "id": "WAD-ACC-006",
+      "title": "Droits non couverts, dette non attribuée et garanties",
+      "category": "conformance",
+      "technique": "black_box_scenario",
+      "acceptanceId": "ACC-WAD-006",
+      "claims": [
+        "ACC-WAD-006",
+        "REQ-WAD-006",
+        "REQ-WAD-007",
+        "INV-WAD-001",
+        "INV-WAD-002"
+      ],
+      "fixture": "synthetic-wealth-v1",
+      "status": "planned",
+      "verification": {
+        "methods": [
+          "automated"
+        ],
+        "boundary": "public-interface",
+        "case_kinds": [
+          "positive",
+          "negative"
+        ]
+      },
+      "checks": [
+        {
+          "id": "WAD-ACC-006/automated/positive",
+          "method": "automated",
+          "boundary": "public-interface",
+          "kind": "positive",
+          "status": "planned",
+          "steps": [
+            "Préparer, à partir de la fixture synthétique, le contexte du cas ACC-WAD-006 : Un démembrement sans modèle de valorisation des droits, une dette sans imputation et une garantie non appelée.",
+            "Exercer la dimension positive par les opérations publiques autorisées : Demander un total par personne.",
+            "Relire les réponses, versions, droits et événements effectifs ; conserver les artefacts nécessaires à leur interprétation."
+          ],
+          "assertions": [
+            "Les éléments non attribuables sont signalés ; aucun partage 50/50 ni dette certaine pour la garantie n’est inventé et le total concerné est marqué partiel.",
+            "Les observations proviennent de l’interface publique du candidat ; un booléen de conformité ou un rapport construit depuis les résultats attendus n’est pas une preuve."
+          ],
+          "evidence": "Inventaire et bilan partiel avec exclusions motivées.",
+          "requiresExternalReview": false
+        },
+        {
+          "id": "WAD-ACC-006/automated/negative",
+          "method": "automated",
+          "boundary": "public-interface",
+          "kind": "negative",
+          "status": "planned",
+          "steps": [
+            "Préparer, à partir de la fixture synthétique, le contexte du cas ACC-WAD-006 : Un démembrement sans modèle de valorisation des droits, une dette sans imputation et une garantie non appelée.",
+            "Exercer la dimension negative par les opérations publiques autorisées : Demander un total par personne.",
+            "Relire les réponses, versions, droits et événements effectifs ; conserver les artefacts nécessaires à leur interprétation."
+          ],
+          "assertions": [
+            "Les éléments non attribuables sont signalés ; aucun partage 50/50 ni dette certaine pour la garantie n’est inventé et le total concerné est marqué partiel.",
+            "Les observations proviennent de l’interface publique du candidat ; un booléen de conformité ou un rapport construit depuis les résultats attendus n’est pas une preuve."
+          ],
+          "evidence": "Inventaire et bilan partiel avec exclusions motivées.",
+          "requiresExternalReview": false
+        }
+      ],
+      "steps": [
+        "Un démembrement sans modèle de valorisation des droits, une dette sans imputation et une garantie non appelée.",
+        "Demander un total par personne."
+      ],
+      "assertions": [
+        "Les éléments non attribuables sont signalés ; aucun partage 50/50 ni dette certaine pour la garantie n’est inventé et le total concerné est marqué partiel.",
+        "Inventaire et bilan partiel avec exclusions motivées."
+      ]
+    },
+    {
+      "id": "WAD-ACC-007",
+      "title": "Devises, dates et absence de taux",
+      "category": "conformance",
+      "technique": "black_box_scenario",
+      "acceptanceId": "ACC-WAD-007",
+      "claims": [
+        "ACC-WAD-007",
+        "REQ-WAD-009",
+        "INV-WAD-003"
+      ],
+      "fixture": "synthetic-wealth-v1",
+      "status": "planned",
+      "verification": {
+        "methods": [
+          "automated"
+        ],
+        "boundary": "public-interface",
+        "case_kinds": [
+          "positive",
+          "negative",
+          "boundary"
+        ]
+      },
+      "checks": [
+        {
+          "id": "WAD-ACC-007/automated/positive",
+          "method": "automated",
+          "boundary": "public-interface",
+          "kind": "positive",
+          "status": "planned",
+          "steps": [
+            "Préparer, à partir de la fixture synthétique, le contexte du cas ACC-WAD-007 : Une position de 1 000 USD, un taux documenté 0,90 EUR/USD et une date d’analyse antérieure à une autre valorisation disponible.",
+            "Exercer la dimension positive par les opérations publiques autorisées : Calculer avec ce taux puis sans taux et examiner les valeurs retenues.",
+            "Relire les réponses, versions, droits et événements effectifs ; conserver les artefacts nécessaires à leur interprétation."
+          ],
+          "assertions": [
+            "900 EUR sont retenus avec le taux ; sans taux, la conversion est indisponible et le total concerné partiel. La valeur future est exclue ; dates et règle de fraîcheur restent visibles.",
+            "Les observations proviennent de l’interface publique du candidat ; un booléen de conformité ou un rapport construit depuis les résultats attendus n’est pas une preuve."
+          ],
+          "evidence": "Calculs de conversion, sources, dates et résultat en absence de taux.",
+          "requiresExternalReview": false
+        },
+        {
+          "id": "WAD-ACC-007/automated/negative",
+          "method": "automated",
+          "boundary": "public-interface",
+          "kind": "negative",
+          "status": "planned",
+          "steps": [
+            "Préparer, à partir de la fixture synthétique, le contexte du cas ACC-WAD-007 : Une position de 1 000 USD, un taux documenté 0,90 EUR/USD et une date d’analyse antérieure à une autre valorisation disponible.",
+            "Exercer la dimension negative par les opérations publiques autorisées : Calculer avec ce taux puis sans taux et examiner les valeurs retenues.",
+            "Relire les réponses, versions, droits et événements effectifs ; conserver les artefacts nécessaires à leur interprétation."
+          ],
+          "assertions": [
+            "900 EUR sont retenus avec le taux ; sans taux, la conversion est indisponible et le total concerné partiel. La valeur future est exclue ; dates et règle de fraîcheur restent visibles.",
+            "Les observations proviennent de l’interface publique du candidat ; un booléen de conformité ou un rapport construit depuis les résultats attendus n’est pas une preuve."
+          ],
+          "evidence": "Calculs de conversion, sources, dates et résultat en absence de taux.",
+          "requiresExternalReview": false
+        },
+        {
+          "id": "WAD-ACC-007/automated/boundary",
+          "method": "automated",
+          "boundary": "public-interface",
+          "kind": "boundary",
+          "status": "planned",
+          "steps": [
+            "Préparer, à partir de la fixture synthétique, le contexte du cas ACC-WAD-007 : Une position de 1 000 USD, un taux documenté 0,90 EUR/USD et une date d’analyse antérieure à une autre valorisation disponible.",
+            "Exercer la dimension boundary par les opérations publiques autorisées : Calculer avec ce taux puis sans taux et examiner les valeurs retenues.",
+            "Relire les réponses, versions, droits et événements effectifs ; conserver les artefacts nécessaires à leur interprétation."
+          ],
+          "assertions": [
+            "900 EUR sont retenus avec le taux ; sans taux, la conversion est indisponible et le total concerné partiel. La valeur future est exclue ; dates et règle de fraîcheur restent visibles.",
+            "Les observations proviennent de l’interface publique du candidat ; un booléen de conformité ou un rapport construit depuis les résultats attendus n’est pas une preuve."
+          ],
+          "evidence": "Calculs de conversion, sources, dates et résultat en absence de taux.",
+          "requiresExternalReview": false
+        }
+      ],
+      "steps": [
+        "Une position de 1 000 USD, un taux documenté 0,90 EUR/USD et une date d’analyse antérieure à une autre valorisation disponible.",
+        "Calculer avec ce taux puis sans taux et examiner les valeurs retenues."
+      ],
+      "assertions": [
+        "900 EUR sont retenus avec le taux ; sans taux, la conversion est indisponible et le total concerné partiel. La valeur future est exclue ; dates et règle de fraîcheur restent visibles.",
+        "Calculs de conversion, sources, dates et résultat en absence de taux."
+      ]
+    },
+    {
+      "id": "WAD-ACC-008",
+      "title": "Budget, déficit et ratio non calculable",
+      "category": "conformance",
+      "technique": "black_box_scenario",
+      "acceptanceId": "ACC-WAD-008",
+      "claims": [
+        "ACC-WAD-008",
+        "REQ-WAD-010",
+        "REQ-WAD-011",
+        "INV-WAD-003",
+        "QA-WAD-001"
+      ],
+      "fixture": "synthetic-wealth-v1",
+      "status": "planned",
+      "verification": {
+        "methods": [
+          "automated"
+        ],
+        "boundary": "public-interface",
+        "case_kinds": [
+          "positive",
+          "boundary"
+        ]
+      },
+      "checks": [
+        {
+          "id": "WAD-ACC-008/automated/positive",
+          "method": "automated",
+          "boundary": "public-interface",
+          "kind": "positive",
+          "status": "planned",
+          "steps": [
+            "Préparer, à partir de la fixture synthétique, le contexte du cas ACC-WAD-008 : 3 000 EUR nets mensuels et 12 000 EUR annuels de revenus ; 2 000 EUR mensuels de charges incluant l’emprunt et 1 200 EUR annuels supplémentaires.",
+            "Exercer la dimension positive par les opérations publiques autorisées : Annualiser et calculer le solde, puis introduire un déficit et un ratio à dénominateur nul.",
+            "Relire les réponses, versions, droits et événements effectifs ; conserver les artefacts nécessaires à leur interprétation."
+          ],
+          "assertions": [
+            "Avec 12 mois par an, revenus 48 000 EUR, charges 25 200 EUR et solde 22 800 EUR ; l’emprunt n’est pas déduit deux fois. Le déficit reste négatif ; le ratio nul est non calculable.",
+            "Les observations proviennent de l’interface publique du candidat ; un booléen de conformité ou un rapport construit depuis les résultats attendus n’est pas une preuve."
+          ],
+          "evidence": "Détail des flux, périodicités, conventions, ratios et résultats attendus.",
+          "requiresExternalReview": false
+        },
+        {
+          "id": "WAD-ACC-008/automated/boundary",
+          "method": "automated",
+          "boundary": "public-interface",
+          "kind": "boundary",
+          "status": "planned",
+          "steps": [
+            "Préparer, à partir de la fixture synthétique, le contexte du cas ACC-WAD-008 : 3 000 EUR nets mensuels et 12 000 EUR annuels de revenus ; 2 000 EUR mensuels de charges incluant l’emprunt et 1 200 EUR annuels supplémentaires.",
+            "Exercer la dimension boundary par les opérations publiques autorisées : Annualiser et calculer le solde, puis introduire un déficit et un ratio à dénominateur nul.",
+            "Relire les réponses, versions, droits et événements effectifs ; conserver les artefacts nécessaires à leur interprétation."
+          ],
+          "assertions": [
+            "Avec 12 mois par an, revenus 48 000 EUR, charges 25 200 EUR et solde 22 800 EUR ; l’emprunt n’est pas déduit deux fois. Le déficit reste négatif ; le ratio nul est non calculable.",
+            "Les observations proviennent de l’interface publique du candidat ; un booléen de conformité ou un rapport construit depuis les résultats attendus n’est pas une preuve."
+          ],
+          "evidence": "Détail des flux, périodicités, conventions, ratios et résultats attendus.",
+          "requiresExternalReview": false
+        }
+      ],
+      "steps": [
+        "3 000 EUR nets mensuels et 12 000 EUR annuels de revenus ; 2 000 EUR mensuels de charges incluant l’emprunt et 1 200 EUR annuels supplémentaires.",
+        "Annualiser et calculer le solde, puis introduire un déficit et un ratio à dénominateur nul."
+      ],
+      "assertions": [
+        "Avec 12 mois par an, revenus 48 000 EUR, charges 25 200 EUR et solde 22 800 EUR ; l’emprunt n’est pas déduit deux fois. Le déficit reste négatif ; le ratio nul est non calculable.",
+        "Détail des flux, périodicités, conventions, ratios et résultats attendus."
+      ]
+    },
+    {
+      "id": "WAD-ACC-009",
+      "title": "Diagnostic et résolution des contradictions",
+      "category": "conformance",
+      "technique": "black_box_scenario",
+      "acceptanceId": "ACC-WAD-009",
+      "claims": [
+        "ACC-WAD-009",
+        "REQ-WAD-011",
+        "REQ-WAD-012"
+      ],
+      "fixture": "synthetic-wealth-v1",
+      "status": "planned",
+      "verification": {
+        "methods": [
+          "automated"
+        ],
+        "boundary": "public-interface",
+        "case_kinds": [
+          "positive",
+          "negative"
+        ]
+      },
+      "checks": [
+        {
+          "id": "WAD-ACC-009/automated/positive",
+          "method": "automated",
+          "boundary": "public-interface",
+          "kind": "positive",
+          "status": "planned",
+          "steps": [
+            "Préparer, à partir de la fixture synthétique, le contexte du cas ACC-WAD-009 : Un actif déclaré liquide puis assorti d’une indisponibilité documentée et une donnée contradictoire.",
+            "Exercer la dimension positive par les opérations publiques autorisées : Produire le diagnostic et résoudre la contradiction avec justification.",
+            "Relire les réponses, versions, droits et événements effectifs ; conserver les artefacts nécessaires à leur interprétation."
+          ],
+          "assertions": [
+            "Le diagnostic montre les effets sur les objectifs et la liquidité ; la réponse remplacée et la résolution restent traçables, sans risque global inventé.",
+            "Les observations proviennent de l’interface publique du candidat ; un booléen de conformité ou un rapport construit depuis les résultats attendus n’est pas une preuve."
+          ],
+          "evidence": "Diagnostic et historique de la résolution.",
+          "requiresExternalReview": false
+        },
+        {
+          "id": "WAD-ACC-009/automated/negative",
+          "method": "automated",
+          "boundary": "public-interface",
+          "kind": "negative",
+          "status": "planned",
+          "steps": [
+            "Préparer, à partir de la fixture synthétique, le contexte du cas ACC-WAD-009 : Un actif déclaré liquide puis assorti d’une indisponibilité documentée et une donnée contradictoire.",
+            "Exercer la dimension negative par les opérations publiques autorisées : Produire le diagnostic et résoudre la contradiction avec justification.",
+            "Relire les réponses, versions, droits et événements effectifs ; conserver les artefacts nécessaires à leur interprétation."
+          ],
+          "assertions": [
+            "Le diagnostic montre les effets sur les objectifs et la liquidité ; la réponse remplacée et la résolution restent traçables, sans risque global inventé.",
+            "Les observations proviennent de l’interface publique du candidat ; un booléen de conformité ou un rapport construit depuis les résultats attendus n’est pas une preuve."
+          ],
+          "evidence": "Diagnostic et historique de la résolution.",
+          "requiresExternalReview": false
+        }
+      ],
+      "steps": [
+        "Un actif déclaré liquide puis assorti d’une indisponibilité documentée et une donnée contradictoire.",
+        "Produire le diagnostic et résoudre la contradiction avec justification."
+      ],
+      "assertions": [
+        "Le diagnostic montre les effets sur les objectifs et la liquidité ; la réponse remplacée et la résolution restent traçables, sans risque global inventé.",
+        "Diagnostic et historique de la résolution."
+      ]
+    },
+    {
+      "id": "WAD-ACC-010",
+      "title": "Scénarios de référence, favorable et défavorable",
+      "category": "conformance",
+      "technique": "black_box_scenario",
+      "acceptanceId": "ACC-WAD-010",
+      "claims": [
+        "ACC-WAD-010",
+        "REQ-WAD-013",
+        "REQ-WAD-014",
+        "INV-WAD-003",
+        "INV-WAD-008",
+        "QA-WAD-001"
+      ],
+      "fixture": "synthetic-wealth-v1",
+      "status": "planned",
+      "verification": {
+        "methods": [
+          "automated"
+        ],
+        "boundary": "public-interface",
+        "case_kinds": [
+          "positive",
+          "boundary"
+        ]
+      },
+      "checks": [
+        {
+          "id": "WAD-ACC-010/automated/positive",
+          "method": "automated",
+          "boundary": "public-interface",
+          "kind": "positive",
+          "status": "planned",
+          "steps": [
+            "Préparer, à partir de la fixture synthétique, le contexte du cas ACC-WAD-010 : Un capital de 10 000 EUR, un horizon d’un an, sans flux, frais ni fiscalité, un modèle composé annuel déclaré.",
+            "Exercer la dimension positive par les opérations publiques autorisées : Comparer maintien à 0 %, stratégie à +2 % et variante défavorable à -5 %.",
+            "Relire les réponses, versions, droits et événements effectifs ; conserver les artefacts nécessaires à leur interprétation."
+          ],
+          "assertions": [
+            "Les valeurs sont respectivement 10 000, 10 200 et 9 500 EUR ; hypothèses, exclusions, modèle et dossier sont identifiables. Les résultats sont présentés comme projections ; aucun taux de réussite n’est inventé.",
+            "Les observations proviennent de l’interface publique du candidat ; un booléen de conformité ou un rapport construit depuis les résultats attendus n’est pas une preuve."
+          ],
+          "evidence": "Comparaison et recalcul indépendant des trois résultats.",
+          "requiresExternalReview": false
+        },
+        {
+          "id": "WAD-ACC-010/automated/boundary",
+          "method": "automated",
+          "boundary": "public-interface",
+          "kind": "boundary",
+          "status": "planned",
+          "steps": [
+            "Préparer, à partir de la fixture synthétique, le contexte du cas ACC-WAD-010 : Un capital de 10 000 EUR, un horizon d’un an, sans flux, frais ni fiscalité, un modèle composé annuel déclaré.",
+            "Exercer la dimension boundary par les opérations publiques autorisées : Comparer maintien à 0 %, stratégie à +2 % et variante défavorable à -5 %.",
+            "Relire les réponses, versions, droits et événements effectifs ; conserver les artefacts nécessaires à leur interprétation."
+          ],
+          "assertions": [
+            "Les valeurs sont respectivement 10 000, 10 200 et 9 500 EUR ; hypothèses, exclusions, modèle et dossier sont identifiables. Les résultats sont présentés comme projections ; aucun taux de réussite n’est inventé.",
+            "Les observations proviennent de l’interface publique du candidat ; un booléen de conformité ou un rapport construit depuis les résultats attendus n’est pas une preuve."
+          ],
+          "evidence": "Comparaison et recalcul indépendant des trois résultats.",
+          "requiresExternalReview": false
+        }
+      ],
+      "steps": [
+        "Un capital de 10 000 EUR, un horizon d’un an, sans flux, frais ni fiscalité, un modèle composé annuel déclaré.",
+        "Comparer maintien à 0 %, stratégie à +2 % et variante défavorable à -5 %."
+      ],
+      "assertions": [
+        "Les valeurs sont respectivement 10 000, 10 200 et 9 500 EUR ; hypothèses, exclusions, modèle et dossier sont identifiables. Les résultats sont présentés comme projections ; aucun taux de réussite n’est inventé.",
+        "Comparaison et recalcul indépendant des trois résultats."
+      ]
+    },
+    {
+      "id": "WAD-ACC-011",
+      "title": "Reproductibilité, frais et changement de modèle",
+      "category": "conformance",
+      "technique": "black_box_scenario",
+      "acceptanceId": "ACC-WAD-011",
+      "claims": [
+        "ACC-WAD-011",
+        "REQ-WAD-013",
+        "INV-WAD-003",
+        "QA-WAD-001"
+      ],
+      "fixture": "synthetic-wealth-v1",
+      "status": "planned",
+      "verification": {
+        "methods": [
+          "automated"
+        ],
+        "boundary": "public-interface",
+        "case_kinds": [
+          "positive",
+          "boundary"
+        ]
+      },
+      "checks": [
+        {
+          "id": "WAD-ACC-011/automated/positive",
+          "method": "automated",
+          "boundary": "public-interface",
+          "kind": "positive",
+          "status": "planned",
+          "steps": [
+            "Préparer, à partir de la fixture synthétique, le contexte du cas ACC-WAD-011 : Deux simulations de mêmes entrées et versions puis un changement de frais ou de version du modèle.",
+            "Exercer la dimension positive par les opérations publiques autorisées : Recalculer et comparer les résultats et références.",
+            "Relire les réponses, versions, droits et événements effectifs ; conserver les artefacts nécessaires à leur interprétation."
+          ],
+          "assertions": [
+            "Les deux premiers calculs sont identiques au centime ; le changement crée un résultat et une référence distincts et expose l’effet sur la comparaison sans réécrire l’ancien calcul.",
+            "Les observations proviennent de l’interface publique du candidat ; un booléen de conformité ou un rapport construit depuis les résultats attendus n’est pas une preuve."
+          ],
+          "evidence": "Entrées, conventions d’arrondi, versions et sorties comparées.",
+          "requiresExternalReview": false
+        },
+        {
+          "id": "WAD-ACC-011/automated/boundary",
+          "method": "automated",
+          "boundary": "public-interface",
+          "kind": "boundary",
+          "status": "planned",
+          "steps": [
+            "Préparer, à partir de la fixture synthétique, le contexte du cas ACC-WAD-011 : Deux simulations de mêmes entrées et versions puis un changement de frais ou de version du modèle.",
+            "Exercer la dimension boundary par les opérations publiques autorisées : Recalculer et comparer les résultats et références.",
+            "Relire les réponses, versions, droits et événements effectifs ; conserver les artefacts nécessaires à leur interprétation."
+          ],
+          "assertions": [
+            "Les deux premiers calculs sont identiques au centime ; le changement crée un résultat et une référence distincts et expose l’effet sur la comparaison sans réécrire l’ancien calcul.",
+            "Les observations proviennent de l’interface publique du candidat ; un booléen de conformité ou un rapport construit depuis les résultats attendus n’est pas une preuve."
+          ],
+          "evidence": "Entrées, conventions d’arrondi, versions et sorties comparées.",
+          "requiresExternalReview": false
+        }
+      ],
+      "steps": [
+        "Deux simulations de mêmes entrées et versions puis un changement de frais ou de version du modèle.",
+        "Recalculer et comparer les résultats et références."
+      ],
+      "assertions": [
+        "Les deux premiers calculs sont identiques au centime ; le changement crée un résultat et une référence distincts et expose l’effet sur la comparaison sans réécrire l’ancien calcul.",
+        "Entrées, conventions d’arrondi, versions et sorties comparées."
+      ]
+    },
+    {
+      "id": "WAD-ACC-012",
+      "title": "Modèles spécialisés et références professionnelles",
+      "category": "conformance",
+      "technique": "black_box_scenario",
+      "acceptanceId": "ACC-WAD-012",
+      "claims": [
+        "ACC-WAD-012",
+        "REQ-WAD-015",
+        "INV-WAD-008"
+      ],
+      "fixture": "synthetic-wealth-v1",
+      "status": "planned",
+      "verification": {
+        "methods": [
+          "automated"
+        ],
+        "boundary": "public-interface",
+        "case_kinds": [
+          "positive",
+          "negative"
+        ]
+      },
+      "checks": [
+        {
+          "id": "WAD-ACC-012/automated/positive",
+          "method": "automated",
+          "boundary": "public-interface",
+          "kind": "positive",
+          "status": "planned",
+          "steps": [
+            "Préparer, à partir de la fixture synthétique, le contexte du cas ACC-WAD-012 : Un cas métier fiscal ou successoral avec modèle déclaré et référence professionnelle ; une période non couverte et un domaine sans modèle.",
+            "Exercer la dimension positive par les opérations publiques autorisées : Évaluer les trois situations et contrôler la provenance d’une estimation externe.",
+            "Relire les réponses, versions, droits et événements effectifs ; conserver les artefacts nécessaires à leur interprétation."
+          ],
+          "assertions": [
+            "Le cas couvert correspond à sa référence ; les deux autres sont indisponibles comme calculs couverts. L’estimation externe garde sa provenance et son état à revoir.",
+            "Les observations proviennent de l’interface publique du candidat ; un booléen de conformité ou un rapport construit depuis les résultats attendus n’est pas une preuve."
+          ],
+          "evidence": "Référence revue, périmètre du modèle et observations des refus ; la revue du modèle est consignée séparément.",
+          "requiresExternalReview": false
+        },
+        {
+          "id": "WAD-ACC-012/automated/negative",
+          "method": "automated",
+          "boundary": "public-interface",
+          "kind": "negative",
+          "status": "planned",
+          "steps": [
+            "Préparer, à partir de la fixture synthétique, le contexte du cas ACC-WAD-012 : Un cas métier fiscal ou successoral avec modèle déclaré et référence professionnelle ; une période non couverte et un domaine sans modèle.",
+            "Exercer la dimension negative par les opérations publiques autorisées : Évaluer les trois situations et contrôler la provenance d’une estimation externe.",
+            "Relire les réponses, versions, droits et événements effectifs ; conserver les artefacts nécessaires à leur interprétation."
+          ],
+          "assertions": [
+            "Le cas couvert correspond à sa référence ; les deux autres sont indisponibles comme calculs couverts. L’estimation externe garde sa provenance et son état à revoir.",
+            "Les observations proviennent de l’interface publique du candidat ; un booléen de conformité ou un rapport construit depuis les résultats attendus n’est pas une preuve."
+          ],
+          "evidence": "Référence revue, périmètre du modèle et observations des refus ; la revue du modèle est consignée séparément.",
+          "requiresExternalReview": false
+        }
+      ],
+      "steps": [
+        "Un cas métier fiscal ou successoral avec modèle déclaré et référence professionnelle ; une période non couverte et un domaine sans modèle.",
+        "Évaluer les trois situations et contrôler la provenance d’une estimation externe."
+      ],
+      "assertions": [
+        "Le cas couvert correspond à sa référence ; les deux autres sont indisponibles comme calculs couverts. L’estimation externe garde sa provenance et son état à revoir.",
+        "Référence revue, périmètre du modèle et observations des refus ; la revue du modèle est consignée séparément."
+      ],
+      "evidenceRequired": [
+        "specialized-model-scope-and-validity",
+        "professionally-reviewed-reference-cases"
+      ]
+    },
+    {
+      "id": "WAD-ACC-013",
+      "title": "Motivation, alternatives et incompatibilité du produit",
+      "category": "conformance",
+      "technique": "black_box_scenario",
+      "acceptanceId": "ACC-WAD-013",
+      "claims": [
+        "ACC-WAD-013",
+        "REQ-WAD-016",
+        "REQ-WAD-017",
+        "REQ-WAD-018",
+        "INV-WAD-008"
+      ],
+      "fixture": "synthetic-wealth-v1",
+      "status": "planned",
+      "verification": {
+        "methods": [
+          "automated"
+        ],
+        "boundary": "public-interface",
+        "case_kinds": [
+          "positive",
+          "negative"
+        ]
+      },
+      "checks": [
+        {
+          "id": "WAD-ACC-013/automated/positive",
+          "method": "automated",
+          "boundary": "public-interface",
+          "kind": "positive",
+          "status": "planned",
+          "steps": [
+            "Préparer, à partir de la fixture synthétique, le contexte du cas ACC-WAD-013 : Une préconisation reliée à un objectif, des scénarios, une option de maintien, des frais et une rémunération déclarée.",
+            "Exercer la dimension positive par les opérations publiques autorisées : Examiner les motifs de choix et l’effet d’une préférence pour une option incompatible.",
+            "Relire les réponses, versions, droits et événements effectifs ; conserver les artefacts nécessaires à leur interprétation."
+          ],
+          "assertions": [
+            "Les bénéfices, risques, coûts inconnus et alternatives sont visibles. Le conflit commercial et la préférence sont conservés, sans lever l’incompatibilité bloquante.",
+            "Les observations proviennent de l’interface publique du candidat ; un booléen de conformité ou un rapport construit depuis les résultats attendus n’est pas une preuve."
+          ],
+          "evidence": "Préconisations et motifs, documents datés et verdicts de validation.",
+          "requiresExternalReview": false
+        },
+        {
+          "id": "WAD-ACC-013/automated/negative",
+          "method": "automated",
+          "boundary": "public-interface",
+          "kind": "negative",
+          "status": "planned",
+          "steps": [
+            "Préparer, à partir de la fixture synthétique, le contexte du cas ACC-WAD-013 : Une préconisation reliée à un objectif, des scénarios, une option de maintien, des frais et une rémunération déclarée.",
+            "Exercer la dimension negative par les opérations publiques autorisées : Examiner les motifs de choix et l’effet d’une préférence pour une option incompatible.",
+            "Relire les réponses, versions, droits et événements effectifs ; conserver les artefacts nécessaires à leur interprétation."
+          ],
+          "assertions": [
+            "Les bénéfices, risques, coûts inconnus et alternatives sont visibles. Le conflit commercial et la préférence sont conservés, sans lever l’incompatibilité bloquante.",
+            "Les observations proviennent de l’interface publique du candidat ; un booléen de conformité ou un rapport construit depuis les résultats attendus n’est pas une preuve."
+          ],
+          "evidence": "Préconisations et motifs, documents datés et verdicts de validation.",
+          "requiresExternalReview": false
+        }
+      ],
+      "steps": [
+        "Une préconisation reliée à un objectif, des scénarios, une option de maintien, des frais et une rémunération déclarée.",
+        "Examiner les motifs de choix et l’effet d’une préférence pour une option incompatible."
+      ],
+      "assertions": [
+        "Les bénéfices, risques, coûts inconnus et alternatives sont visibles. Le conflit commercial et la préférence sont conservés, sans lever l’incompatibilité bloquante.",
+        "Préconisations et motifs, documents datés et verdicts de validation."
+      ]
+    },
+    {
+      "id": "WAD-ACC-014",
+      "title": "Revue humaine des rapports financier et assurance",
+      "category": "quality",
+      "technique": "external_evidence_review",
+      "acceptanceId": "ACC-WAD-014",
+      "claims": [
+        "ACC-WAD-014",
+        "REQ-WAD-019",
+        "REQ-WAD-021",
+        "QA-WAD-003"
+      ],
+      "fixture": "synthetic-wealth-v1",
+      "status": "planned",
+      "verification": {
+        "methods": [
+          "manual"
+        ],
+        "boundary": "human-review",
+        "case_kinds": [
+          "positive"
+        ]
+      },
+      "checks": [
+        {
+          "id": "WAD-ACC-014/manual/positive",
+          "method": "manual",
+          "boundary": "human-review",
+          "kind": "positive",
+          "status": "planned",
+          "steps": [
+            "Préparer, à partir de la fixture synthétique, le contexte du cas ACC-WAD-014 : Deux dossiers de référence, conseil financier et recommandation personnalisée en assurance, avec données et documents identifiés.",
+            "Exercer la dimension positive par les opérations publiques autorisées : Un lecteur métier examine les rapports et leurs justifications.",
+            "Relire les réponses, versions, droits et événements effectifs ; conserver les artefacts nécessaires à leur interprétation."
+          ],
+          "assertions": [
+            "Il retrouve les éléments d’adéquation financière ou de cohérence et comparaison en assurance correspondant au domaine, les coûts, réserves et actions ; les omissions et incompréhensions sont consignées sans prétendre à une certification.",
+            "Les observations proviennent de l’interface publique du candidat ; un booléen de conformité ou un rapport construit depuis les résultats attendus n’est pas une preuve."
+          ],
+          "evidence": "Grille de revue remplie, identité/contexte du lecteur et rapports examinés.",
+          "requiresExternalReview": true
+        }
+      ],
+      "steps": [
+        "Deux dossiers de référence, conseil financier et recommandation personnalisée en assurance, avec données et documents identifiés.",
+        "Un lecteur métier examine les rapports et leurs justifications."
+      ],
+      "assertions": [
+        "Il retrouve les éléments d’adéquation financière ou de cohérence et comparaison en assurance correspondant au domaine, les coûts, réserves et actions ; les omissions et incompréhensions sont consignées sans prétendre à une certification.",
+        "Grille de revue remplie, identité/contexte du lecteur et rapports examinés."
+      ],
+      "evidenceRequired": [
+        "financial-advice-report",
+        "insurance-advice-report",
+        "attributed-comprehension-review"
+      ],
+      "review": {
+        "kind": "report-comprehension",
+        "required": true,
+        "mustBeExternalToCandidate": true,
+        "targetAndContractBound": true,
+        "authorAndReviewerDistinct": true,
+        "clauses": [
+          "REQ-WAD-019",
+          "REQ-WAD-021",
+          "QA-WAD-003"
+        ]
+      }
+    },
+    {
+      "id": "WAD-ACC-015",
+      "title": "Assistant, automatisation et décision humaine",
+      "category": "security",
+      "technique": "black_box_scenario",
+      "acceptanceId": "ACC-WAD-015",
+      "claims": [
+        "ACC-WAD-015",
+        "REQ-WAD-020",
+        "REQ-WAD-026",
+        "INV-WAD-005",
+        "INV-WAD-006",
+        "POL-WAD-003"
+      ],
+      "fixture": "synthetic-wealth-v1",
+      "status": "planned",
+      "verification": {
+        "methods": [
+          "automated"
+        ],
+        "boundary": "public-interface",
+        "case_kinds": [
+          "positive",
+          "negative"
+        ]
+      },
+      "checks": [
+        {
+          "id": "WAD-ACC-015/automated/positive",
+          "method": "automated",
+          "boundary": "public-interface",
+          "kind": "positive",
+          "status": "planned",
+          "steps": [
+            "Préparer, à partir de la fixture synthétique, le contexte du cas ACC-WAD-015 : Un assistant, un conseiller habilité dans le dossier, une proposition automatisée facultative et une version prête à valider.",
+            "Exercer la dimension positive par les opérations publiques autorisées : Tenter une validation par l’assistant ou l’automatisation puis par le conseiller ; réaliser aussi le parcours sans assistance.",
+            "Relire les réponses, versions, droits et événements effectifs ; conserver les artefacts nécessaires à leur interprétation."
+          ],
+          "assertions": [
+            "Les deux premières validations sont refusées ; la décision humaine est attribuée et les deux parcours restent possibles. La proposition retenue n’est pas rétroactivement présentée comme saisie humaine initiale.",
+            "Les observations proviennent de l’interface publique du candidat ; un booléen de conformité ou un rapport construit depuis les résultats attendus n’est pas une preuve."
+          ],
+          "evidence": "Identités des actions et états de proposition/validation relus.",
+          "requiresExternalReview": false
+        },
+        {
+          "id": "WAD-ACC-015/automated/negative",
+          "method": "automated",
+          "boundary": "public-interface",
+          "kind": "negative",
+          "status": "planned",
+          "steps": [
+            "Préparer, à partir de la fixture synthétique, le contexte du cas ACC-WAD-015 : Un assistant, un conseiller habilité dans le dossier, une proposition automatisée facultative et une version prête à valider.",
+            "Exercer la dimension negative par les opérations publiques autorisées : Tenter une validation par l’assistant ou l’automatisation puis par le conseiller ; réaliser aussi le parcours sans assistance.",
+            "Relire les réponses, versions, droits et événements effectifs ; conserver les artefacts nécessaires à leur interprétation."
+          ],
+          "assertions": [
+            "Les deux premières validations sont refusées ; la décision humaine est attribuée et les deux parcours restent possibles. La proposition retenue n’est pas rétroactivement présentée comme saisie humaine initiale.",
+            "Les observations proviennent de l’interface publique du candidat ; un booléen de conformité ou un rapport construit depuis les résultats attendus n’est pas une preuve."
+          ],
+          "evidence": "Identités des actions et états de proposition/validation relus.",
+          "requiresExternalReview": false
+        }
+      ],
+      "steps": [
+        "Un assistant, un conseiller habilité dans le dossier, une proposition automatisée facultative et une version prête à valider.",
+        "Tenter une validation par l’assistant ou l’automatisation puis par le conseiller ; réaliser aussi le parcours sans assistance."
+      ],
+      "assertions": [
+        "Les deux premières validations sont refusées ; la décision humaine est attribuée et les deux parcours restent possibles. La proposition retenue n’est pas rétroactivement présentée comme saisie humaine initiale.",
+        "Identités des actions et états de proposition/validation relus."
+      ]
+    },
+    {
+      "id": "WAD-ACC-016",
+      "title": "Modification après validation avant remise",
+      "category": "resilience",
+      "technique": "black_box_scenario",
+      "acceptanceId": "ACC-WAD-016",
+      "claims": [
+        "ACC-WAD-016",
+        "REQ-WAD-020",
+        "REQ-WAD-021",
+        "INV-WAD-004",
+        "INV-WAD-005"
+      ],
+      "fixture": "synthetic-wealth-v1",
+      "status": "planned",
+      "verification": {
+        "methods": [
+          "automated"
+        ],
+        "boundary": "public-interface",
+        "case_kinds": [
+          "positive",
+          "negative"
+        ]
+      },
+      "checks": [
+        {
+          "id": "WAD-ACC-016/automated/positive",
+          "method": "automated",
+          "boundary": "public-interface",
+          "kind": "positive",
+          "status": "planned",
+          "steps": [
+            "Préparer, à partir de la fixture synthétique, le contexte du cas ACC-WAD-016 : Un conseil validé puis une modification pertinente du dossier ou du modèle, avant remise.",
+            "Exercer la dimension positive par les opérations publiques autorisées : Tenter de remettre la révision modifiée ; refaire ensuite la revue et remettre la nouvelle version.",
+            "Relire les réponses, versions, droits et événements effectifs ; conserver les artefacts nécessaires à leur interprétation."
+          ],
+          "assertions": [
+            "La première remise est refusée ; la seconde porte la nouvelle validation. L’ancienne version et ses références restent identifiables pendant leur conservation autorisée.",
+            "Les observations proviennent de l’interface publique du candidat ; un booléen de conformité ou un rapport construit depuis les résultats attendus n’est pas une preuve."
+          ],
+          "evidence": "Versions, refus et validation/remise avec leurs références.",
+          "requiresExternalReview": false
+        },
+        {
+          "id": "WAD-ACC-016/automated/negative",
+          "method": "automated",
+          "boundary": "public-interface",
+          "kind": "negative",
+          "status": "planned",
+          "steps": [
+            "Préparer, à partir de la fixture synthétique, le contexte du cas ACC-WAD-016 : Un conseil validé puis une modification pertinente du dossier ou du modèle, avant remise.",
+            "Exercer la dimension negative par les opérations publiques autorisées : Tenter de remettre la révision modifiée ; refaire ensuite la revue et remettre la nouvelle version.",
+            "Relire les réponses, versions, droits et événements effectifs ; conserver les artefacts nécessaires à leur interprétation."
+          ],
+          "assertions": [
+            "La première remise est refusée ; la seconde porte la nouvelle validation. L’ancienne version et ses références restent identifiables pendant leur conservation autorisée.",
+            "Les observations proviennent de l’interface publique du candidat ; un booléen de conformité ou un rapport construit depuis les résultats attendus n’est pas une preuve."
+          ],
+          "evidence": "Versions, refus et validation/remise avec leurs références.",
+          "requiresExternalReview": false
+        }
+      ],
+      "steps": [
+        "Un conseil validé puis une modification pertinente du dossier ou du modèle, avant remise.",
+        "Tenter de remettre la révision modifiée ; refaire ensuite la revue et remettre la nouvelle version."
+      ],
+      "assertions": [
+        "La première remise est refusée ; la seconde porte la nouvelle validation. L’ancienne version et ses références restent identifiables pendant leur conservation autorisée.",
+        "Versions, refus et validation/remise avec leurs références."
+      ]
+    },
+    {
+      "id": "WAD-ACC-017",
+      "title": "Remise, réception et décision client distinctes",
+      "category": "conformance",
+      "technique": "black_box_scenario",
+      "acceptanceId": "ACC-WAD-017",
+      "claims": [
+        "ACC-WAD-017",
+        "REQ-WAD-021",
+        "REQ-WAD-022",
+        "INV-WAD-005"
+      ],
+      "fixture": "synthetic-wealth-v1",
+      "status": "planned",
+      "verification": {
+        "methods": [
+          "automated"
+        ],
+        "boundary": "public-interface",
+        "case_kinds": [
+          "positive",
+          "negative"
+        ]
+      },
+      "checks": [
+        {
+          "id": "WAD-ACC-017/automated/positive",
+          "method": "automated",
+          "boundary": "public-interface",
+          "kind": "positive",
+          "status": "planned",
+          "steps": [
+            "Préparer, à partir de la fixture synthétique, le contexte du cas ACC-WAD-017 : Un rapport finalisé, un destinataire autorisé, une remise échouée puis une remise constatée et un refus client.",
+            "Exercer la dimension positive par les opérations publiques autorisées : Relire les événements et produire un extrait du rapport.",
+            "Relire les réponses, versions, droits et événements effectifs ; conserver les artefacts nécessaires à leur interprétation."
+          ],
+          "assertions": [
+            "La remise échouée n’est pas un succès ; l’extrait conserve statut, périmètre et limites. La réception et le refus sont distincts ; aucune opération n’est marquée réalisée.",
+            "Les observations proviennent de l’interface publique du candidat ; un booléen de conformité ou un rapport construit depuis les résultats attendus n’est pas une preuve."
+          ],
+          "evidence": "Rapport/extrait et événements de remise et de décision client.",
+          "requiresExternalReview": false
+        },
+        {
+          "id": "WAD-ACC-017/automated/negative",
+          "method": "automated",
+          "boundary": "public-interface",
+          "kind": "negative",
+          "status": "planned",
+          "steps": [
+            "Préparer, à partir de la fixture synthétique, le contexte du cas ACC-WAD-017 : Un rapport finalisé, un destinataire autorisé, une remise échouée puis une remise constatée et un refus client.",
+            "Exercer la dimension negative par les opérations publiques autorisées : Relire les événements et produire un extrait du rapport.",
+            "Relire les réponses, versions, droits et événements effectifs ; conserver les artefacts nécessaires à leur interprétation."
+          ],
+          "assertions": [
+            "La remise échouée n’est pas un succès ; l’extrait conserve statut, périmètre et limites. La réception et le refus sont distincts ; aucune opération n’est marquée réalisée.",
+            "Les observations proviennent de l’interface publique du candidat ; un booléen de conformité ou un rapport construit depuis les résultats attendus n’est pas une preuve."
+          ],
+          "evidence": "Rapport/extrait et événements de remise et de décision client.",
+          "requiresExternalReview": false
+        }
+      ],
+      "steps": [
+        "Un rapport finalisé, un destinataire autorisé, une remise échouée puis une remise constatée et un refus client.",
+        "Relire les événements et produire un extrait du rapport."
+      ],
+      "assertions": [
+        "La remise échouée n’est pas un succès ; l’extrait conserve statut, périmètre et limites. La réception et le refus sont distincts ; aucune opération n’est marquée réalisée.",
+        "Rapport/extrait et événements de remise et de décision client."
+      ]
+    },
+    {
+      "id": "WAD-ACC-018",
+      "title": "Plan d’action et réalisation déclarée",
+      "category": "conformance",
+      "technique": "black_box_scenario",
+      "acceptanceId": "ACC-WAD-018",
+      "claims": [
+        "ACC-WAD-018",
+        "REQ-WAD-023",
+        "INV-WAD-005",
+        "INV-WAD-008",
+        "POL-WAD-002"
+      ],
+      "fixture": "synthetic-wealth-v1",
+      "status": "planned",
+      "verification": {
+        "methods": [
+          "automated"
+        ],
+        "boundary": "public-interface",
+        "case_kinds": [
+          "positive",
+          "negative"
+        ]
+      },
+      "checks": [
+        {
+          "id": "WAD-ACC-018/automated/positive",
+          "method": "automated",
+          "boundary": "public-interface",
+          "kind": "positive",
+          "status": "planned",
+          "steps": [
+            "Préparer, à partir de la fixture synthétique, le contexte du cas ACC-WAD-018 : Une préconisation remise et plusieurs actions acceptées, refusées et réalisées déclarées.",
+            "Exercer la dimension positive par les opérations publiques autorisées : Attribuer responsables/échéances puis consigner les évolutions et justificatifs.",
+            "Relire les réponses, versions, droits et événements effectifs ; conserver les artefacts nécessaires à leur interprétation."
+          ],
+          "assertions": [
+            "Chaque action conserve sa filiation et son statut ; ni la réalisation déclarée ni l’acceptation ne valent objectif atteint ou transaction exécutée par le produit.",
+            "Les observations proviennent de l’interface publique du candidat ; un booléen de conformité ou un rapport construit depuis les résultats attendus n’est pas une preuve."
+          ],
+          "evidence": "Plan d’action et historique de décisions relus.",
+          "requiresExternalReview": false
+        },
+        {
+          "id": "WAD-ACC-018/automated/negative",
+          "method": "automated",
+          "boundary": "public-interface",
+          "kind": "negative",
+          "status": "planned",
+          "steps": [
+            "Préparer, à partir de la fixture synthétique, le contexte du cas ACC-WAD-018 : Une préconisation remise et plusieurs actions acceptées, refusées et réalisées déclarées.",
+            "Exercer la dimension negative par les opérations publiques autorisées : Attribuer responsables/échéances puis consigner les évolutions et justificatifs.",
+            "Relire les réponses, versions, droits et événements effectifs ; conserver les artefacts nécessaires à leur interprétation."
+          ],
+          "assertions": [
+            "Chaque action conserve sa filiation et son statut ; ni la réalisation déclarée ni l’acceptation ne valent objectif atteint ou transaction exécutée par le produit.",
+            "Les observations proviennent de l’interface publique du candidat ; un booléen de conformité ou un rapport construit depuis les résultats attendus n’est pas une preuve."
+          ],
+          "evidence": "Plan d’action et historique de décisions relus.",
+          "requiresExternalReview": false
+        }
+      ],
+      "steps": [
+        "Une préconisation remise et plusieurs actions acceptées, refusées et réalisées déclarées.",
+        "Attribuer responsables/échéances puis consigner les évolutions et justificatifs."
+      ],
+      "assertions": [
+        "Chaque action conserve sa filiation et son statut ; ni la réalisation déclarée ni l’acceptation ne valent objectif atteint ou transaction exécutée par le produit.",
+        "Plan d’action et historique de décisions relus."
+      ]
+    },
+    {
+      "id": "WAD-ACC-019",
+      "title": "Réexamen, échéances et absence de réponse",
+      "category": "conformance",
+      "technique": "black_box_scenario",
+      "acceptanceId": "ACC-WAD-019",
+      "claims": [
+        "ACC-WAD-019",
+        "REQ-WAD-024",
+        "REQ-WAD-025",
+        "INV-WAD-004",
+        "INV-WAD-005",
+        "POL-WAD-005"
+      ],
+      "fixture": "synthetic-wealth-v1",
+      "status": "planned",
+      "verification": {
+        "methods": [
+          "automated"
+        ],
+        "boundary": "public-interface",
+        "case_kinds": [
+          "positive",
+          "negative",
+          "boundary"
+        ]
+      },
+      "checks": [
+        {
+          "id": "WAD-ACC-019/automated/positive",
+          "method": "automated",
+          "boundary": "public-interface",
+          "kind": "positive",
+          "status": "planned",
+          "steps": [
+            "Préparer, à partir de la fixture synthétique, le contexte du cas ACC-WAD-019 : Un service de suivi avec règle datée, échéance atteinte et changement déclaré de situation ou de produit.",
+            "Exercer la dimension positive par les opérations publiques autorisées : Déclencher le suivi puis enregistrer absence de réponse, refus et réexamen effectif.",
+            "Relire les réponses, versions, droits et événements effectifs ; conserver les artefacts nécessaires à leur interprétation."
+          ],
+          "assertions": [
+            "Échéances et événements sont signalés ; silence et refus ne confirment pas l’adéquation. Le réexamen retrouve la version remise, consigne une décision et la prochaine échéance sans effacer le conseil initial.",
+            "Les observations proviennent de l’interface publique du candidat ; un booléen de conformité ou un rapport construit depuis les résultats attendus n’est pas une preuve."
+          ],
+          "evidence": "Règle de suivi, alertes, réponses et décision de réexamen.",
+          "requiresExternalReview": false
+        },
+        {
+          "id": "WAD-ACC-019/automated/negative",
+          "method": "automated",
+          "boundary": "public-interface",
+          "kind": "negative",
+          "status": "planned",
+          "steps": [
+            "Préparer, à partir de la fixture synthétique, le contexte du cas ACC-WAD-019 : Un service de suivi avec règle datée, échéance atteinte et changement déclaré de situation ou de produit.",
+            "Exercer la dimension negative par les opérations publiques autorisées : Déclencher le suivi puis enregistrer absence de réponse, refus et réexamen effectif.",
+            "Relire les réponses, versions, droits et événements effectifs ; conserver les artefacts nécessaires à leur interprétation."
+          ],
+          "assertions": [
+            "Échéances et événements sont signalés ; silence et refus ne confirment pas l’adéquation. Le réexamen retrouve la version remise, consigne une décision et la prochaine échéance sans effacer le conseil initial.",
+            "Les observations proviennent de l’interface publique du candidat ; un booléen de conformité ou un rapport construit depuis les résultats attendus n’est pas une preuve."
+          ],
+          "evidence": "Règle de suivi, alertes, réponses et décision de réexamen.",
+          "requiresExternalReview": false
+        },
+        {
+          "id": "WAD-ACC-019/automated/boundary",
+          "method": "automated",
+          "boundary": "public-interface",
+          "kind": "boundary",
+          "status": "planned",
+          "steps": [
+            "Préparer, à partir de la fixture synthétique, le contexte du cas ACC-WAD-019 : Un service de suivi avec règle datée, échéance atteinte et changement déclaré de situation ou de produit.",
+            "Exercer la dimension boundary par les opérations publiques autorisées : Déclencher le suivi puis enregistrer absence de réponse, refus et réexamen effectif.",
+            "Relire les réponses, versions, droits et événements effectifs ; conserver les artefacts nécessaires à leur interprétation."
+          ],
+          "assertions": [
+            "Échéances et événements sont signalés ; silence et refus ne confirment pas l’adéquation. Le réexamen retrouve la version remise, consigne une décision et la prochaine échéance sans effacer le conseil initial.",
+            "Les observations proviennent de l’interface publique du candidat ; un booléen de conformité ou un rapport construit depuis les résultats attendus n’est pas une preuve."
+          ],
+          "evidence": "Règle de suivi, alertes, réponses et décision de réexamen.",
+          "requiresExternalReview": false
+        }
+      ],
+      "steps": [
+        "Un service de suivi avec règle datée, échéance atteinte et changement déclaré de situation ou de produit.",
+        "Déclencher le suivi puis enregistrer absence de réponse, refus et réexamen effectif."
+      ],
+      "assertions": [
+        "Échéances et événements sont signalés ; silence et refus ne confirment pas l’adéquation. Le réexamen retrouve la version remise, consigne une décision et la prochaine échéance sans effacer le conseil initial.",
+        "Règle de suivi, alertes, réponses et décision de réexamen."
+      ]
+    },
+    {
+      "id": "WAD-ACC-020",
+      "title": "Séparation des cabinets et contrôle des accès",
+      "category": "security",
+      "technique": "black_box_scenario",
+      "acceptanceId": "ACC-WAD-020",
+      "claims": [
+        "ACC-WAD-020",
+        "REQ-WAD-026",
+        "INV-WAD-007"
+      ],
+      "fixture": "synthetic-wealth-v1",
+      "status": "planned",
+      "verification": {
+        "methods": [
+          "automated"
+        ],
+        "boundary": "public-interface",
+        "case_kinds": [
+          "positive",
+          "negative"
+        ]
+      },
+      "checks": [
+        {
+          "id": "WAD-ACC-020/automated/positive",
+          "method": "automated",
+          "boundary": "public-interface",
+          "kind": "positive",
+          "status": "planned",
+          "steps": [
+            "Préparer, à partir de la fixture synthétique, le contexte du cas ACC-WAD-020 : Deux cabinets et des utilisateurs autorisés sur des dossiers distincts, dont assistant et administrateur technique.",
+            "Exercer la dimension positive par les opérations publiques autorisées : Tenter lectures, recherches, historiques, modifications et exports autorisés et interdits.",
+            "Relire les réponses, versions, droits et événements effectifs ; conserver les artefacts nécessaires à leur interprétation."
+          ],
+          "assertions": [
+            "Les opérations autorisées aboutissent et les autres sont refusées sans données ni révélation d’existence ; le rôle technique seul n’ouvre pas les dossiers.",
+            "Les observations proviennent de l’interface publique du candidat ; un booléen de conformité ou un rapport construit depuis les résultats attendus n’est pas une preuve."
+          ],
+          "evidence": "Matrice d’accès et réponses observées pour toutes les surfaces déclarées.",
+          "requiresExternalReview": false
+        },
+        {
+          "id": "WAD-ACC-020/automated/negative",
+          "method": "automated",
+          "boundary": "public-interface",
+          "kind": "negative",
+          "status": "planned",
+          "steps": [
+            "Préparer, à partir de la fixture synthétique, le contexte du cas ACC-WAD-020 : Deux cabinets et des utilisateurs autorisés sur des dossiers distincts, dont assistant et administrateur technique.",
+            "Exercer la dimension negative par les opérations publiques autorisées : Tenter lectures, recherches, historiques, modifications et exports autorisés et interdits.",
+            "Relire les réponses, versions, droits et événements effectifs ; conserver les artefacts nécessaires à leur interprétation."
+          ],
+          "assertions": [
+            "Les opérations autorisées aboutissent et les autres sont refusées sans données ni révélation d’existence ; le rôle technique seul n’ouvre pas les dossiers.",
+            "Les observations proviennent de l’interface publique du candidat ; un booléen de conformité ou un rapport construit depuis les résultats attendus n’est pas une preuve."
+          ],
+          "evidence": "Matrice d’accès et réponses observées pour toutes les surfaces déclarées.",
+          "requiresExternalReview": false
+        }
+      ],
+      "steps": [
+        "Deux cabinets et des utilisateurs autorisés sur des dossiers distincts, dont assistant et administrateur technique.",
+        "Tenter lectures, recherches, historiques, modifications et exports autorisés et interdits."
+      ],
+      "assertions": [
+        "Les opérations autorisées aboutissent et les autres sont refusées sans données ni révélation d’existence ; le rôle technique seul n’ouvre pas les dossiers.",
+        "Matrice d’accès et réponses observées pour toutes les surfaces déclarées."
+      ]
+    },
+    {
+      "id": "WAD-ACC-021",
+      "title": "Collecte facultative et transmission interdite",
+      "category": "security",
+      "technique": "black_box_scenario",
+      "acceptanceId": "ACC-WAD-021",
+      "claims": [
+        "ACC-WAD-021",
+        "REQ-WAD-027",
+        "INV-WAD-007"
+      ],
+      "fixture": "synthetic-wealth-v1",
+      "status": "planned",
+      "verification": {
+        "methods": [
+          "automated"
+        ],
+        "boundary": "public-interface",
+        "case_kinds": [
+          "positive",
+          "negative"
+        ]
+      },
+      "checks": [
+        {
+          "id": "WAD-ACC-021/automated/positive",
+          "method": "automated",
+          "boundary": "public-interface",
+          "kind": "positive",
+          "status": "planned",
+          "steps": [
+            "Préparer, à partir de la fixture synthétique, le contexte du cas ACC-WAD-021 : Une collecte avec données facultatives et un traitement tiers non autorisé.",
+            "Exercer la dimension positive par les opérations publiques autorisées : Refuser une donnée facultative non nécessaire au service et tenter sa transmission au tiers.",
+            "Relire les réponses, versions, droits et événements effectifs ; conserver les artefacts nécessaires à leur interprétation."
+          ],
+          "assertions": [
+            "La prestation indépendante de cette donnée reste possible et la transmission non autorisée est refusée ; catégories et finalités restent consultables.",
+            "Les observations proviennent de l’interface publique du candidat ; un booléen de conformité ou un rapport construit depuis les résultats attendus n’est pas une preuve."
+          ],
+          "evidence": "Paramètres de finalité, recueil et absence de transmission constatée sur la frontière déclarée.",
+          "requiresExternalReview": false
+        },
+        {
+          "id": "WAD-ACC-021/automated/negative",
+          "method": "automated",
+          "boundary": "public-interface",
+          "kind": "negative",
+          "status": "planned",
+          "steps": [
+            "Préparer, à partir de la fixture synthétique, le contexte du cas ACC-WAD-021 : Une collecte avec données facultatives et un traitement tiers non autorisé.",
+            "Exercer la dimension negative par les opérations publiques autorisées : Refuser une donnée facultative non nécessaire au service et tenter sa transmission au tiers.",
+            "Relire les réponses, versions, droits et événements effectifs ; conserver les artefacts nécessaires à leur interprétation."
+          ],
+          "assertions": [
+            "La prestation indépendante de cette donnée reste possible et la transmission non autorisée est refusée ; catégories et finalités restent consultables.",
+            "Les observations proviennent de l’interface publique du candidat ; un booléen de conformité ou un rapport construit depuis les résultats attendus n’est pas une preuve."
+          ],
+          "evidence": "Paramètres de finalité, recueil et absence de transmission constatée sur la frontière déclarée.",
+          "requiresExternalReview": false
+        }
+      ],
+      "steps": [
+        "Une collecte avec données facultatives et un traitement tiers non autorisé.",
+        "Refuser une donnée facultative non nécessaire au service et tenter sa transmission au tiers."
+      ],
+      "assertions": [
+        "La prestation indépendante de cette donnée reste possible et la transmission non autorisée est refusée ; catégories et finalités restent consultables.",
+        "Paramètres de finalité, recueil et absence de transmission constatée sur la frontière déclarée."
+      ]
+    },
+    {
+      "id": "WAD-ACC-022",
+      "title": "Historique, journaux et droits des personnes",
+      "category": "security",
+      "technique": "black_box_scenario",
+      "acceptanceId": "ACC-WAD-022",
+      "claims": [
+        "ACC-WAD-022",
+        "REQ-WAD-028",
+        "INV-WAD-004",
+        "INV-WAD-007"
+      ],
+      "fixture": "synthetic-wealth-v1",
+      "status": "planned",
+      "verification": {
+        "methods": [
+          "automated"
+        ],
+        "boundary": "public-interface",
+        "case_kinds": [
+          "positive",
+          "negative"
+        ]
+      },
+      "checks": [
+        {
+          "id": "WAD-ACC-022/automated/positive",
+          "method": "automated",
+          "boundary": "public-interface",
+          "kind": "positive",
+          "status": "planned",
+          "steps": [
+            "Préparer, à partir de la fixture synthétique, le contexte du cas ACC-WAD-022 : Des opérations de dossier et des secrets/justificatifs synthétiques identifiables, avec une règle de conservation.",
+            "Exercer la dimension positive par les opérations publiques autorisées : Relire les historiques et journaux ; traiter une rectification et une demande de suppression autorisée ou une conservation restreinte justifiée.",
+            "Relire les réponses, versions, droits et événements effectifs ; conserver les artefacts nécessaires à leur interprétation."
+          ],
+          "assertions": [
+            "Les événements sont attribués ; les journaux techniques ne contiennent ni secrets ni copie du bilan ou des pièces. La rectification est distincte ; toute conservation restreinte expose motif, accès et échéance au responsable autorisé.",
+            "Les observations proviennent de l’interface publique du candidat ; un booléen de conformité ou un rapport construit depuis les résultats attendus n’est pas une preuve."
+          ],
+          "evidence": "Historique, journaux contrôlés et décisions de cycle de vie.",
+          "requiresExternalReview": false
+        },
+        {
+          "id": "WAD-ACC-022/automated/negative",
+          "method": "automated",
+          "boundary": "public-interface",
+          "kind": "negative",
+          "status": "planned",
+          "steps": [
+            "Préparer, à partir de la fixture synthétique, le contexte du cas ACC-WAD-022 : Des opérations de dossier et des secrets/justificatifs synthétiques identifiables, avec une règle de conservation.",
+            "Exercer la dimension negative par les opérations publiques autorisées : Relire les historiques et journaux ; traiter une rectification et une demande de suppression autorisée ou une conservation restreinte justifiée.",
+            "Relire les réponses, versions, droits et événements effectifs ; conserver les artefacts nécessaires à leur interprétation."
+          ],
+          "assertions": [
+            "Les événements sont attribués ; les journaux techniques ne contiennent ni secrets ni copie du bilan ou des pièces. La rectification est distincte ; toute conservation restreinte expose motif, accès et échéance au responsable autorisé.",
+            "Les observations proviennent de l’interface publique du candidat ; un booléen de conformité ou un rapport construit depuis les résultats attendus n’est pas une preuve."
+          ],
+          "evidence": "Historique, journaux contrôlés et décisions de cycle de vie.",
+          "requiresExternalReview": false
+        }
+      ],
+      "steps": [
+        "Des opérations de dossier et des secrets/justificatifs synthétiques identifiables, avec une règle de conservation.",
+        "Relire les historiques et journaux ; traiter une rectification et une demande de suppression autorisée ou une conservation restreinte justifiée."
+      ],
+      "assertions": [
+        "Les événements sont attribués ; les journaux techniques ne contiennent ni secrets ni copie du bilan ou des pièces. La rectification est distincte ; toute conservation restreinte expose motif, accès et échéance au responsable autorisé.",
+        "Historique, journaux contrôlés et décisions de cycle de vie."
+      ],
+      "evidenceRequired": [
+        "sanitized-event-and-log-inspection",
+        "retention-and-erasure-policy"
+      ]
+    },
+    {
+      "id": "WAD-ACC-023",
+      "title": "Export, restauration et non-réapparition après suppression",
+      "category": "resilience",
+      "technique": "black_box_scenario",
+      "acceptanceId": "ACC-WAD-023",
+      "claims": [
+        "ACC-WAD-023",
+        "REQ-WAD-029",
+        "INV-WAD-007",
+        "QA-WAD-002"
+      ],
+      "fixture": "synthetic-wealth-v1",
+      "status": "planned",
+      "verification": {
+        "methods": [
+          "automated"
+        ],
+        "boundary": "public-interface",
+        "case_kinds": [
+          "positive",
+          "negative",
+          "recovery"
+        ]
+      },
+      "checks": [
+        {
+          "id": "WAD-ACC-023/automated/positive",
+          "method": "automated",
+          "boundary": "public-interface",
+          "kind": "positive",
+          "status": "planned",
+          "steps": [
+            "Préparer, à partir de la fixture synthétique, le contexte du cas ACC-WAD-023 : Un dossier avec versions, rapports, droits d’accès et une suppression autorisée postérieure à une sauvegarde.",
+            "Exercer la dimension positive par les opérations publiques autorisées : Exporter puis restaurer en environnement contrôlé ; provoquer aussi un échec et vérifier la procédure après suppression.",
+            "Relire les réponses, versions, droits et événements effectifs ; conserver les artefacts nécessaires à leur interprétation."
+          ],
+          "assertions": [
+            "Les éléments conservables et leurs liens sont retrouvés avec les bons droits ; l’échec est signalé. La procédure ne rend pas les données supprimées de nouveau accessibles et documente le traitement des sauvegardes.",
+            "Les observations proviennent de l’interface publique du candidat ; un booléen de conformité ou un rapport construit depuis les résultats attendus n’est pas une preuve."
+          ],
+          "evidence": "Export, inventaire avant/après restauration, refus d’accès et résultat de la procédure de suppression.",
+          "requiresExternalReview": false
+        },
+        {
+          "id": "WAD-ACC-023/automated/negative",
+          "method": "automated",
+          "boundary": "public-interface",
+          "kind": "negative",
+          "status": "planned",
+          "steps": [
+            "Préparer, à partir de la fixture synthétique, le contexte du cas ACC-WAD-023 : Un dossier avec versions, rapports, droits d’accès et une suppression autorisée postérieure à une sauvegarde.",
+            "Exercer la dimension negative par les opérations publiques autorisées : Exporter puis restaurer en environnement contrôlé ; provoquer aussi un échec et vérifier la procédure après suppression.",
+            "Relire les réponses, versions, droits et événements effectifs ; conserver les artefacts nécessaires à leur interprétation."
+          ],
+          "assertions": [
+            "Les éléments conservables et leurs liens sont retrouvés avec les bons droits ; l’échec est signalé. La procédure ne rend pas les données supprimées de nouveau accessibles et documente le traitement des sauvegardes.",
+            "Les observations proviennent de l’interface publique du candidat ; un booléen de conformité ou un rapport construit depuis les résultats attendus n’est pas une preuve."
+          ],
+          "evidence": "Export, inventaire avant/après restauration, refus d’accès et résultat de la procédure de suppression.",
+          "requiresExternalReview": false
+        },
+        {
+          "id": "WAD-ACC-023/automated/recovery",
+          "method": "automated",
+          "boundary": "public-interface",
+          "kind": "recovery",
+          "status": "planned",
+          "steps": [
+            "Préparer, à partir de la fixture synthétique, le contexte du cas ACC-WAD-023 : Un dossier avec versions, rapports, droits d’accès et une suppression autorisée postérieure à une sauvegarde.",
+            "Exercer la dimension recovery par les opérations publiques autorisées : Exporter puis restaurer en environnement contrôlé ; provoquer aussi un échec et vérifier la procédure après suppression.",
+            "Relire les réponses, versions, droits et événements effectifs ; conserver les artefacts nécessaires à leur interprétation."
+          ],
+          "assertions": [
+            "Les éléments conservables et leurs liens sont retrouvés avec les bons droits ; l’échec est signalé. La procédure ne rend pas les données supprimées de nouveau accessibles et documente le traitement des sauvegardes.",
+            "Les observations proviennent de l’interface publique du candidat ; un booléen de conformité ou un rapport construit depuis les résultats attendus n’est pas une preuve."
+          ],
+          "evidence": "Export, inventaire avant/après restauration, refus d’accès et résultat de la procédure de suppression.",
+          "requiresExternalReview": false
+        }
+      ],
+      "steps": [
+        "Un dossier avec versions, rapports, droits d’accès et une suppression autorisée postérieure à une sauvegarde.",
+        "Exporter puis restaurer en environnement contrôlé ; provoquer aussi un échec et vérifier la procédure après suppression."
+      ],
+      "assertions": [
+        "Les éléments conservables et leurs liens sont retrouvés avec les bons droits ; l’échec est signalé. La procédure ne rend pas les données supprimées de nouveau accessibles et documente le traitement des sauvegardes.",
+        "Export, inventaire avant/après restauration, refus d’accès et résultat de la procédure de suppression."
+      ],
+      "evidenceRequired": [
+        "restore-inventory-and-access-results",
+        "erasure-after-backup-procedure"
+      ]
+    },
+    {
+      "id": "WAD-ACC-024",
+      "title": "Absence de modules et de conformité inventée",
+      "category": "security",
+      "technique": "black_box_scenario",
+      "acceptanceId": "ACC-WAD-024",
+      "claims": [
+        "ACC-WAD-024",
+        "INV-WAD-008",
+        "POL-WAD-002"
+      ],
+      "fixture": "synthetic-wealth-v1",
+      "status": "planned",
+      "verification": {
+        "methods": [
+          "automated"
+        ],
+        "boundary": "public-interface",
+        "case_kinds": [
+          "positive",
+          "negative"
+        ]
+      },
+      "checks": [
+        {
+          "id": "WAD-ACC-024/automated/positive",
+          "method": "automated",
+          "boundary": "public-interface",
+          "kind": "positive",
+          "status": "planned",
+          "steps": [
+            "Préparer, à partir de la fixture synthétique, le contexte du cas ACC-WAD-024 : Un dossier sans modules LCB-FT/gel, avec un conseil hors périmètre ou un besoin d’exécution de transaction.",
+            "Exercer la dimension positive par les opérations publiques autorisées : Examiner les statuts affichés et tenter de conclure une transaction ou une validation réglementaire globale.",
+            "Relire les réponses, versions, droits et événements effectifs ; conserver les artefacts nécessaires à leur interprétation."
+          ],
+          "assertions": [
+            "Aucun module absent ne donne un feu vert de conformité et aucune transaction n’est exécutée ; les limites de prestation et dispositifs externes nécessaires sont explicites.",
+            "Les observations proviennent de l’interface publique du candidat ; un booléen de conformité ou un rapport construit depuis les résultats attendus n’est pas une preuve."
+          ],
+          "evidence": "Restitution des limites et observations des actions refusées.",
+          "requiresExternalReview": false
+        },
+        {
+          "id": "WAD-ACC-024/automated/negative",
+          "method": "automated",
+          "boundary": "public-interface",
+          "kind": "negative",
+          "status": "planned",
+          "steps": [
+            "Préparer, à partir de la fixture synthétique, le contexte du cas ACC-WAD-024 : Un dossier sans modules LCB-FT/gel, avec un conseil hors périmètre ou un besoin d’exécution de transaction.",
+            "Exercer la dimension negative par les opérations publiques autorisées : Examiner les statuts affichés et tenter de conclure une transaction ou une validation réglementaire globale.",
+            "Relire les réponses, versions, droits et événements effectifs ; conserver les artefacts nécessaires à leur interprétation."
+          ],
+          "assertions": [
+            "Aucun module absent ne donne un feu vert de conformité et aucune transaction n’est exécutée ; les limites de prestation et dispositifs externes nécessaires sont explicites.",
+            "Les observations proviennent de l’interface publique du candidat ; un booléen de conformité ou un rapport construit depuis les résultats attendus n’est pas une preuve."
+          ],
+          "evidence": "Restitution des limites et observations des actions refusées.",
+          "requiresExternalReview": false
+        }
+      ],
+      "steps": [
+        "Un dossier sans modules LCB-FT/gel, avec un conseil hors périmètre ou un besoin d’exécution de transaction.",
+        "Examiner les statuts affichés et tenter de conclure une transaction ou une validation réglementaire globale."
+      ],
+      "assertions": [
+        "Aucun module absent ne donne un feu vert de conformité et aucune transaction n’est exécutée ; les limites de prestation et dispositifs externes nécessaires sont explicites.",
+        "Restitution des limites et observations des actions refusées."
+      ]
+    },
+    {
+      "id": "WAD-ACC-025",
+      "title": "Validation périmée avec modification concurrente",
+      "category": "resilience",
+      "technique": "concurrent_clients",
+      "acceptanceId": "ACC-WAD-025",
+      "claims": [
+        "ACC-WAD-025",
+        "REQ-WAD-020",
+        "INV-WAD-004",
+        "INV-WAD-006"
+      ],
+      "fixture": "synthetic-wealth-v1",
+      "status": "planned",
+      "verification": {
+        "methods": [
+          "automated"
+        ],
+        "boundary": "public-interface",
+        "case_kinds": [
+          "concurrency"
+        ]
+      },
+      "checks": [
+        {
+          "id": "WAD-ACC-025/automated/concurrency",
+          "method": "automated",
+          "boundary": "public-interface",
+          "kind": "concurrency",
+          "status": "planned",
+          "steps": [
+            "Préparer, à partir de la fixture synthétique, le contexte du cas ACC-WAD-025 : Un conseiller prépare la validation ou la remise de la révision R ; une autre action modifie une donnée pertinente et crée R+1.",
+            "Exercer la dimension concurrency par les opérations publiques autorisées : Soumettre la décision sur R après le changement, y compris avec des actions concurrentes.",
+            "Relire les réponses, versions, droits et événements effectifs ; conserver les artefacts nécessaires à leur interprétation."
+          ],
+          "assertions": [
+            "La décision ne valide ni ne remet R+1 avec la revue de R ; la modification et la nouvelle revue nécessaire sont visibles, et R reste une révision historique identifiable.",
+            "Les observations proviennent de l’interface publique du candidat ; un booléen de conformité ou un rapport construit depuis les résultats attendus n’est pas une preuve."
+          ],
+          "evidence": "Ordre des actions, identités de versions, décision refusée et nouvelle validation/remise après revue.",
+          "requiresExternalReview": false
+        }
+      ],
+      "steps": [
+        "Un conseiller prépare la validation ou la remise de la révision R ; une autre action modifie une donnée pertinente et crée R+1.",
+        "Soumettre la décision sur R après le changement, y compris avec des actions concurrentes."
+      ],
+      "assertions": [
+        "La décision ne valide ni ne remet R+1 avec la revue de R ; la modification et la nouvelle revue nécessaire sont visibles, et R reste une révision historique identifiable.",
+        "Ordre des actions, identités de versions, décision refusée et nouvelle validation/remise après revue."
+      ]
+    },
+    {
+      "id": "WAD-ACC-026",
+      "title": "Périodicité CIF et règles propres aux autres services",
+      "category": "conformance",
+      "technique": "black_box_scenario",
+      "acceptanceId": "ACC-WAD-026",
+      "claims": [
+        "ACC-WAD-026",
+        "REQ-WAD-024",
+        "POL-WAD-005"
+      ],
+      "fixture": "synthetic-wealth-v1",
+      "status": "planned",
+      "verification": {
+        "methods": [
+          "automated"
+        ],
+        "boundary": "public-interface",
+        "case_kinds": [
+          "positive",
+          "negative",
+          "boundary"
+        ]
+      },
+      "checks": [
+        {
+          "id": "WAD-ACC-026/automated/positive",
+          "method": "automated",
+          "boundary": "public-interface",
+          "kind": "positive",
+          "status": "planned",
+          "steps": [
+            "Préparer, à partir de la fixture synthétique, le contexte du cas ACC-WAD-026 : Un profil CIF avec évaluation périodique, une dernière revue datée et un profil de risque ; un autre service sans cette même obligation.",
+            "Exercer la dimension positive par les opérations publiques autorisées : Configurer une échéance CIF supérieure à un an puis une échéance admissible ; atteindre l’échéance et vérifier le second service.",
+            "Relire les réponses, versions, droits et événements effectifs ; conserver les artefacts nécessaires à leur interprétation."
+          ],
+          "assertions": [
+            "La règle CIF supérieure à un an est refusée ; la règle admissible et son besoin éventuel de fréquence accrue sont documentés. La revue devient due à l’échéance ; le second service conserve sa propre règle justifiée.",
+            "Les observations proviennent de l’interface publique du candidat ; un booléen de conformité ou un rapport construit depuis les résultats attendus n’est pas une preuve."
+          ],
+          "evidence": "Profils, source/version de règle, résultats des configurations et état des échéances.",
+          "requiresExternalReview": false
+        },
+        {
+          "id": "WAD-ACC-026/automated/negative",
+          "method": "automated",
+          "boundary": "public-interface",
+          "kind": "negative",
+          "status": "planned",
+          "steps": [
+            "Préparer, à partir de la fixture synthétique, le contexte du cas ACC-WAD-026 : Un profil CIF avec évaluation périodique, une dernière revue datée et un profil de risque ; un autre service sans cette même obligation.",
+            "Exercer la dimension negative par les opérations publiques autorisées : Configurer une échéance CIF supérieure à un an puis une échéance admissible ; atteindre l’échéance et vérifier le second service.",
+            "Relire les réponses, versions, droits et événements effectifs ; conserver les artefacts nécessaires à leur interprétation."
+          ],
+          "assertions": [
+            "La règle CIF supérieure à un an est refusée ; la règle admissible et son besoin éventuel de fréquence accrue sont documentés. La revue devient due à l’échéance ; le second service conserve sa propre règle justifiée.",
+            "Les observations proviennent de l’interface publique du candidat ; un booléen de conformité ou un rapport construit depuis les résultats attendus n’est pas une preuve."
+          ],
+          "evidence": "Profils, source/version de règle, résultats des configurations et état des échéances.",
+          "requiresExternalReview": false
+        },
+        {
+          "id": "WAD-ACC-026/automated/boundary",
+          "method": "automated",
+          "boundary": "public-interface",
+          "kind": "boundary",
+          "status": "planned",
+          "steps": [
+            "Préparer, à partir de la fixture synthétique, le contexte du cas ACC-WAD-026 : Un profil CIF avec évaluation périodique, une dernière revue datée et un profil de risque ; un autre service sans cette même obligation.",
+            "Exercer la dimension boundary par les opérations publiques autorisées : Configurer une échéance CIF supérieure à un an puis une échéance admissible ; atteindre l’échéance et vérifier le second service.",
+            "Relire les réponses, versions, droits et événements effectifs ; conserver les artefacts nécessaires à leur interprétation."
+          ],
+          "assertions": [
+            "La règle CIF supérieure à un an est refusée ; la règle admissible et son besoin éventuel de fréquence accrue sont documentés. La revue devient due à l’échéance ; le second service conserve sa propre règle justifiée.",
+            "Les observations proviennent de l’interface publique du candidat ; un booléen de conformité ou un rapport construit depuis les résultats attendus n’est pas une preuve."
+          ],
+          "evidence": "Profils, source/version de règle, résultats des configurations et état des échéances.",
+          "requiresExternalReview": false
+        }
+      ],
+      "steps": [
+        "Un profil CIF avec évaluation périodique, une dernière revue datée et un profil de risque ; un autre service sans cette même obligation.",
+        "Configurer une échéance CIF supérieure à un an puis une échéance admissible ; atteindre l’échéance et vérifier le second service."
+      ],
+      "assertions": [
+        "La règle CIF supérieure à un an est refusée ; la règle admissible et son besoin éventuel de fréquence accrue sont documentés. La revue devient due à l’échéance ; le second service conserve sa propre règle justifiée.",
+        "Profils, source/version de règle, résultats des configurations et état des échéances."
+      ]
+    }
+  ]
+}

@@ -1,0 +1,76 @@
+profile_id: projets-numeriques
+version: 0.1.0
+status: illustrative
+activation_ready: false
+purpose: Identifier des projets numériques ouverts à une proposition de partenariat, sans présupposer une société ni une localisation.
+business_owner: À désigner
+target_types: [projet_numerique]
+related_types: [collectif, organisation, personne]
+attributes:
+  - {field: projet_numerique.identifiant_source, type: string, required_for: rapprochement_certain_si_disponible}
+  - {field: projet_numerique.thematique, type: string, required_for: adequation}
+  - {field: projet_numerique.partenariats_declares_ouverts, type: boolean, required_for: adequation}
+  - {field: dossier.interet_pour_proposition, type: boolean, required_for: qualification_commerciale}
+  - {field: dossier.prochaine_etape_acceptee, type: boolean, required_for: qualification_commerciale}
+relations:
+  - {type: porte, from: collectif, to: projet_numerique, cardinality: plusieurs_a_plusieurs, validity: dates_ou_inconnue}
+  - {type: represente_pour, from: personne, to: projet_numerique, cardinality: plusieurs_a_plusieurs, validity: dates_ou_inconnue}
+identity:
+  reliable_key: [type, plateforme_emettrice, identifiant_source]
+  possible_match: url_canonique_et_historique_avec_revue
+  never_sufficient_alone: [nom_du_projet, nom_du_contributeur, domaine_partage]
+acquisition:
+  candidate_sources:
+    - {name: Répertoire de projets avec réutilisation autorisée, access_status: non_configure, reuse_status: a_valider}
+    - {name: Déclaration ou candidature du porteur, access_status: a_configurer, reuse_status: finalite_et_information_a_valider}
+  filters: [thematiques_de_la_campagne, partenariat_declare_ouvert]
+  inbound_form:
+    fields: [identification_projet, objet_de_la_demande, moyen_reponse_choisi]
+    marketing_consent: facultatif_distinct_de_la_demande
+qualification:
+  criteria:
+    - criterion_id: PROJ-THEME
+      dimension: adequation
+      rule: {field: projet_numerique.thematique, operator: in, value: thematiques_validees_de_la_campagne}
+      evidence: {allowed: [description_officielle, declaration_attribuee], max_age_days: 180}
+    - criterion_id: PROJ-OUVERT
+      dimension: adequation
+      rule: {field: projet_numerique.partenariats_declares_ouverts, operator: equals, value: true}
+      evidence: {allowed: [appel_a_partenariat_officiel, declaration_attribuee], max_age_days: 90}
+    - criterion_id: PROJ-INTERET
+      dimension: interet_besoin
+      rule: {field: dossier.interet_pour_proposition, operator: equals, value: true}
+      evidence: {allowed: [reponse_directe_attribuee], scope: ce_projet_et_cette_proposition, max_age_days: 60}
+    - criterion_id: PROJ-SUITE
+      dimension: interet_besoin
+      rule: {field: dossier.prochaine_etape_acceptee, operator: equals, value: true}
+      evidence: {allowed: [reponse_directe_attribuee], max_age_days: 30}
+  levels:
+    - {name: cible_pertinente, mandatory_criteria: [PROJ-THEME, PROJ-OUVERT]}
+    - {name: lead_commercialement_qualifie, mandatory_criteria: [PROJ-THEME, PROJ-OUVERT, PROJ-INTERET, PROJ-SUITE]}
+  unknown_handling: bloque_le_niveau_concerne_et_propose_la_preuve_a_obtenir
+  acceptance: decision_humaine_attribuee
+  contactability: evaluation_separee_par_destinataire_finalite_canal_et_politique
+priority:
+  method: ordre_explicite_par_niveau_accepte_puis_prochaine_echeance
+  forbidden_inference: La visibilité publique du projet et l'activité d'un contributeur ne prouvent pas son accord à une proposition précise.
+follow_up:
+  stages: [a_examiner, a_qualifier, echange_en_cours, prochaine_etape_acceptee, conclu, ecarte]
+  transition_gates: {prochaine_etape_acceptee: lead_commercialement_qualifie_accepte}
+  terminal_outcomes: [transfert_accepte_vers_partenariat, refus, hors_cible]
+  responsibility: utilisateur_ou_file_responsable_identifiee
+  next_action: datee_ou_attente_motivee_avec_reexamen
+contact_content:
+  offer: Proposition de partenariat à définir.
+  approved_claims: []
+  forbidden: [inventer_un_budget, deduire_un_mandat_du_statut_contributeur]
+monitoring: {enabled: false}
+evaluation:
+  baseline: revue_manuelle_avec_la_meme_grille
+  cases: [aucune_adresse, aucun_courriel, collectif_sans_societe, plusieurs_porteurs, nom_partage, opposition_contributeur]
+  publication_thresholds: a_fixer_avant_mesure
+dependencies:
+  compliance_policy: a_valider_pour_juridictions_populations_finalites_et_canaux_reels
+  channels: []
+  execution_limits: a_valider_avant_activation
+  activation_blockers: [proposition_non_definie, thematiques_non_validees, politique_absente, sources_non_habilitees, budgets_et_seuils_non_valides]

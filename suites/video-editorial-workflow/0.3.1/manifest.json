@@ -1,0 +1,273 @@
+{
+  "suite": "video-editorial-workflow/0.3.1",
+  "contract": "video-editorial-workflow",
+  "contractVersion": "0.3.1",
+  "status": "planned",
+  "proofClaimsRequired": true,
+  "fixtures": [
+    "reference-interview"
+  ],
+  "cases": [
+    {
+      "id": "VEW-ACC-001",
+      "category": "conformance",
+      "technique": "source_integrity",
+      "claims": [
+        "ACC-VEW-001",
+        "REQ-VEW-001",
+        "REQ-VEW-002"
+      ],
+      "fixture": "reference-interview",
+      "steps": [
+        "Create a project from the generated source package as the operator.",
+        "Verify the package; repeat in fresh projects with one source unavailable and one altered."
+      ],
+      "assertions": [
+        "The valid package records source identity, permitted location, verification state and actor.",
+        "Absent, withdrawn or altered sources are refused for processing; inspect attributed verification results."
+      ],
+      "status": "planned"
+    },
+    {
+      "id": "VEW-ACC-002",
+      "category": "conformance",
+      "technique": "selection_round_trip",
+      "claims": [
+        "ACC-VEW-002",
+        "REQ-VEW-005",
+        "REQ-VEW-006"
+      ],
+      "fixture": "reference-interview",
+      "steps": [
+        "Review both authorised fixture assets and their supplied transcripts.",
+        "Save and freeze the fixture's ordered selection as the editor.",
+        "Start a new client session and recover the exact saved revision through the public interface."
+      ],
+      "assertions": [
+        "Each selected segment still identifies its source and interval in the declared order.",
+        "The recovered revision preserves author, creation time, content and input references."
+      ],
+      "status": "planned"
+    },
+    {
+      "id": "VEW-ACC-003",
+      "category": "conformance",
+      "technique": "export_provenance",
+      "claims": [
+        "ACC-VEW-003",
+        "REQ-VEW-007",
+        "REQ-VEW-008",
+        "INV-VEW-002",
+        "QA-VEW-001",
+        "QA-VEW-005"
+      ],
+      "fixture": "reference-interview",
+      "steps": [
+        "Attempt export from an unfrozen selection.",
+        "Freeze the reference selection and request one supported export format.",
+        "Inspect the public export package and its verification record."
+      ],
+      "assertions": [
+        "The unfrozen export is refused.",
+        "The successful export names the exact frozen revision, referenced inputs and output files.",
+        "Format, known limitations and verification/recipient-recipe status are explicit.",
+        "No compatibility claim appears for a recipient environment without a recorded recipe."
+      ],
+      "status": "planned"
+    },
+    {
+      "id": "VEW-ACC-004",
+      "category": "resilience",
+      "technique": "fault_injection",
+      "claims": [
+        "ACC-VEW-004",
+        "REQ-VEW-003",
+        "REQ-VEW-004",
+        "INV-VEW-003"
+      ],
+      "fixture": "reference-interview",
+      "steps": [
+        "Launch a declared processing capability with identified inputs and versioned parameters.",
+        "In isolated attempts, trigger a processing failure, cancellation and indeterminate outcome using the declared test fault boundary.",
+        "Inspect run records and attempt to use each resulting artifact as validated matter or export input."
+      ],
+      "assertions": [
+        "Each attempt retains initiator, inputs, parameters, real terminal state and reason.",
+        "Non-success artifacts are never presented as validated or eligible for export.",
+        "The successful control records its result identities and terminal state."
+      ],
+      "status": "planned"
+    },
+    {
+      "id": "VEW-ACC-005",
+      "category": "security",
+      "technique": "egress_canary",
+      "claims": [
+        "ACC-VEW-005",
+        "REQ-VEW-011",
+        "REQ-VEW-012",
+        "INV-VEW-004",
+        "POL-VEW-004",
+        "QA-VEW-004"
+      ],
+      "fixture": "reference-interview",
+      "steps": [
+        "Use a profile with external services disabled by default and start a fixture-scoped destination monitor.",
+        "Attempt activation/transmission without policy, with missing authorisation and with a missing declared dependency.",
+        "Inspect the denial and continue the independent selection/export path."
+      ],
+      "assertions": [
+        "No fixture canary reaches the monitored destination on a denied attempt.",
+        "The reason and initiating actor are observable; independent core operations stay usable.",
+        "If external activation is supported, destination, data categories and authorising policy are visible before activation."
+      ],
+      "status": "planned"
+    },
+    {
+      "id": "VEW-ACC-006",
+      "category": "conformance",
+      "technique": "deployment_comparison",
+      "claims": [
+        "ACC-VEW-006",
+        "REQ-VEW-009",
+        "REQ-VEW-010",
+        "POL-VEW-002",
+        "QA-VEW-002"
+      ],
+      "fixture": "reference-interview",
+      "applicability": "Two declared deployment profiles are available. Otherwise report not_run and withhold the cross-profile claim.",
+      "steps": [
+        "Inspect each profile's capabilities, dependencies, data locations, execution limits and replay procedure.",
+        "Run the core reference journey on both profiles at the same immutable candidate revision.",
+        "Compare normalised domain states and provenance relations."
+      ],
+      "assertions": [
+        "Profile identity and version are present in each evidence record.",
+        "Both journeys agree on source/segment order and provenance, ignoring profile-specific paths, clocks and generated identifiers.",
+        "A profile cannot claim verification before its applicable scenarios have execution evidence."
+      ],
+      "status": "planned"
+    },
+    {
+      "id": "VEW-ACC-007",
+      "category": "conformance",
+      "technique": "contextual_review",
+      "claims": [
+        "ACC-VEW-007",
+        "REQ-VEW-013",
+        "REQ-VEW-014"
+      ],
+      "fixture": "reference-interview",
+      "applicability": "Contextual review is offered. Otherwise report not_run and do not claim this should capability.",
+      "steps": [
+        "Publish an editor note on asset-b at the fixture timestamp.",
+        "Compare assets and publish a second note on the other asset.",
+        "Recover both notes and their public references."
+      ],
+      "assertions": [
+        "Every published note has an author and an unambiguous asset, timestamp or selection reference.",
+        "Comparison never silently moves a note to the other asset."
+      ],
+      "status": "planned"
+    },
+    {
+      "id": "VEW-INV-001",
+      "category": "resilience",
+      "technique": "source_hash_before_after",
+      "claims": [
+        "INV-VEW-001",
+        "REQ-VEW-002"
+      ],
+      "fixture": "reference-interview",
+      "steps": [
+        "Record byte digests of both disposable source assets.",
+        "Complete processing, selection and export operations.",
+        "Compare source bytes with the initial digests; separately withdraw a source and retry processing."
+      ],
+      "assertions": [
+        "All original source digests remain unchanged.",
+        "A withdrawn source is refused for new processing."
+      ],
+      "status": "planned"
+    },
+    {
+      "id": "VEW-POL-003",
+      "category": "security",
+      "technique": "human_decision_boundary",
+      "claims": [
+        "POL-VEW-003"
+      ],
+      "fixture": "reference-interview",
+      "steps": [
+        "If assistance is offered, request a proposal and inspect whether it remains a proposal.",
+        "Attempt automatic freeze/remittance without an attributed authorised-editor action.",
+        "Perform a control freeze/remittance as the editor."
+      ],
+      "assertions": [
+        "An assistance proposal alone cannot freeze a selection or remit an export.",
+        "The control action records its editor attribution.",
+        "Without assistance support, inspect the core freeze/remittance path and retain its attribution evidence."
+      ],
+      "status": "planned"
+    },
+    {
+      "id": "VEW-QA-003",
+      "category": "conformance",
+      "technique": "portable_local_replay",
+      "claims": [
+        "QA-VEW-003"
+      ],
+      "fixture": "reference-interview",
+      "applicability": "A local profile is offered. Otherwise report not_run and withhold the local portability claim.",
+      "steps": [
+        "Provision the declared local profile under a fresh path without the developer's personal directories or symbolic links.",
+        "Execute the core reference journey and recover the selection through the documented persistence/export path."
+      ],
+      "assertions": [
+        "The journey does not depend on a personal path or an unchecked symbolic link.",
+        "Selection state is recoverable/exportable independently of one browser session."
+      ],
+      "status": "planned"
+    },
+    {
+      "id": "VEW-POL-001",
+      "category": "conformance",
+      "technique": "optional_assistance_disabled",
+      "claims": [
+        "POL-VEW-001",
+        "POL-VEW-004"
+      ],
+      "fixture": "reference-interview",
+      "steps": [
+        "Start the reference profile with optional scoring, stock-footage and assistance services disabled.",
+        "Review supplied transcripts/media, persist a selection and generate an export."
+      ],
+      "assertions": [
+        "The core journey remains usable without an unauthorised external account.",
+        "Optional assistance does not redefine core provenance and source-integrity guarantees."
+      ],
+      "status": "planned"
+    },
+    {
+      "id": "VEW-ART-001",
+      "category": "delivery",
+      "technique": "evidence_review",
+      "claims": [
+        "REQ-VEW-010",
+        "QA-VEW-001",
+        "QA-VEW-002"
+      ],
+      "fixture": "reference-interview",
+      "steps": [
+        "Collect the profile operations guide, reference manifest, scenario reports and recipient-recipe sheet from the candidate release.",
+        "Check them against the same target revision and contract lock."
+      ],
+      "assertions": [
+        "Replay instructions and sanitised artifact digests are supplied per declared profile.",
+        "Planned/blocked/not_run cases do not become passing evidence.",
+        "Compatibility remains unverified without a recipient recipe."
+      ],
+      "status": "planned"
+    }
+  ]
+}

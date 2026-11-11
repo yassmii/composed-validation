@@ -1,0 +1,121 @@
+{
+  "kind": "wealth-advisory-validator-author-checks",
+  "observed_on": "2026-11-04",
+  "target": {
+    "repository": "composed-validation",
+    "baseRevision": "b780715a119190bb7acf0c4743b657e453a5f5d7",
+    "workingTree": "uncommitted changes; selected file hashes below"
+  },
+  "contract": {
+    "sourceRepository": "https://github.com/yassmii/composed",
+    "revision": "a6c6a7c3fb6e540913376c326a3b130af6d147e5",
+    "contentBlob": "63ee2c21a1d928fa79207448de6d165d41d62f9c",
+    "contentSha256": "d51dcabc5031a5f8cb75e374daeeef303c65e2821efd8670d9ced4c7c601265f",
+    "path": "contracts/product-types/wealth-advisory/contracts/contract.yaml",
+    "profileVersion": "0.1.0"
+  },
+  "checks": [
+    {
+      "command": [
+        "npm",
+        "run",
+        "validate"
+      ],
+      "environment": "Linux x64, Node 24.15.0, locked yaml 2.9.0",
+      "result": "pass",
+      "tests": 49,
+      "skipped": 0
+    },
+    {
+      "command": [
+        "npm",
+        "run",
+        "validate"
+      ],
+      "environment": "Windows x64, Node 24.13.1, locked yaml 2.9.0",
+      "result": "pass",
+      "tests": 49,
+      "skipped": 0
+    },
+    {
+      "command": [
+        "node",
+        "--test",
+        "test/wealth.test.mjs"
+      ],
+      "environment": "Linux x64, Node 24.15.0",
+      "result": "pass",
+      "tests": 8,
+      "skipped": 0
+    }
+  ],
+  "artifacts": [
+    {
+      "path": "contracts.lock.json",
+      "sha256": "377f9742623f52a575e33e1c80a3f56eb36ab91e57a292e7e2a937d2bc50848a"
+    },
+    {
+      "path": "package-lock.json",
+      "sha256": "cf987df808d60a18a3ecf1ba4eb010f213f5773fb0259424cc10028c18935b4e"
+    },
+    {
+      "path": "package.json",
+      "sha256": "07629c217ee7179c29c7efdf2024df14035c116766378fdc50c070fb560ef118"
+    },
+    {
+      "path": "profiles/wealth-advisory/0.1.0/profile.json",
+      "sha256": "d8299e699bcb70f667f782df164e6dc6806f4ff9111b37d02e165cf0f201f1f0"
+    },
+    {
+      "path": "src/lib.mjs",
+      "sha256": "4603e8742ca72b6d8bcec37ee9ff78ef8e754971d88dd7004dc9519eee5a08d3"
+    },
+    {
+      "path": "src/structured-checks.mjs",
+      "sha256": "dc1945286d21f635c7505d4c13e680d6b6641c7c2c9c397bc50febd1c6d04f72"
+    },
+    {
+      "path": "src/validate-contract.mjs",
+      "sha256": "bc99e14fa9dfedcfea2aeeead61eb6eb35792def71263b4579cb3738fbfdd2bc"
+    },
+    {
+      "path": "suites/wealth-advisory/0.1.0/README.md",
+      "sha256": "258ea237bb9ae0fe2b058fa9807bfe6347cfc24e743d151eb98a7d25098fb4a3"
+    },
+    {
+      "path": "suites/wealth-advisory/0.1.0/adapter.md",
+      "sha256": "6e6e34d6accfaaa2ff9133241abe56795238c226b6d2126164ceec7720d0a318"
+    },
+    {
+      "path": "suites/wealth-advisory/0.1.0/conformance-matrix.json",
+      "sha256": "6201542914aa6c2d16dfbca922e9f081da9784a09858469fed8fbd7f37ad52e5"
+    },
+    {
+      "path": "suites/wealth-advisory/0.1.0/fixtures/review-template.json",
+      "sha256": "ce7f062ca9bcf0e3e92bf34aac413d3dc4766d045d10bd7250dcb96b68852554"
+    },
+    {
+      "path": "suites/wealth-advisory/0.1.0/fixtures/synthetic-wealth.json",
+      "sha256": "0266ec737fc6eddb3eb3949bfa9986693451f29286b2fbedde14e71cccc91a1c"
+    },
+    {
+      "path": "suites/wealth-advisory/0.1.0/manifest.json",
+      "sha256": "21b40ecbf319d9b18e5f42dabd92a804ab24668ce83b6950dd306d9db2ab99c7"
+    },
+    {
+      "path": "test/validation.test.mjs",
+      "sha256": "703d68294d61912270adf05ef9c9739dc8e21f94540ea78799be2777dbf90b47"
+    },
+    {
+      "path": "test/wealth.test.mjs",
+      "sha256": "93ea579324dd88f7207a76b2222446cb9ec2860b94d814b83f81dcc53cc3d674"
+    }
+  ],
+  "limitations": [
+    "Local unsigned author summary, not authenticated evidence.",
+    "Hashes cover only selected files, not the installed environment or entire repository.",
+    "No wealth candidate, adapter, runner or human product review was executed.",
+    "All 26 wealth case groups and 54 proof dimensions remain planned."
+  ],
+  "recordedAtUtc": "2026-11-04T14:15:27Z"
+}

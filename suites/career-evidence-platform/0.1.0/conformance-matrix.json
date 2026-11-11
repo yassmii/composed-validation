@@ -1,0 +1,582 @@
+{
+  "suite": "career-evidence-platform/0.1.0",
+  "statusVocabulary": [
+    "planned",
+    "pass",
+    "fail",
+    "blocked",
+    "not_run"
+  ],
+  "entries": [
+    {
+      "clause": "REQ-CEP-001",
+      "proof": "CEP-ACC-001",
+      "status": "planned"
+    },
+    {
+      "clause": "REQ-CEP-002",
+      "proof": "CEP-ACC-001",
+      "status": "planned"
+    },
+    {
+      "clause": "REQ-CEP-003",
+      "proof": "CEP-ACC-001",
+      "status": "planned"
+    },
+    {
+      "clause": "REQ-CEP-004",
+      "proof": "CEP-ACC-001",
+      "status": "planned"
+    },
+    {
+      "clause": "REQ-CEP-005",
+      "proof": "CEP-ACC-002",
+      "status": "planned"
+    },
+    {
+      "clause": "REQ-CEP-006",
+      "proof": "CEP-ACC-003",
+      "status": "planned"
+    },
+    {
+      "clause": "REQ-CEP-007",
+      "proof": "CEP-ACC-002",
+      "status": "planned"
+    },
+    {
+      "clause": "REQ-CEP-008",
+      "proof": "CEP-ACC-002",
+      "status": "planned"
+    },
+    {
+      "clause": "REQ-CEP-009",
+      "proof": "CEP-ACC-002",
+      "status": "planned"
+    },
+    {
+      "clause": "REQ-CEP-010",
+      "proof": "CEP-ACC-004",
+      "status": "planned"
+    },
+    {
+      "clause": "REQ-CEP-011",
+      "proof": "CEP-ACC-004",
+      "status": "planned"
+    },
+    {
+      "clause": "REQ-CEP-012",
+      "proof": "CEP-ACC-004",
+      "status": "planned"
+    },
+    {
+      "clause": "REQ-CEP-013",
+      "proof": "CEP-ACC-004",
+      "status": "planned"
+    },
+    {
+      "clause": "REQ-CEP-014",
+      "proof": "CEP-ACC-005",
+      "status": "planned"
+    },
+    {
+      "clause": "REQ-CEP-015",
+      "proof": "CEP-ACC-005",
+      "status": "planned"
+    },
+    {
+      "clause": "REQ-CEP-016",
+      "proof": "CEP-ACC-006",
+      "status": "planned"
+    },
+    {
+      "clause": "REQ-CEP-017",
+      "proof": "CEP-ACC-006",
+      "status": "planned"
+    },
+    {
+      "clause": "REQ-CEP-018",
+      "proof": "CEP-ACC-005",
+      "status": "planned"
+    },
+    {
+      "clause": "REQ-CEP-019",
+      "proof": "CEP-ACC-007",
+      "status": "planned"
+    },
+    {
+      "clause": "REQ-CEP-020",
+      "proof": "CEP-ACC-007",
+      "status": "planned"
+    },
+    {
+      "clause": "REQ-CEP-021",
+      "proof": "CEP-ACC-007",
+      "status": "planned"
+    },
+    {
+      "clause": "REQ-CEP-022",
+      "proof": "CEP-ACC-007",
+      "status": "planned"
+    },
+    {
+      "clause": "REQ-CEP-023",
+      "proof": "CEP-ACC-007",
+      "status": "planned"
+    },
+    {
+      "clause": "REQ-CEP-024",
+      "proof": "CEP-ACC-008",
+      "status": "planned"
+    },
+    {
+      "clause": "REQ-CEP-025",
+      "proof": "CEP-ACC-008",
+      "status": "planned"
+    },
+    {
+      "clause": "REQ-CEP-026",
+      "proof": "CEP-ACC-008",
+      "status": "planned"
+    },
+    {
+      "clause": "REQ-CEP-027",
+      "proof": "CEP-ACC-009",
+      "status": "planned"
+    },
+    {
+      "clause": "REQ-CEP-028",
+      "proof": "CEP-ACC-009",
+      "status": "planned"
+    },
+    {
+      "clause": "REQ-CEP-029",
+      "proof": "CEP-ACC-010",
+      "status": "planned"
+    },
+    {
+      "clause": "REQ-CEP-030",
+      "proof": "CEP-ACC-010",
+      "status": "planned"
+    },
+    {
+      "clause": "REQ-CEP-031",
+      "proof": "CEP-ACC-010",
+      "status": "planned"
+    },
+    {
+      "clause": "REQ-CEP-032",
+      "proof": "CEP-ACC-010",
+      "status": "planned"
+    },
+    {
+      "clause": "REQ-CEP-033",
+      "proof": "CEP-ACC-011",
+      "status": "planned"
+    },
+    {
+      "clause": "REQ-CEP-034",
+      "proof": "CEP-ACC-011",
+      "status": "planned"
+    },
+    {
+      "clause": "REQ-CEP-035",
+      "proof": "CEP-QA-006",
+      "status": "planned"
+    },
+    {
+      "clause": "REQ-CEP-036",
+      "proof": "CEP-ACC-012",
+      "status": "planned"
+    },
+    {
+      "clause": "REQ-CEP-037",
+      "proof": "CEP-ACC-011",
+      "status": "planned"
+    },
+    {
+      "clause": "REQ-CEP-038",
+      "proof": "CEP-ACC-003",
+      "status": "planned"
+    },
+    {
+      "clause": "REQ-CEP-039",
+      "proof": "CEP-ACC-013",
+      "status": "planned"
+    },
+    {
+      "clause": "REQ-CEP-040",
+      "proof": "CEP-ACCESS-001",
+      "status": "planned"
+    },
+    {
+      "clause": "REQ-CEP-041",
+      "proof": "CEP-RETENTION-001",
+      "status": "planned"
+    },
+    {
+      "clause": "REQ-CEP-042",
+      "proof": "CEP-ACC-014",
+      "status": "planned"
+    },
+    {
+      "clause": "REQ-CEP-043",
+      "proof": "CEP-ACC-014",
+      "status": "planned"
+    },
+    {
+      "clause": "REQ-CEP-044",
+      "proof": "CEP-ACC-015",
+      "status": "planned"
+    },
+    {
+      "clause": "REQ-CEP-045",
+      "proof": "CEP-ACC-015",
+      "status": "planned"
+    },
+    {
+      "clause": "REQ-CEP-046",
+      "proof": "CEP-ACC-015",
+      "status": "planned"
+    },
+    {
+      "clause": "REQ-CEP-047",
+      "proof": "CEP-ACC-015",
+      "status": "planned"
+    },
+    {
+      "clause": "REQ-CEP-048",
+      "proof": "CEP-ACC-016",
+      "status": "planned"
+    },
+    {
+      "clause": "REQ-CEP-049",
+      "proof": "CEP-ACC-016",
+      "status": "planned"
+    },
+    {
+      "clause": "REQ-CEP-050",
+      "proof": "CEP-ACC-016",
+      "status": "planned"
+    },
+    {
+      "clause": "REQ-CEP-051",
+      "proof": "CEP-ACC-017",
+      "status": "planned"
+    },
+    {
+      "clause": "REQ-CEP-052",
+      "proof": "CEP-ACC-017",
+      "status": "planned"
+    },
+    {
+      "clause": "REQ-CEP-053",
+      "proof": "CEP-ACC-018",
+      "status": "planned"
+    },
+    {
+      "clause": "REQ-CEP-054",
+      "proof": "CEP-ACC-018",
+      "status": "planned"
+    },
+    {
+      "clause": "REQ-CEP-055",
+      "proof": "CEP-ACC-018",
+      "status": "planned"
+    },
+    {
+      "clause": "REQ-CEP-056",
+      "proof": "CEP-ACC-019",
+      "status": "planned"
+    },
+    {
+      "clause": "REQ-CEP-057",
+      "proof": "CEP-ACC-019",
+      "status": "planned"
+    },
+    {
+      "clause": "REQ-CEP-058",
+      "proof": "CEP-ACC-019",
+      "status": "planned"
+    },
+    {
+      "clause": "REQ-CEP-059",
+      "proof": "CEP-ACC-020",
+      "status": "planned"
+    },
+    {
+      "clause": "REQ-CEP-060",
+      "proof": "CEP-ACC-020",
+      "status": "planned"
+    },
+    {
+      "clause": "REQ-CEP-061",
+      "proof": "CEP-ACC-020",
+      "status": "planned"
+    },
+    {
+      "clause": "REQ-CEP-062",
+      "proof": "CEP-ACC-021",
+      "status": "planned"
+    },
+    {
+      "clause": "REQ-CEP-063",
+      "proof": "CEP-ACC-021",
+      "status": "planned"
+    },
+    {
+      "clause": "REQ-CEP-064",
+      "proof": "CEP-ACC-021",
+      "status": "planned"
+    },
+    {
+      "clause": "REQ-CEP-065",
+      "proof": "CEP-ACC-014",
+      "status": "planned"
+    },
+    {
+      "clause": "INV-CEP-001",
+      "proof": "CEP-ACC-003",
+      "status": "planned"
+    },
+    {
+      "clause": "INV-CEP-002",
+      "proof": "CEP-ACC-005",
+      "status": "planned"
+    },
+    {
+      "clause": "INV-CEP-003",
+      "proof": "CEP-ACC-006",
+      "status": "planned"
+    },
+    {
+      "clause": "INV-CEP-004",
+      "proof": "CEP-ACC-004",
+      "status": "planned"
+    },
+    {
+      "clause": "INV-CEP-005",
+      "proof": "CEP-ACC-005",
+      "status": "planned"
+    },
+    {
+      "clause": "INV-CEP-006",
+      "proof": "CEP-ACC-009",
+      "status": "planned"
+    },
+    {
+      "clause": "INV-CEP-007",
+      "proof": "CEP-ACC-012",
+      "status": "planned"
+    },
+    {
+      "clause": "INV-CEP-008",
+      "proof": "CEP-ACC-015",
+      "status": "planned"
+    },
+    {
+      "clause": "INV-CEP-009",
+      "proof": "CEP-ACC-007",
+      "status": "planned"
+    },
+    {
+      "clause": "INV-CEP-010",
+      "proof": "CEP-ACC-016",
+      "status": "planned"
+    },
+    {
+      "clause": "POL-CEP-001",
+      "proof": "CEP-ACC-011",
+      "status": "planned"
+    },
+    {
+      "clause": "POL-CEP-002",
+      "proof": "CEP-ACC-008",
+      "status": "planned"
+    },
+    {
+      "clause": "POL-CEP-003",
+      "proof": "CEP-ACC-007",
+      "status": "planned"
+    },
+    {
+      "clause": "POL-CEP-004",
+      "proof": "CEP-ACC-001",
+      "status": "planned"
+    },
+    {
+      "clause": "POL-CEP-005",
+      "proof": "CEP-ACC-005",
+      "status": "planned"
+    },
+    {
+      "clause": "POL-CEP-006",
+      "proof": "CEP-ACC-016",
+      "status": "planned"
+    },
+    {
+      "clause": "POL-CEP-007",
+      "proof": "CEP-POL-007",
+      "status": "planned"
+    },
+    {
+      "clause": "POL-CEP-008",
+      "proof": "CEP-RETENTION-001",
+      "status": "planned"
+    },
+    {
+      "clause": "POL-CEP-009",
+      "proof": "CEP-QA-001",
+      "status": "planned"
+    },
+    {
+      "clause": "QA-CEP-001",
+      "proof": "CEP-QA-001",
+      "status": "planned"
+    },
+    {
+      "clause": "QA-CEP-002",
+      "proof": "CEP-ACC-022",
+      "status": "planned"
+    },
+    {
+      "clause": "QA-CEP-003",
+      "proof": "CEP-ACC-005",
+      "status": "planned"
+    },
+    {
+      "clause": "QA-CEP-004",
+      "proof": "CEP-ACC-013",
+      "status": "planned"
+    },
+    {
+      "clause": "QA-CEP-005",
+      "proof": "CEP-ACC-015",
+      "status": "planned"
+    },
+    {
+      "clause": "QA-CEP-006",
+      "proof": "CEP-QA-006",
+      "status": "planned"
+    },
+    {
+      "clause": "QA-CEP-007",
+      "proof": "CEP-ACC-021",
+      "status": "planned"
+    },
+    {
+      "clause": "QA-CEP-008",
+      "proof": "CEP-QA-008",
+      "status": "planned"
+    },
+    {
+      "clause": "ACC-CEP-001",
+      "proof": "CEP-ACC-001",
+      "status": "planned"
+    },
+    {
+      "clause": "ACC-CEP-002",
+      "proof": "CEP-ACC-002",
+      "status": "planned"
+    },
+    {
+      "clause": "ACC-CEP-003",
+      "proof": "CEP-ACC-003",
+      "status": "planned"
+    },
+    {
+      "clause": "ACC-CEP-004",
+      "proof": "CEP-ACC-004",
+      "status": "planned"
+    },
+    {
+      "clause": "ACC-CEP-005",
+      "proof": "CEP-ACC-005",
+      "status": "planned"
+    },
+    {
+      "clause": "ACC-CEP-006",
+      "proof": "CEP-ACC-006",
+      "status": "planned"
+    },
+    {
+      "clause": "ACC-CEP-007",
+      "proof": "CEP-ACC-007",
+      "status": "planned"
+    },
+    {
+      "clause": "ACC-CEP-008",
+      "proof": "CEP-ACC-008",
+      "status": "planned"
+    },
+    {
+      "clause": "ACC-CEP-009",
+      "proof": "CEP-ACC-009",
+      "status": "planned"
+    },
+    {
+      "clause": "ACC-CEP-010",
+      "proof": "CEP-ACC-010",
+      "status": "planned"
+    },
+    {
+      "clause": "ACC-CEP-011",
+      "proof": "CEP-ACC-011",
+      "status": "planned"
+    },
+    {
+      "clause": "ACC-CEP-012",
+      "proof": "CEP-ACC-012",
+      "status": "planned"
+    },
+    {
+      "clause": "ACC-CEP-013",
+      "proof": "CEP-ACC-013",
+      "status": "planned"
+    },
+    {
+      "clause": "ACC-CEP-014",
+      "proof": "CEP-ACC-014",
+      "status": "planned"
+    },
+    {
+      "clause": "ACC-CEP-015",
+      "proof": "CEP-ACC-015",
+      "status": "planned"
+    },
+    {
+      "clause": "ACC-CEP-016",
+      "proof": "CEP-ACC-016",
+      "status": "planned"
+    },
+    {
+      "clause": "ACC-CEP-017",
+      "proof": "CEP-ACC-017",
+      "status": "planned"
+    },
+    {
+      "clause": "ACC-CEP-018",
+      "proof": "CEP-ACC-018",
+      "status": "planned"
+    },
+    {
+      "clause": "ACC-CEP-019",
+      "proof": "CEP-ACC-019",
+      "status": "planned"
+    },
+    {
+      "clause": "ACC-CEP-020",
+      "proof": "CEP-ACC-020",
+      "status": "planned"
+    },
+    {
+      "clause": "ACC-CEP-021",
+      "proof": "CEP-ACC-021",
+      "status": "planned"
+    },
+    {
+      "clause": "ACC-CEP-022",
+      "proof": "CEP-ACC-022",
+      "status": "planned"
+    }
+  ]
+}

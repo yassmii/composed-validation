@@ -1,0 +1,19 @@
+{
+  "suite": "agent-os/0.2.0",
+  "extends": "0.1.0",
+  "statusVocabulary": ["planned", "pass", "fail", "blocked", "not_run"],
+  "overrides": [
+    {"clause":"REQ-AOS-003","proof":"AOS-ACC-007","status":"planned"},
+    {"clause":"REQ-AOS-010","proof":"AOS-REQ-010-OWN-HISTORY","status":"planned"},
+    {"clause":"REQ-AOS-025","proof":"AOS-ACC-009","status":"planned"},
+    {"clause":"INV-AOS-005","proof":"AOS-ACC-017","status":"planned"},
+    {"clause":"QA-AOS-002","proof":"AOS-ART-001","status":"planned"},
+    {"clause":"QA-AOS-006","proof":"AOS-ART-001","status":"planned"}
+  ],
+  "entries": [
+    {"clause":"REQ-AOS-031","proof":"AOS-ACC-017","status":"planned"},
+    {"clause":"REQ-AOS-032","proof":"AOS-ACC-018","status":"planned"},
+    {"clause":"ACC-AOS-017","proof":"AOS-ACC-017","status":"planned"},
+    {"clause":"ACC-AOS-018","proof":"AOS-ACC-018","status":"planned"}
+  ]
+}

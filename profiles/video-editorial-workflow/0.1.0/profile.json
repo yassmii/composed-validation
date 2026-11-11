@@ -1,0 +1,55 @@
+{
+  "format": "composed-validation-profile/v1",
+  "id": "video-editorial-workflow/conformance",
+  "version": "0.1.0",
+  "contract": {
+    "id": "video-editorial-workflow",
+    "version": "0.3.1",
+    "revision": "1e2caf32f0ee03afb782d2a29393b87b90eebff2"
+  },
+  "suite": "video-editorial-workflow/0.3.1",
+  "adapter": {
+    "boundary": "black_box",
+    "requiredOperations": [
+      "describe",
+      "reset",
+      "execute",
+      "inspect",
+      "inject",
+      "dispose"
+    ],
+    "constraints": [
+      "Translate the fixture's named actions to the candidate's public product operations.",
+      "Use only disposable source media, project state, users and fixture-scoped destinations.",
+      "Expose declared fault injection only in an isolated test environment; never rewrite candidate internals.",
+      "Capture source byte hashes, domain state, run status, denied transmissions and exported artifacts through public boundaries.",
+      "Provide a recipient recipe only when that recipe was actually performed; report it unverified otherwise."
+    ]
+  },
+  "execution": {
+    "targetRevisionRequired": true,
+    "reportRequired": true,
+    "allowedVerdicts": [
+      "pass",
+      "fail",
+      "blocked",
+      "not_run"
+    ],
+    "plannedIsNotEvidence": true,
+    "conditionalCases": "Unsupported should capabilities produce not_run and a bounded claim. Never relabel them pass; full profile conformance requires all required cases."
+  },
+  "requiredCases": [
+    "VEW-ACC-001",
+    "VEW-ACC-002",
+    "VEW-ACC-003",
+    "VEW-ACC-004",
+    "VEW-ACC-005",
+    "VEW-ACC-006",
+    "VEW-ACC-007",
+    "VEW-INV-001",
+    "VEW-POL-003",
+    "VEW-QA-003",
+    "VEW-POL-001",
+    "VEW-ART-001"
+  ]
+}

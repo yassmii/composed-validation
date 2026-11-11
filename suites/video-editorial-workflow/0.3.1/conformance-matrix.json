@@ -1,0 +1,182 @@
+{
+  "suite": "video-editorial-workflow/0.3.1",
+  "statusVocabulary": [
+    "planned",
+    "pass",
+    "fail",
+    "blocked",
+    "not_run"
+  ],
+  "entries": [
+    {
+      "clause": "REQ-VEW-001",
+      "proof": "VEW-ACC-001",
+      "status": "planned"
+    },
+    {
+      "clause": "REQ-VEW-002",
+      "proof": "VEW-ACC-001",
+      "status": "planned"
+    },
+    {
+      "clause": "REQ-VEW-003",
+      "proof": "VEW-ACC-004",
+      "status": "planned"
+    },
+    {
+      "clause": "REQ-VEW-004",
+      "proof": "VEW-ACC-004",
+      "status": "planned"
+    },
+    {
+      "clause": "REQ-VEW-005",
+      "proof": "VEW-ACC-002",
+      "status": "planned"
+    },
+    {
+      "clause": "REQ-VEW-006",
+      "proof": "VEW-ACC-002",
+      "status": "planned"
+    },
+    {
+      "clause": "REQ-VEW-007",
+      "proof": "VEW-ACC-003",
+      "status": "planned"
+    },
+    {
+      "clause": "REQ-VEW-008",
+      "proof": "VEW-ACC-003",
+      "status": "planned"
+    },
+    {
+      "clause": "REQ-VEW-009",
+      "proof": "VEW-ACC-006",
+      "status": "planned"
+    },
+    {
+      "clause": "REQ-VEW-010",
+      "proof": "VEW-ART-001",
+      "status": "planned"
+    },
+    {
+      "clause": "REQ-VEW-011",
+      "proof": "VEW-ACC-005",
+      "status": "planned"
+    },
+    {
+      "clause": "REQ-VEW-012",
+      "proof": "VEW-ACC-005",
+      "status": "planned"
+    },
+    {
+      "clause": "REQ-VEW-013",
+      "proof": "VEW-ACC-007",
+      "status": "planned"
+    },
+    {
+      "clause": "REQ-VEW-014",
+      "proof": "VEW-ACC-007",
+      "status": "planned"
+    },
+    {
+      "clause": "INV-VEW-001",
+      "proof": "VEW-INV-001",
+      "status": "planned"
+    },
+    {
+      "clause": "INV-VEW-002",
+      "proof": "VEW-ACC-003",
+      "status": "planned"
+    },
+    {
+      "clause": "INV-VEW-003",
+      "proof": "VEW-ACC-004",
+      "status": "planned"
+    },
+    {
+      "clause": "INV-VEW-004",
+      "proof": "VEW-ACC-005",
+      "status": "planned"
+    },
+    {
+      "clause": "POL-VEW-001",
+      "proof": "VEW-POL-001",
+      "status": "planned"
+    },
+    {
+      "clause": "POL-VEW-002",
+      "proof": "VEW-ACC-006",
+      "status": "planned"
+    },
+    {
+      "clause": "POL-VEW-003",
+      "proof": "VEW-POL-003",
+      "status": "planned"
+    },
+    {
+      "clause": "POL-VEW-004",
+      "proof": "VEW-ACC-005",
+      "status": "planned"
+    },
+    {
+      "clause": "QA-VEW-001",
+      "proof": "VEW-ACC-003",
+      "status": "planned"
+    },
+    {
+      "clause": "QA-VEW-002",
+      "proof": "VEW-ART-001",
+      "status": "planned"
+    },
+    {
+      "clause": "QA-VEW-003",
+      "proof": "VEW-QA-003",
+      "status": "planned"
+    },
+    {
+      "clause": "QA-VEW-004",
+      "proof": "VEW-ACC-005",
+      "status": "planned"
+    },
+    {
+      "clause": "QA-VEW-005",
+      "proof": "VEW-ACC-003",
+      "status": "planned"
+    },
+    {
+      "clause": "ACC-VEW-001",
+      "proof": "VEW-ACC-001",
+      "status": "planned"
+    },
+    {
+      "clause": "ACC-VEW-002",
+      "proof": "VEW-ACC-002",
+      "status": "planned"
+    },
+    {
+      "clause": "ACC-VEW-003",
+      "proof": "VEW-ACC-003",
+      "status": "planned"
+    },
+    {
+      "clause": "ACC-VEW-004",
+      "proof": "VEW-ACC-004",
+      "status": "planned"
+    },
+    {
+      "clause": "ACC-VEW-005",
+      "proof": "VEW-ACC-005",
+      "status": "planned"
+    },
+    {
+      "clause": "ACC-VEW-006",
+      "proof": "VEW-ACC-006",
+      "status": "planned"
+    },
+    {
+      "clause": "ACC-VEW-007",
+      "proof": "VEW-ACC-007",
+      "status": "planned"
+    }
+  ]
+}

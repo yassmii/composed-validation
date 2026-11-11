@@ -1,0 +1,81 @@
+{
+  "format": "composed-validation-profile/v1",
+  "id": "prospecting-workspace/conformance",
+  "version": "0.1.0",
+  "contract": {
+    "id": "prospecting-workspace",
+    "version": "0.1.0",
+    "revision": "3b6372dada8dd10ad4eb474ae77620ad4699a37f"
+  },
+  "suite": "prospecting-workspace/0.1.0",
+  "adapter": {
+    "boundary": "black_box",
+    "requiredOperations": [
+      "describe",
+      "reset",
+      "execute",
+      "inspect",
+      "inject",
+      "dispose"
+    ],
+    "constraints": [
+      "Translate named fixture actions to documented public product/admin operations using only disposable workspaces, actors, test sources and controlled transport destinations.",
+      "Never import candidate internals, write private storage, bypass permissions or fabricate observations from suite assertions.",
+      "Use independent destination and provider ledgers to verify denied transfers, uncertain remote effects and duplicate sends.",
+      "Business profiles, contact policies and source/channel activation stay independent; illustrative source profiles are not production authorization.",
+      "Report absent optional capabilities/channels and unreproducible faults explicitly; they cannot pass.",
+      "Accessibility, real-user usability, deployment policy, reference-load measurements and held-out quality require attributable artifacts, never adapter self-approval."
+    ]
+  },
+  "execution": {
+    "targetRevisionRequired": true,
+    "reportRequired": true,
+    "allowedVerdicts": [
+      "pass",
+      "fail",
+      "blocked",
+      "not_run"
+    ],
+    "plannedIsNotEvidence": true,
+    "conditionalCases": "Disabled optional capabilities/channels are not_run with their scope documented. Every applicable core and enabled optional case must pass; unexecuted required cases preclude a complete-profile claim.",
+    "manualEvidence": "Retain target-bound reviewer attribution, method, dates, scope and hashed reproducible artifacts; missing evidence is blocked.",
+    "runnerAvailable": false
+  },
+  "requiredCases": [
+    "PR-ACC-001",
+    "PR-ACC-002",
+    "PR-ACC-003",
+    "PR-ACC-004",
+    "PR-ACC-005",
+    "PR-ACC-006",
+    "PR-ACC-007",
+    "PR-ACC-008",
+    "PR-ACC-009",
+    "PR-ACC-010",
+    "PR-ACC-011",
+    "PR-ACC-012",
+    "PR-ACC-013",
+    "PR-ACC-014",
+    "PR-ACC-015",
+    "PR-ACC-016",
+    "PR-ACC-017",
+    "PR-ACC-018",
+    "PR-ACC-019",
+    "PR-ACC-020",
+    "PR-ACC-021",
+    "PR-ACC-022",
+    "PR-ACC-023",
+    "PR-ACC-024",
+    "PR-ACC-025",
+    "PR-ACC-026",
+    "PR-ACC-027",
+    "PR-ACC-028",
+    "PR-ACC-029",
+    "PR-ACC-030",
+    "PR-ACC-031",
+    "PR-ACC-032",
+    "PR-QA-001",
+    "PR-QA-002",
+    "PR-QA-008"
+  ]
+}

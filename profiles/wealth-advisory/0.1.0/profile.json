@@ -1,0 +1,78 @@
+{
+  "format": "composed-validation-profile/v1",
+  "id": "wealth-advisory/conformance",
+  "version": "0.1.0",
+  "status": "draft",
+  "contract": {
+    "id": "wealth-advisory",
+    "version": "0.1.0",
+    "revision": "a6c6a7c3fb6e540913376c326a3b130af6d147e5",
+    "contentBlob": "63ee2c21a1d928fa79207448de6d165d41d62f9c",
+    "sha256": "d51dcabc5031a5f8cb75e374daeeef303c65e2821efd8670d9ced4c7c601265f",
+    "schemaVersion": "0.2",
+    "maturity": "draft"
+  },
+  "suite": "wealth-advisory/0.1.0",
+  "adapter": {
+    "boundary": "black_box",
+    "requiredOperations": [
+      "describe",
+      "reset",
+      "execute",
+      "inspect",
+      "inject",
+      "dispose"
+    ],
+    "constraints": [
+      "Translate only through documented public product/admin operations, using disposable synthetic dossiers and actors. Do not import internals or write private storage.",
+      "The adapter reports actions, responses, state and provenance, not a self-awarded case verdict. Validate the translation independently before interpreting candidate results.",
+      "Run each declared method/kind at its exact proof boundary. Component arithmetic does not establish a public-interface result; automated reports do not establish human review.",
+      "Only use controlled public test facilities for clock, faults, concurrency and restoration. Unsupported or unreproducible operations remain blocked, never passed.",
+      "No real client data, paid model calls, live transmission, real financial transactions or regulatory approval is authorized by the suite.",
+      "Optional AI phases do not skip mandatory manual preparation, role checks or human validation. Deferred AML/asset-freezing modules cannot be declared compliant."
+    ]
+  },
+  "execution": {
+    "targetRevisionRequired": true,
+    "reportRequired": true,
+    "allowedVerdicts": [
+      "pass",
+      "fail",
+      "blocked",
+      "not_run"
+    ],
+    "plannedIsNotEvidence": true,
+    "runnerAvailable": false,
+    "requiredDimensions": "All contract-defined method × kind combinations at the declared boundary must be observed for every required case. No unexecuted dimension can pass.",
+    "manualEvidence": "External review must name author/reviewer, distinct contexts, target and contract identities, dates, method, findings, verdict and nonempty hashed artifacts. Software identity declarations do not authenticate people.",
+    "conformanceClaim": "No implementation or contract-wide conformance follows from structural validation. The locked contract remains draft; substantive legal/model review remains separate."
+  },
+  "requiredCases": [
+    "WAD-ACC-001",
+    "WAD-ACC-002",
+    "WAD-ACC-003",
+    "WAD-ACC-004",
+    "WAD-ACC-005",
+    "WAD-ACC-006",
+    "WAD-ACC-007",
+    "WAD-ACC-008",
+    "WAD-ACC-009",
+    "WAD-ACC-010",
+    "WAD-ACC-011",
+    "WAD-ACC-012",
+    "WAD-ACC-013",
+    "WAD-ACC-014",
+    "WAD-ACC-015",
+    "WAD-ACC-016",
+    "WAD-ACC-017",
+    "WAD-ACC-018",
+    "WAD-ACC-019",
+    "WAD-ACC-020",
+    "WAD-ACC-021",
+    "WAD-ACC-022",
+    "WAD-ACC-023",
+    "WAD-ACC-024",
+    "WAD-ACC-025",
+    "WAD-ACC-026"
+  ]
+}

@@ -1,0 +1,76 @@
+profile_id: commerces-locaux
+version: 0.1.0
+status: illustrative
+activation_ready: false
+purpose: Rechercher des commerces pertinents pour un accompagnement énergétique, puis vérifier leur besoin et suivre les échanges.
+business_owner: À désigner
+target_types: [etablissement_commercial]
+related_types: [organisation, personne]
+attributes:
+  - {field: etablissement_commercial.categorie, type: string, required_for: adequation}
+  - {field: etablissement_commercial.commune, type: string, required_for: adequation}
+  - {field: etablissement_commercial.identifiant_source, type: string, required_for: rapprochement_certain_si_disponible}
+  - {field: dossier.besoin_exprime, type: string, required_for: qualification_commerciale}
+  - {field: dossier.prochaine_etape_acceptee, type: boolean, required_for: qualification_commerciale}
+relations:
+  - {type: exploite, from: organisation, to: etablissement_commercial, cardinality: une_organisation_plusieurs_etablissements, validity: dates_ou_inconnue}
+  - {type: interlocuteur_pour, from: personne, to: etablissement_commercial, cardinality: plusieurs_a_plusieurs, validity: dates_ou_inconnue}
+identity:
+  reliable_key: [type, emetteur, identifiant_source]
+  possible_match: nom_et_adresse_avec_revue
+  never_sufficient_alone: [raison_sociale, courriel_generique, telephone_partage]
+acquisition:
+  candidate_sources:
+    - {name: Annuaire ou registre autorisé, access_status: non_configure, reuse_status: a_valider}
+    - {name: Saisie ou import métier, access_status: a_configurer, reuse_status: provenance_et_permission_requises}
+  filters: [communes_de_la_campagne, categories_de_la_campagne]
+  inbound_form:
+    fields: [identification_etablissement, besoin_exprime, moyen_reponse_choisi]
+    marketing_consent: facultatif_distinct_de_la_demande
+qualification:
+  criteria:
+    - criterion_id: COM-CATEGORIE
+      dimension: adequation
+      rule: {field: etablissement_commercial.categorie, operator: in, value: categories_validees_de_la_campagne}
+      evidence: {allowed: [source_autorisee, verification_manuelle_sourcee], max_age_days: 180}
+    - criterion_id: COM-TERRITOIRE
+      dimension: adequation
+      rule: {field: etablissement_commercial.commune, operator: in, value: communes_validees_de_la_campagne}
+      evidence: {allowed: [source_autorisee, verification_manuelle_sourcee], max_age_days: 180}
+    - criterion_id: COM-BESOIN
+      dimension: interet_besoin
+      rule: {field: dossier.besoin_exprime, operator: exists}
+      evidence: {allowed: [declaration_directe_attribuee], scope: ce_dossier_et_cette_offre, max_age_days: 90}
+    - criterion_id: COM-SUITE
+      dimension: interet_besoin
+      rule: {field: dossier.prochaine_etape_acceptee, operator: equals, value: true}
+      evidence: {allowed: [reponse_directe_attribuee], max_age_days: 30}
+  levels:
+    - {name: cible_pertinente, mandatory_criteria: [COM-CATEGORIE, COM-TERRITOIRE]}
+    - {name: lead_commercialement_qualifie, mandatory_criteria: [COM-CATEGORIE, COM-TERRITOIRE, COM-BESOIN, COM-SUITE]}
+  unknown_handling: bloque_le_niveau_concerne_et_propose_la_preuve_a_obtenir
+  acceptance: decision_humaine_attribuee
+  contactability: evaluation_separee_par_destinataire_finalite_canal_et_politique
+priority:
+  method: ordre_explicite_par_niveau_accepte_puis_prochaine_echeance
+  forbidden_inference: Une note publique et un nombre d'avis ne démontrent ni besoin énergétique ni probabilité de conversion.
+follow_up:
+  stages: [a_examiner, a_qualifier, echange_en_cours, rendez_vous_accepte, conclu, ecarte]
+  transition_gates: {rendez_vous_accepte: lead_commercialement_qualifie_accepte}
+  terminal_outcomes: [transfert_accepte_vers_audit, refus, hors_cible]
+  responsibility: utilisateur_ou_file_responsable_identifiee
+  next_action: datee_ou_attente_motivee_avec_reexamen
+contact_content:
+  offer: Accompagnement énergétique à préciser et valider pour le déploiement.
+  approved_claims: []
+  forbidden: [inventer_des_economies, imposer_un_chiffre_non_source, deduire_un_besoin_des_avis]
+monitoring: {enabled: false}
+evaluation:
+  baseline: revue_manuelle_avec_la_meme_grille
+  cases: [deux_etablissements_meme_enseigne, besoin_inconnu, homonymes, source_indisponible, refus_contact]
+  publication_thresholds: a_fixer_avant_mesure
+dependencies:
+  compliance_policy: a_valider_pour_population_reelle_finalite_et_canaux
+  channels: []
+  execution_limits: a_valider_avant_activation
+  activation_blockers: [offre_a_preciser, categories_et_communes_non_validees, politique_absente, sources_non_habilitees, budgets_et_seuils_non_valides]

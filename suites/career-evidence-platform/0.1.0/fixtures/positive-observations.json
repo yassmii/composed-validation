@@ -1,0 +1,382 @@
+{
+  "purpose": "Synthetic replay control for the validator; not observations of a product or human study.",
+  "observations": {
+    "CEP-ACC-001": {
+      "inputSourceIds": [
+        "cv-a"
+      ],
+      "resultState": "reviewable",
+      "goal": "deferred",
+      "nextAction": "review-record",
+      "optionalEnrichmentBlocking": false,
+      "confirmedWorkPreserved": true,
+      "purposeAndLimits": "visible"
+    },
+    "CEP-ACC-002": {
+      "successfulSourceIds": [
+        "cv-a",
+        "contract-a"
+      ],
+      "failedSourceIds": [
+        "broken-a"
+      ],
+      "failedState": "failed",
+      "recoveryAction": "replace-input",
+      "duplicateSourceId": "cv-a",
+      "independentEvidenceCount": 2,
+      "origin": "owner-upload",
+      "owner": "person-a",
+      "receiptTimePresent": true,
+      "locationsPresent": true
+    },
+    "CEP-ACC-003": {
+      "entrypointsDenied": [
+        "direct",
+        "guidance",
+        "queued"
+      ],
+      "acceptedSourceCount": 0,
+      "externalProcessorCalls": 0,
+      "policyShownBeforeIntake": true
+    },
+    "CEP-ACC-004": {
+      "sourceIds": [
+        "cv-a",
+        "contract-a"
+      ],
+      "restoredEventIds": [
+        "event-a",
+        "event-b",
+        "project-a"
+      ],
+      "conflictingStartDates": [
+        "2020",
+        "2021"
+      ],
+      "overlapPreserved": true,
+      "previewSourceIds": [
+        "cv-a",
+        "contract-a"
+      ],
+      "exactDatesInvented": false,
+      "revisionAttribution": "person-a",
+      "splitPreviewSourceIds": [
+        [
+          "cv-a"
+        ],
+        [
+          "contract-a"
+        ]
+      ],
+      "recordUnchangedAfterCancelSplit": true
+    },
+    "CEP-ACC-005": {
+      "assertionCategory": "model-inference",
+      "activity": "Led a team of twelve",
+      "sourceId": "cv-a",
+      "period": "2020–2023",
+      "methodPresent": true,
+      "certifiedMastery": false,
+      "measuredLevel": null,
+      "missingEvidenceMeansIncompetence": false,
+      "fraudConclusion": "not-established",
+      "unsupportedOutputClaims": []
+    },
+    "CEP-ACC-006": {
+      "confirmedStart": "2021",
+      "originalObservedStart": "2020",
+      "correctionActor": "person-a",
+      "conflictState": "review-required",
+      "dependentOutputState": "stale",
+      "sourceAvailability": "unavailable",
+      "recipientCanVerifySource": false,
+      "erasedContentRetained": false
+    },
+    "CEP-ACC-007": {
+      "conceptId": "internal:team-management",
+      "assertionId": "assertion-a",
+      "assessmentId": "assessment-a",
+      "priorFrameworkVersion": "fixture-1",
+      "priorRelation": "close",
+      "candidateFrameworkVersion": "fixture-2",
+      "candidateRelation": "exact",
+      "candidateStatus": "candidate",
+      "needsReview": true,
+      "testimonyLanguage": "original"
+    },
+    "CEP-ACC-008": {
+      "taskId": "task-a",
+      "confirmedEventId": "event-a",
+      "taskState": "in_progress",
+      "reconstructedDialogueRequired": false,
+      "directJourneys": [
+        "intake",
+        "correction",
+        "output",
+        "access-control"
+      ],
+      "guidanceSourceIds": [
+        "cv-a"
+      ],
+      "missingInformation": [
+        "exact-start-date"
+      ],
+      "abstentionAvailable": true
+    },
+    "CEP-ACC-009": {
+      "unapprovedSends": 0,
+      "unapprovedDisclosures": 0,
+      "permissionChanges": 0,
+      "previewRecipient": "referee-a",
+      "approvedSends": 1,
+      "approvalActor": "person-a",
+      "approvalScope": [
+        "referee-a"
+      ]
+    },
+    "CEP-ACC-010": {
+      "directionCount": 2,
+      "evidenceSourceIds": [
+        "cv-a"
+      ],
+      "evidenceGaps": [
+        "missing-project-detail"
+      ],
+      "assessedSkillGaps": [],
+      "externalDataDatePresent": true,
+      "coverageLimitsPresent": true,
+      "liveVacancyClaim": false,
+      "hiringProbability": null,
+      "rejectedId": "direction-b",
+      "nextAction": "discuss-with-advisor"
+    },
+    "CEP-ACC-011": {
+      "narrative": "Owner reviewed narrative",
+      "outputRevision": "record-r2",
+      "outputState": "approved",
+      "recipientFields": [
+        "summary",
+        "assertions"
+      ],
+      "rawDocumentIds": [],
+      "contactDetails": [],
+      "badgeKind": "career-view-link",
+      "certificationClaim": false,
+      "previewMatchesRecipient": true
+    },
+    "CEP-ACC-012": {
+      "initialAccess": "allowed",
+      "expiredAccess": "denied",
+      "revokedAccess": "denied",
+      "downloadRecallLimitShown": true
+    },
+    "CEP-ACC-013": {
+      "profileOwner": "person-a",
+      "retrievalOwner": "person-a",
+      "cacheOwner": "person-a",
+      "guidanceOwner": "person-a",
+      "exportOwner": "person-a",
+      "returnedText": "Only person-a authorized content"
+    },
+    "CEP-ACC-014": {
+      "beforeRecoveryState": "incomplete",
+      "queuedWorkState": "cancelled",
+      "afterRecoveryState": "completed",
+      "servedErasedSources": [],
+      "restoredRevokedAccess": "denied",
+      "remainingStores": [],
+      "auditContainsDocumentBody": false,
+      "projectionAuthority": "derived"
+    },
+    "CEP-ACC-015": {
+      "committedChanges": 1,
+      "charges": 1,
+      "chargeUnit": "operation",
+      "maximumCharge": 1,
+      "profileQualityIsBalance": false,
+      "externalCallsAfterExhaustion": 0,
+      "existingRecordReadable": true,
+      "correctionHistoryReadable": true,
+      "shareRevocation": "effective",
+      "operationState": "succeeded"
+    },
+    "CEP-ACC-016": {
+      "targetEvent": "event-a",
+      "questionPresent": true,
+      "reasonPresent": true,
+      "approvedRecipient": "referee-a",
+      "sharedContext": [
+        "event-a"
+      ],
+      "deliveryState": "delivered",
+      "responseState": "declined",
+      "createdCareerProfiles": 0,
+      "marketingEnrollments": 0
+    },
+    "CEP-ACC-017": {
+      "relationship": "former-colleague",
+      "observationPeriod": "2021–2022",
+      "authenticationMethod": "member-login",
+      "independentIdentityVerified": false,
+      "assessmentMethod": null,
+      "publicationWasAuthorized": true,
+      "referenceContactAuthorized": false,
+      "challengeRecorded": true,
+      "withdrawalState": "withdrawn",
+      "recipientAccessAfterWithdrawal": "denied"
+    },
+    "CEP-ACC-018": {
+      "networkAccess": "unavailable",
+      "networkImported": false,
+      "manualRecipient": "referee-a",
+      "nominationOrigin": "owner-manual",
+      "suggestedEvent": "event-a",
+      "limitationShown": true,
+      "sentMessages": 0,
+      "marketingEnrollments": 0
+    },
+    "CEP-ACC-019": {
+      "issuer": "fixture-issuer",
+      "subject": "person-a",
+      "achievement": "fixture-achievement",
+      "status": "expired",
+      "unsupportedStatus": "unsupported",
+      "modelAssertionExportedAsIssuerCertified": false,
+      "publicEvidenceIds": [],
+      "issuerEvidenceReference": "fixture-evidence"
+    },
+    "CEP-ACC-020": {
+      "sourceRevision": "fixture-legacy-r1",
+      "owner": "person-a",
+      "expectedSourceCount": 2,
+      "reconciledSourceCount": 2,
+      "missingSourceIds": [
+        "missing-source"
+      ],
+      "inventedConsentCount": 0,
+      "legacyClaimBasis": "incomplete-provenance",
+      "sourceLinksPreserved": true,
+      "cutoverResumable": true,
+      "revokedAccess": "denied",
+      "resurrectedErasedSources": [],
+      "usableOutputVerified": true
+    },
+    "CEP-ACC-021": {
+      "corpusId": "synthetic-heldout-v1",
+      "split": "heldout",
+      "baselineCaseIds": [
+        "eval-a",
+        "eval-b"
+      ],
+      "candidateCaseIds": [
+        "eval-a",
+        "eval-b"
+      ],
+      "population": "synthetic FR/EN career fixtures",
+      "languages": [
+        "fr",
+        "en"
+      ],
+      "modelVersions": [
+        "baseline-r1",
+        "candidate-r2"
+      ],
+      "promptVersion": "prompt-r1",
+      "mappingVersion": "fixture-1",
+      "sourceRevision": "fixture-r1",
+      "metrics": {
+        "extractionPrecision": 0.9,
+        "extractionRecall": 0.8,
+        "linkingTopK": 0.8,
+        "unsupportedClaimRate": 0.1,
+        "temporalAccuracy": 0.9,
+        "humanCareerRelevance": 0.7,
+        "abstentionRate": 0.1
+      },
+      "baseline": {
+        "cost": 0.01,
+        "latencyMs": 20
+      },
+      "candidate": {
+        "cost": 0.02,
+        "latencyMs": 30
+      },
+      "regressions": [
+        "latencyMs",
+        "cost"
+      ],
+      "blanketSotaClaim": false,
+      "routineTelemetryContainsBodies": false
+    },
+    "CEP-ACC-022": {
+      "completedTasks": [
+        "inspect-evidence",
+        "correct-record",
+        "prepare-output"
+      ],
+      "graphRequired": false,
+      "labelsPresent": true,
+      "statusFeedbackPresent": true
+    },
+    "CEP-QA-001": {
+      "metricOrigin": "proposed-contract-threshold",
+      "populationDeclared": true
+    },
+    "CEP-QA-006": {
+      "readableOutputSelfContained": true,
+      "expectedEntities": 4,
+      "readEntities": 4,
+      "expectedTypedLinks": 3,
+      "readTypedLinks": 3,
+      "expectedVersions": 2,
+      "readVersions": 2,
+      "expectedMarkers": 3,
+      "readMarkers": 3,
+      "originalApplicationRequired": false,
+      "originalModelProviderRequired": false,
+      "reader": "independent-fixture-reader-v1",
+      "correctionsPreserved": true,
+      "unreconciledEntities": 0,
+      "unreconciledTypedLinks": 0,
+      "unreconciledVersions": 0,
+      "unreconciledMarkers": 0
+    },
+    "CEP-QA-008": {
+      "operationIdsPresent": true,
+      "longWorkProgressAvailable": true
+    },
+    "CEP-RETENTION-001": {
+      "storesCovered": [
+        "original",
+        "extracted",
+        "derived",
+        "temporary",
+        "provider"
+      ],
+      "profileStillAvailable": true,
+      "sourceAvailability": "unavailable",
+      "exceptions": [
+        {
+          "purpose": "minimal-audit",
+          "retention": "declared-limited"
+        }
+      ],
+      "indefiniteVaultPromise": false,
+      "retentionShownBeforeCollection": true
+    },
+    "CEP-ACCESS-001": {
+      "advisorReadBeforeRevocation": "allowed",
+      "advisorChangeAfterRevocation": "denied",
+      "operatorContentWithoutGrant": "denied",
+      "ownerCorrectionAvailable": true,
+      "requiredProcessingPermission": true,
+      "optionalDisclosurePermission": false,
+      "testimonyParticipation": false,
+      "marketingEnrollment": false,
+      "operatorAccessAttributionRequired": true
+    },
+    "CEP-POL-007": {
+      "deploymentDocumentId": "deployment-r1"
+    }
+  }
+}

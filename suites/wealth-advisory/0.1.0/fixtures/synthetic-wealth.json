@@ -1,0 +1,264 @@
+{
+  "id": "synthetic-wealth-v1",
+  "purpose": "Synthetic test data, not a real client or approved advice.",
+  "executionStatus": "not_run",
+  "clock": {
+    "analysisDate": "2026-11-04",
+    "reviewDate": "2026-11-04",
+    "nextAnnualReview": "2027-11-04"
+  },
+  "actors": [
+    {
+      "id": "adviser-a",
+      "cabinet": "cabinet-a",
+      "role": "adviser",
+      "declaredDomains": [
+        "financial"
+      ]
+    },
+    {
+      "id": "assistant-a",
+      "cabinet": "cabinet-a",
+      "role": "assistant"
+    },
+    {
+      "id": "technical-admin-a",
+      "cabinet": "cabinet-a",
+      "role": "technical-admin",
+      "clientReadAccess": false
+    },
+    {
+      "id": "adviser-b",
+      "cabinet": "cabinet-b",
+      "role": "adviser"
+    }
+  ],
+  "persons": [
+    {
+      "id": "person-a",
+      "cabinet": "cabinet-a",
+      "name": "Fixture A"
+    },
+    {
+      "id": "person-b",
+      "cabinet": "cabinet-a",
+      "name": "Fixture B"
+    },
+    {
+      "id": "person-other",
+      "cabinet": "cabinet-b",
+      "name": "Other fixture"
+    }
+  ],
+  "service": {
+    "id": "financial-periodic-fixture",
+    "version": "1",
+    "domain": "financial",
+    "jurisdiction": "FR",
+    "professionalStatus": "CIF-declared-fixture-only",
+    "authorityVerified": false,
+    "requiredInformation": [
+      "objectives",
+      "horizon",
+      "knowledge",
+      "experience",
+      "financialSituation",
+      "lossCapacity",
+      "riskTolerance",
+      "sustainabilityPreferences"
+    ],
+    "freshness": "Explicit fixture policy at analysis date; not a production legal profile.",
+    "periodicSuitabilityReview": true,
+    "annualMaximum": true
+  },
+  "inventory": {
+    "property": {
+      "id": "property-a",
+      "grossEur": "400000.00",
+      "valuedOn": "2026-11-04",
+      "owners": [
+        {
+          "person": "person-a",
+          "share": "0.60"
+        },
+        {
+          "person": "person-b",
+          "share": "0.40"
+        }
+      ]
+    },
+    "debt": {
+      "id": "loan-a",
+      "outstandingEur": "100000.00",
+      "valuedOn": "2026-11-04",
+      "securedOn": "property-a",
+      "allocationExplicit": true,
+      "debtors": [
+        {
+          "person": "person-a",
+          "share": "0.60"
+        },
+        {
+          "person": "person-b",
+          "share": "0.40"
+        }
+      ]
+    },
+    "envelope": {
+      "id": "envelope-a",
+      "owner": "person-a",
+      "grossEur": "50000.00",
+      "components": [
+        {
+          "id": "holding-a",
+          "grossEur": "30000.00"
+        },
+        {
+          "id": "holding-b",
+          "grossEur": "20000.00"
+        }
+      ]
+    },
+    "expected": {
+      "propertyNetPersonA": "180000.00",
+      "propertyNetPersonB": "120000.00",
+      "grossGroup": "450000.00",
+      "debtGroup": "100000.00",
+      "netGroup": "350000.00",
+      "netPersonA": "230000.00",
+      "netPersonB": "120000.00"
+    },
+    "uncoveredRights": {
+      "id": "split-title-a",
+      "valuationModel": null
+    },
+    "unallocatedDebt": {
+      "id": "unallocated-loan",
+      "allocation": null
+    },
+    "guarantee": {
+      "id": "guarantee-a",
+      "called": false
+    },
+    "foreignPosition": {
+      "amount": "1000.00",
+      "currency": "USD",
+      "rateEurPerUsd": "0.90",
+      "rateDate": "2026-11-04",
+      "rateSource": "synthetic-fixed-rate",
+      "expectedEur": "900.00"
+    },
+    "futureValuation": {
+      "date": "2026-12-04",
+      "amountEur": "600000.00"
+    }
+  },
+  "budget": {
+    "period": "year",
+    "monthsPerYear": 12,
+    "income": [
+      {
+        "amountEur": "3000.00",
+        "period": "month",
+        "basis": "net"
+      },
+      {
+        "amountEur": "12000.00",
+        "period": "year",
+        "basis": "net"
+      }
+    ],
+    "expenses": [
+      {
+        "amountEur": "2000.00",
+        "period": "month",
+        "includesDebtPayment": true
+      },
+      {
+        "amountEur": "1200.00",
+        "period": "year"
+      }
+    ],
+    "expected": {
+      "incomeEur": "48000.00",
+      "expensesEur": "25200.00",
+      "balanceEur": "22800.00"
+    },
+    "negativeBalance": "-100.00",
+    "ratioWithZeroDenominator": "not-calculable"
+  },
+  "projection": {
+    "principalEur": "10000.00",
+    "periodYears": 1,
+    "model": "annual-compound-synthetic-v1",
+    "fees": "explicitly-excluded",
+    "tax": "explicitly-excluded",
+    "inflation": "explicitly-excluded",
+    "rates": [
+      {
+        "annualRate": "0.00",
+        "expectedEur": "10000.00"
+      },
+      {
+        "annualRate": "0.02",
+        "expectedEur": "10200.00"
+      },
+      {
+        "annualRate": "-0.05",
+        "expectedEur": "9500.00"
+      }
+    ],
+    "specializedModelReference": "External professional review required; no fiscal, inheritance or retirement model is supplied."
+  },
+  "goals": [
+    {
+      "id": "liquidity",
+      "person": "person-a",
+      "horizonYears": 1,
+      "amountEur": "20000.00"
+    },
+    {
+      "id": "locked-investment",
+      "person": "person-a",
+      "horizonYears": 10,
+      "amountEur": "20000.00",
+      "illiquid": true
+    }
+  ],
+  "recueilStates": [
+    "declared",
+    "documented",
+    "to-confirm",
+    "unknown",
+    "refused",
+    "not-applicable"
+  ],
+  "reviews": {
+    "caseId": "WAD-ACC-014",
+    "kind": "report-comprehension",
+    "required": true,
+    "syntheticReviewProvided": false
+  },
+  "faults": [
+    "failed-delivery",
+    "missing-fx-rate",
+    "stale-model",
+    "unsupported-specialized-model",
+    "stale-validation",
+    "concurrent-revision",
+    "export-failure",
+    "restore-failure"
+  ],
+  "privacy": {
+    "secretCanary": "SYNTHETIC-ONLY-CANARY-NOT-A-CREDENTIAL",
+    "deniedDestination": "https://fixture.invalid/not-authorized",
+    "personalDataToErase": "synthetic-removable-data",
+    "backupPredatesErasure": true
+  },
+  "scope": {
+    "automatedAssistance": "optional; repeat relevant phases without it",
+    "amlMonitoring": "deferred",
+    "assetFreezing": "deferred",
+    "transactionExecution": "excluded"
+  }
+}

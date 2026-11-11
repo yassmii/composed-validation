@@ -1,0 +1,362 @@
+{
+  "contract": "wealth-advisory",
+  "contractVersion": "0.1.0",
+  "suite": "wealth-advisory/0.1.0",
+  "entries": [
+    {
+      "clause": "REQ-WAD-001",
+      "proof": "WAD-ACC-001",
+      "status": "planned"
+    },
+    {
+      "clause": "REQ-WAD-002",
+      "proof": "WAD-ACC-001",
+      "status": "planned"
+    },
+    {
+      "clause": "REQ-WAD-003",
+      "proof": "WAD-ACC-002",
+      "status": "planned"
+    },
+    {
+      "clause": "REQ-WAD-004",
+      "proof": "WAD-ACC-003",
+      "status": "planned"
+    },
+    {
+      "clause": "REQ-WAD-005",
+      "proof": "WAD-ACC-004",
+      "status": "planned"
+    },
+    {
+      "clause": "REQ-WAD-006",
+      "proof": "WAD-ACC-005",
+      "status": "planned"
+    },
+    {
+      "clause": "REQ-WAD-007",
+      "proof": "WAD-ACC-005",
+      "status": "planned"
+    },
+    {
+      "clause": "REQ-WAD-008",
+      "proof": "WAD-ACC-005",
+      "status": "planned"
+    },
+    {
+      "clause": "REQ-WAD-009",
+      "proof": "WAD-ACC-007",
+      "status": "planned"
+    },
+    {
+      "clause": "REQ-WAD-010",
+      "proof": "WAD-ACC-008",
+      "status": "planned"
+    },
+    {
+      "clause": "REQ-WAD-011",
+      "proof": "WAD-ACC-008",
+      "status": "planned"
+    },
+    {
+      "clause": "REQ-WAD-012",
+      "proof": "WAD-ACC-003",
+      "status": "planned"
+    },
+    {
+      "clause": "REQ-WAD-013",
+      "proof": "WAD-ACC-010",
+      "status": "planned"
+    },
+    {
+      "clause": "REQ-WAD-014",
+      "proof": "WAD-ACC-010",
+      "status": "planned"
+    },
+    {
+      "clause": "REQ-WAD-015",
+      "proof": "WAD-ACC-012",
+      "status": "planned"
+    },
+    {
+      "clause": "REQ-WAD-016",
+      "proof": "WAD-ACC-013",
+      "status": "planned"
+    },
+    {
+      "clause": "REQ-WAD-017",
+      "proof": "WAD-ACC-004",
+      "status": "planned"
+    },
+    {
+      "clause": "REQ-WAD-018",
+      "proof": "WAD-ACC-013",
+      "status": "planned"
+    },
+    {
+      "clause": "REQ-WAD-019",
+      "proof": "WAD-ACC-014",
+      "status": "planned"
+    },
+    {
+      "clause": "REQ-WAD-020",
+      "proof": "WAD-ACC-015",
+      "status": "planned"
+    },
+    {
+      "clause": "REQ-WAD-021",
+      "proof": "WAD-ACC-014",
+      "status": "planned"
+    },
+    {
+      "clause": "REQ-WAD-022",
+      "proof": "WAD-ACC-017",
+      "status": "planned"
+    },
+    {
+      "clause": "REQ-WAD-023",
+      "proof": "WAD-ACC-018",
+      "status": "planned"
+    },
+    {
+      "clause": "REQ-WAD-024",
+      "proof": "WAD-ACC-019",
+      "status": "planned"
+    },
+    {
+      "clause": "REQ-WAD-025",
+      "proof": "WAD-ACC-019",
+      "status": "planned"
+    },
+    {
+      "clause": "REQ-WAD-026",
+      "proof": "WAD-ACC-015",
+      "status": "planned"
+    },
+    {
+      "clause": "REQ-WAD-027",
+      "proof": "WAD-ACC-021",
+      "status": "planned"
+    },
+    {
+      "clause": "REQ-WAD-028",
+      "proof": "WAD-ACC-022",
+      "status": "planned"
+    },
+    {
+      "clause": "REQ-WAD-029",
+      "proof": "WAD-ACC-023",
+      "status": "planned"
+    },
+    {
+      "clause": "INV-WAD-001",
+      "proof": "WAD-ACC-002",
+      "status": "planned"
+    },
+    {
+      "clause": "INV-WAD-002",
+      "proof": "WAD-ACC-005",
+      "status": "planned"
+    },
+    {
+      "clause": "INV-WAD-003",
+      "proof": "WAD-ACC-007",
+      "status": "planned"
+    },
+    {
+      "clause": "INV-WAD-004",
+      "proof": "WAD-ACC-016",
+      "status": "planned"
+    },
+    {
+      "clause": "INV-WAD-005",
+      "proof": "WAD-ACC-015",
+      "status": "planned"
+    },
+    {
+      "clause": "INV-WAD-006",
+      "proof": "WAD-ACC-015",
+      "status": "planned"
+    },
+    {
+      "clause": "INV-WAD-007",
+      "proof": "WAD-ACC-020",
+      "status": "planned"
+    },
+    {
+      "clause": "INV-WAD-008",
+      "proof": "WAD-ACC-010",
+      "status": "planned"
+    },
+    {
+      "clause": "POL-WAD-001",
+      "proof": "WAD-ACC-001",
+      "status": "planned"
+    },
+    {
+      "clause": "POL-WAD-002",
+      "proof": "WAD-ACC-018",
+      "status": "planned"
+    },
+    {
+      "clause": "POL-WAD-003",
+      "proof": "WAD-ACC-015",
+      "status": "planned"
+    },
+    {
+      "clause": "POL-WAD-004",
+      "proof": "WAD-ACC-002",
+      "status": "planned"
+    },
+    {
+      "clause": "POL-WAD-005",
+      "proof": "WAD-ACC-019",
+      "status": "planned"
+    },
+    {
+      "clause": "QA-WAD-001",
+      "proof": "WAD-ACC-008",
+      "status": "planned"
+    },
+    {
+      "clause": "QA-WAD-002",
+      "proof": "WAD-ACC-023",
+      "status": "planned"
+    },
+    {
+      "clause": "QA-WAD-003",
+      "proof": "WAD-ACC-014",
+      "status": "planned"
+    },
+    {
+      "clause": "ACC-WAD-001",
+      "proof": "WAD-ACC-001",
+      "status": "planned"
+    },
+    {
+      "clause": "ACC-WAD-002",
+      "proof": "WAD-ACC-002",
+      "status": "planned"
+    },
+    {
+      "clause": "ACC-WAD-003",
+      "proof": "WAD-ACC-003",
+      "status": "planned"
+    },
+    {
+      "clause": "ACC-WAD-004",
+      "proof": "WAD-ACC-004",
+      "status": "planned"
+    },
+    {
+      "clause": "ACC-WAD-005",
+      "proof": "WAD-ACC-005",
+      "status": "planned"
+    },
+    {
+      "clause": "ACC-WAD-006",
+      "proof": "WAD-ACC-006",
+      "status": "planned"
+    },
+    {
+      "clause": "ACC-WAD-007",
+      "proof": "WAD-ACC-007",
+      "status": "planned"
+    },
+    {
+      "clause": "ACC-WAD-008",
+      "proof": "WAD-ACC-008",
+      "status": "planned"
+    },
+    {
+      "clause": "ACC-WAD-009",
+      "proof": "WAD-ACC-009",
+      "status": "planned"
+    },
+    {
+      "clause": "ACC-WAD-010",
+      "proof": "WAD-ACC-010",
+      "status": "planned"
+    },
+    {
+      "clause": "ACC-WAD-011",
+      "proof": "WAD-ACC-011",
+      "status": "planned"
+    },
+    {
+      "clause": "ACC-WAD-012",
+      "proof": "WAD-ACC-012",
+      "status": "planned"
+    },
+    {
+      "clause": "ACC-WAD-013",
+      "proof": "WAD-ACC-013",
+      "status": "planned"
+    },
+    {
+      "clause": "ACC-WAD-014",
+      "proof": "WAD-ACC-014",
+      "status": "planned"
+    },
+    {
+      "clause": "ACC-WAD-015",
+      "proof": "WAD-ACC-015",
+      "status": "planned"
+    },
+    {
+      "clause": "ACC-WAD-016",
+      "proof": "WAD-ACC-016",
+      "status": "planned"
+    },
+    {
+      "clause": "ACC-WAD-017",
+      "proof": "WAD-ACC-017",
+      "status": "planned"
+    },
+    {
+      "clause": "ACC-WAD-018",
+      "proof": "WAD-ACC-018",
+      "status": "planned"
+    },
+    {
+      "clause": "ACC-WAD-019",
+      "proof": "WAD-ACC-019",
+      "status": "planned"
+    },
+    {
+      "clause": "ACC-WAD-020",
+      "proof": "WAD-ACC-020",
+      "status": "planned"
+    },
+    {
+      "clause": "ACC-WAD-021",
+      "proof": "WAD-ACC-021",
+      "status": "planned"
+    },
+    {
+      "clause": "ACC-WAD-022",
+      "proof": "WAD-ACC-022",
+      "status": "planned"
+    },
+    {
+      "clause": "ACC-WAD-023",
+      "proof": "WAD-ACC-023",
+      "status": "planned"
+    },
+    {
+      "clause": "ACC-WAD-024",
+      "proof": "WAD-ACC-024",
+      "status": "planned"
+    },
+    {
+      "clause": "ACC-WAD-025",
+      "proof": "WAD-ACC-025",
+      "status": "planned"
+    },
+    {
+      "clause": "ACC-WAD-026",
+      "proof": "WAD-ACC-026",
+      "status": "planned"
+    }
+  ]
+}

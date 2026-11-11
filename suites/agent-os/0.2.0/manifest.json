@@ -1,0 +1,17 @@
+{
+  "suite": "agent-os/0.2.0",
+  "contract": "agent-os",
+  "contractVersion": "0.2.0",
+  "status": "planned",
+  "extends": "0.1.0",
+  "overrides": [
+    {"id":"AOS-ACC-007","claims":["ACC-AOS-007","REQ-AOS-003","REQ-AOS-010","QA-AOS-004","INV-AOS-006","INV-AOS-007"],"fixtureRevision":"0.2.0"},
+    {"id":"AOS-ACC-009","claims":["ACC-AOS-009","REQ-AOS-025","REQ-AOS-031","INV-AOS-005"],"fixtureRevision":"0.2.0"}
+  ],
+  "cases": [
+    {"id":"AOS-REQ-010-OWN-HISTORY","category":"security","technique":"capability_boundary","claims":["REQ-AOS-010","POL-AOS-002","INV-AOS-004"],"status":"planned"},
+    {"id":"AOS-ACC-017","category":"security","technique":"secret_bearing_output","claims":["ACC-AOS-017","REQ-AOS-031","INV-AOS-005"],"status":"planned"},
+    {"id":"AOS-ACC-018","category":"conformance","technique":"confirmation_authority","claims":["ACC-AOS-018","REQ-AOS-032","REQ-AOS-017","INV-AOS-003"],"status":"planned"},
+    {"id":"AOS-ART-001","category":"delivery","technique":"published_profile","claims":["QA-AOS-002","QA-AOS-006"],"status":"planned"}
+  ]
+}

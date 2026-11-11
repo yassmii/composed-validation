@@ -1,0 +1,29 @@
+{
+  "suite": "agent-os/0.1.0",
+  "contract": "agent-os",
+  "contractVersion": "0.1.0",
+  "status": "planned",
+  "cases": [
+    {"id":"AOS-ACC-001","category":"conformance","technique":"black_box","claims":["ACC-AOS-001","REQ-AOS-010","REQ-AOS-011","REQ-AOS-012","INV-AOS-001","INV-AOS-002"],"status":"planned"},
+    {"id":"AOS-ACC-002","category":"conformance","technique":"black_box","claims":["ACC-AOS-002","REQ-AOS-014","REQ-AOS-015","INV-AOS-003"],"status":"planned"},
+    {"id":"AOS-ACC-003","category":"conformance","technique":"black_box","claims":["ACC-AOS-003","REQ-AOS-017"],"status":"planned"},
+    {"id":"AOS-ACC-004","category":"conformance","technique":"black_box","claims":["ACC-AOS-004","REQ-AOS-018"],"status":"planned"},
+    {"id":"AOS-ACC-005","category":"conformance","technique":"adversarial","claims":["ACC-AOS-005","REQ-AOS-014","POL-AOS-005"],"status":"planned"},
+    {"id":"AOS-ACC-006","category":"resilience","technique":"fault_injection","claims":["ACC-AOS-006","REQ-AOS-002","QA-AOS-001","INV-AOS-007"],"status":"planned"},
+    {"id":"AOS-ACC-007","category":"resilience","technique":"fault_injection","claims":["ACC-AOS-007","REQ-AOS-003","QA-AOS-004","INV-AOS-006","INV-AOS-007"],"status":"planned"},
+    {"id":"AOS-ACC-008","category":"conformance","technique":"multi_tenant","claims":["ACC-AOS-008","REQ-AOS-021","INV-AOS-004"],"status":"planned"},
+    {"id":"AOS-ACC-009","category":"security","technique":"secret_canary","claims":["ACC-AOS-009","REQ-AOS-025","INV-AOS-005"],"status":"planned"},
+    {"id":"AOS-ACC-010","category":"security","technique":"sandbox_escape","claims":["ACC-AOS-010","REQ-AOS-019","QA-AOS-005"],"status":"planned"},
+    {"id":"AOS-ACC-011","category":"conformance","technique":"threshold_test","claims":["ACC-AOS-011","REQ-AOS-028"],"status":"planned"},
+    {"id":"AOS-ACC-012","category":"conformance","technique":"history_inspection","claims":["ACC-AOS-012","REQ-AOS-023","REQ-AOS-024"],"status":"planned"},
+    {"id":"AOS-ACC-013","category":"performance","technique":"benchmark","claims":["ACC-AOS-013","REQ-AOS-007","REQ-AOS-009","QA-AOS-002"],"status":"planned"},
+    {"id":"AOS-ACC-014","category":"conformance","technique":"concurrency_test","claims":["ACC-AOS-014","REQ-AOS-008"],"status":"planned"},
+    {"id":"AOS-ACC-015","category":"security","technique":"privilege_escalation","claims":["ACC-AOS-015","REQ-AOS-013","INV-AOS-002"],"status":"planned"},
+    {"id":"AOS-ACC-016","category":"resilience","technique":"degradation_test","claims":["ACC-AOS-016","REQ-AOS-020","POL-AOS-006"],"status":"planned"},
+    {"id":"AOS-ADV-001","category":"security","technique":"prompt_injection","claims":["INV-AOS-001","INV-AOS-002","POL-AOS-002"],"status":"planned"},
+    {"id":"AOS-ADV-002","category":"security","technique":"confused_deputy","claims":["INV-AOS-002","INV-AOS-004","POL-AOS-002"],"status":"planned"},
+    {"id":"AOS-ADV-003","category":"security","technique":"approval_toctou","claims":["REQ-AOS-018","INV-AOS-003"],"status":"planned"},
+    {"id":"AOS-ADV-004","category":"security","technique":"event_tamper","claims":["INV-AOS-006","REQ-AOS-026"],"status":"planned"},
+    {"id":"AOS-BENCH-001","category":"performance","technique":"benchmark","claims":["QA-AOS-006","REQ-AOS-004","REQ-AOS-006"],"status":"planned"}
+  ]
+}

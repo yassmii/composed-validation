@@ -1,0 +1,2544 @@
+{
+  "suite": "career-evidence-platform/0.1.0",
+  "contract": "career-evidence-platform",
+  "contractVersion": "0.1.0",
+  "status": "planned",
+  "proofClaimsRequired": true,
+  "executableFormat": "composed-validation-scenario/v1",
+  "runner": "src/run-career.mjs",
+  "fixtures": [
+    "synthetic-career-v1"
+  ],
+  "cases": [
+    {
+      "id": "CEP-ACC-001",
+      "title": "First value without optional enrichment",
+      "status": "planned",
+      "category": "conformance",
+      "technique": "black_box_scenario",
+      "claims": [
+        "ACC-CEP-001",
+        "REQ-CEP-001",
+        "REQ-CEP-002",
+        "REQ-CEP-003",
+        "REQ-CEP-004",
+        "POL-CEP-004"
+      ],
+      "fixture": "synthetic-career-v1",
+      "steps": [
+        {
+          "operation": "execute",
+          "name": "start",
+          "arguments": {
+            "sourceIds": [
+              "cv-a"
+            ],
+            "defer": [
+              "questionnaire",
+              "testimony",
+              "goal"
+            ]
+          }
+        },
+        {
+          "operation": "execute",
+          "name": "pause-resume",
+          "arguments": {}
+        },
+        {
+          "operation": "inspect",
+          "name": "CEP-ACC-001",
+          "arguments": {}
+        }
+      ],
+      "assertions": [
+        {
+          "path": "inputSourceIds",
+          "operator": "equal",
+          "expected": [
+            "cv-a"
+          ]
+        },
+        {
+          "path": "resultState",
+          "operator": "equal",
+          "expected": "reviewable"
+        },
+        {
+          "path": "goal",
+          "operator": "equal",
+          "expected": "deferred"
+        },
+        {
+          "path": "nextAction",
+          "operator": "equal",
+          "expected": "review-record"
+        },
+        {
+          "path": "optionalEnrichmentBlocking",
+          "operator": "equal",
+          "expected": false
+        },
+        {
+          "path": "confirmedWorkPreserved",
+          "operator": "equal",
+          "expected": true
+        },
+        {
+          "path": "purposeAndLimits",
+          "operator": "equal",
+          "expected": "visible"
+        }
+      ]
+    },
+    {
+      "id": "CEP-ACC-002",
+      "title": "Per-source failure and repeated input",
+      "status": "planned",
+      "category": "conformance",
+      "technique": "black_box_scenario",
+      "claims": [
+        "ACC-CEP-002",
+        "REQ-CEP-005",
+        "REQ-CEP-007",
+        "REQ-CEP-008",
+        "REQ-CEP-009"
+      ],
+      "fixture": "synthetic-career-v1",
+      "steps": [
+        {
+          "operation": "execute",
+          "name": "intake",
+          "arguments": {
+            "sourceIds": [
+              "cv-a",
+              "contract-a",
+              "broken-a"
+            ]
+          }
+        },
+        {
+          "operation": "execute",
+          "name": "intake",
+          "arguments": {
+            "sourceIds": [
+              "cv-a"
+            ]
+          }
+        },
+        {
+          "operation": "inspect",
+          "name": "CEP-ACC-002",
+          "arguments": {}
+        }
+      ],
+      "assertions": [
+        {
+          "path": "successfulSourceIds",
+          "operator": "equal",
+          "expected": [
+            "cv-a",
+            "contract-a"
+          ]
+        },
+        {
+          "path": "failedSourceIds",
+          "operator": "equal",
+          "expected": [
+            "broken-a"
+          ]
+        },
+        {
+          "path": "failedState",
+          "operator": "equal",
+          "expected": "failed"
+        },
+        {
+          "path": "recoveryAction",
+          "operator": "equal",
+          "expected": "replace-input"
+        },
+        {
+          "path": "duplicateSourceId",
+          "operator": "equal",
+          "expected": "cv-a"
+        },
+        {
+          "path": "independentEvidenceCount",
+          "operator": "equal",
+          "expected": 2
+        },
+        {
+          "path": "origin",
+          "operator": "equal",
+          "expected": "owner-upload"
+        },
+        {
+          "path": "owner",
+          "operator": "equal",
+          "expected": "person-a"
+        },
+        {
+          "path": "receiptTimePresent",
+          "operator": "equal",
+          "expected": true
+        },
+        {
+          "path": "locationsPresent",
+          "operator": "equal",
+          "expected": true
+        }
+      ]
+    },
+    {
+      "id": "CEP-ACC-003",
+      "title": "Authorization before content acceptance and processing",
+      "status": "planned",
+      "category": "conformance",
+      "technique": "black_box_scenario",
+      "claims": [
+        "ACC-CEP-003",
+        "REQ-CEP-006",
+        "REQ-CEP-038",
+        "INV-CEP-001"
+      ],
+      "fixture": "synthetic-career-v1",
+      "steps": [
+        {
+          "operation": "execute",
+          "name": "suspend-processing",
+          "arguments": {
+            "owner": "person-a"
+          }
+        },
+        {
+          "operation": "execute",
+          "name": "attempt-intake-through-all-entrypoints",
+          "arguments": {
+            "sourceIds": [
+              "cv-a"
+            ],
+            "entrypoints": [
+              "direct",
+              "guidance",
+              "queued"
+            ]
+          }
+        },
+        {
+          "operation": "inspect",
+          "name": "CEP-ACC-003",
+          "arguments": {}
+        }
+      ],
+      "assertions": [
+        {
+          "path": "entrypointsDenied",
+          "operator": "equal",
+          "expected": [
+            "direct",
+            "guidance",
+            "queued"
+          ]
+        },
+        {
+          "path": "acceptedSourceCount",
+          "operator": "equal",
+          "expected": 0
+        },
+        {
+          "path": "externalProcessorCalls",
+          "operator": "equal",
+          "expected": 0
+        },
+        {
+          "path": "policyShownBeforeIntake",
+          "operator": "equal",
+          "expected": true
+        }
+      ]
+    },
+    {
+      "id": "CEP-ACC-004",
+      "title": "Merge, split, undo and concurrent experience",
+      "status": "planned",
+      "category": "conformance",
+      "technique": "black_box_scenario",
+      "claims": [
+        "ACC-CEP-004",
+        "REQ-CEP-010",
+        "REQ-CEP-011",
+        "REQ-CEP-012",
+        "REQ-CEP-013",
+        "INV-CEP-004"
+      ],
+      "fixture": "synthetic-career-v1",
+      "steps": [
+        {
+          "operation": "execute",
+          "name": "intake-events",
+          "arguments": {}
+        },
+        {
+          "operation": "execute",
+          "name": "preview-merge",
+          "arguments": {
+            "events": [
+              "event-a",
+              "event-b"
+            ]
+          }
+        },
+        {
+          "operation": "execute",
+          "name": "confirm-merge",
+          "arguments": {}
+        },
+        {
+          "operation": "execute",
+          "name": "preview-split",
+          "arguments": {}
+        },
+        {
+          "operation": "execute",
+          "name": "cancel-split",
+          "arguments": {}
+        },
+        {
+          "operation": "execute",
+          "name": "undo-merge",
+          "arguments": {}
+        },
+        {
+          "operation": "inspect",
+          "name": "CEP-ACC-004",
+          "arguments": {}
+        }
+      ],
+      "assertions": [
+        {
+          "path": "sourceIds",
+          "operator": "equal",
+          "expected": [
+            "cv-a",
+            "contract-a"
+          ]
+        },
+        {
+          "path": "restoredEventIds",
+          "operator": "equal",
+          "expected": [
+            "event-a",
+            "event-b",
+            "project-a"
+          ]
+        },
+        {
+          "path": "conflictingStartDates",
+          "operator": "equal",
+          "expected": [
+            "2020",
+            "2021"
+          ]
+        },
+        {
+          "path": "overlapPreserved",
+          "operator": "equal",
+          "expected": true
+        },
+        {
+          "path": "previewSourceIds",
+          "operator": "equal",
+          "expected": [
+            "cv-a",
+            "contract-a"
+          ]
+        },
+        {
+          "path": "exactDatesInvented",
+          "operator": "equal",
+          "expected": false
+        },
+        {
+          "path": "revisionAttribution",
+          "operator": "equal",
+          "expected": "person-a"
+        },
+        {
+          "path": "splitPreviewSourceIds",
+          "operator": "equal",
+          "expected": [
+            [
+              "cv-a"
+            ],
+            [
+              "contract-a"
+            ]
+          ]
+        },
+        {
+          "path": "recordUnchangedAfterCancelSplit",
+          "operator": "equal",
+          "expected": true
+        }
+      ]
+    },
+    {
+      "id": "CEP-ACC-005",
+      "title": "Evidence category and unsupported mastery",
+      "status": "planned",
+      "category": "conformance",
+      "technique": "black_box_scenario",
+      "claims": [
+        "ACC-CEP-005",
+        "REQ-CEP-014",
+        "REQ-CEP-015",
+        "REQ-CEP-018",
+        "INV-CEP-002",
+        "INV-CEP-005",
+        "POL-CEP-005",
+        "QA-CEP-003"
+      ],
+      "fixture": "synthetic-career-v1",
+      "steps": [
+        {
+          "operation": "execute",
+          "name": "derive-assertions",
+          "arguments": {
+            "sourceIds": [
+              "cv-a",
+              "contract-a"
+            ],
+            "skill": "internal:team-management"
+          }
+        },
+        {
+          "operation": "inspect",
+          "name": "CEP-ACC-005",
+          "arguments": {}
+        }
+      ],
+      "assertions": [
+        {
+          "path": "assertionCategory",
+          "operator": "equal",
+          "expected": "model-inference"
+        },
+        {
+          "path": "activity",
+          "operator": "equal",
+          "expected": "Led a team of twelve"
+        },
+        {
+          "path": "sourceId",
+          "operator": "equal",
+          "expected": "cv-a"
+        },
+        {
+          "path": "period",
+          "operator": "equal",
+          "expected": "2020–2023"
+        },
+        {
+          "path": "methodPresent",
+          "operator": "equal",
+          "expected": true
+        },
+        {
+          "path": "certifiedMastery",
+          "operator": "equal",
+          "expected": false
+        },
+        {
+          "path": "measuredLevel",
+          "operator": "equal",
+          "expected": null
+        },
+        {
+          "path": "missingEvidenceMeansIncompetence",
+          "operator": "equal",
+          "expected": false
+        },
+        {
+          "path": "fraudConclusion",
+          "operator": "equal",
+          "expected": "not-established"
+        },
+        {
+          "path": "unsupportedOutputClaims",
+          "operator": "equal",
+          "expected": []
+        }
+      ]
+    },
+    {
+      "id": "CEP-ACC-006",
+      "title": "Corrections survive regeneration and unavailable sources",
+      "status": "planned",
+      "category": "conformance",
+      "technique": "black_box_scenario",
+      "claims": [
+        "ACC-CEP-006",
+        "REQ-CEP-016",
+        "REQ-CEP-017",
+        "INV-CEP-003"
+      ],
+      "fixture": "synthetic-career-v1",
+      "steps": [
+        {
+          "operation": "execute",
+          "name": "correct-event",
+          "arguments": {
+            "eventId": "event-a",
+            "start": "2021"
+          }
+        },
+        {
+          "operation": "execute",
+          "name": "withdraw-source",
+          "arguments": {
+            "sourceId": "contract-a"
+          }
+        },
+        {
+          "operation": "execute",
+          "name": "regenerate",
+          "arguments": {}
+        },
+        {
+          "operation": "inspect",
+          "name": "CEP-ACC-006",
+          "arguments": {}
+        }
+      ],
+      "assertions": [
+        {
+          "path": "confirmedStart",
+          "operator": "equal",
+          "expected": "2021"
+        },
+        {
+          "path": "originalObservedStart",
+          "operator": "equal",
+          "expected": "2020"
+        },
+        {
+          "path": "correctionActor",
+          "operator": "equal",
+          "expected": "person-a"
+        },
+        {
+          "path": "conflictState",
+          "operator": "equal",
+          "expected": "review-required"
+        },
+        {
+          "path": "dependentOutputState",
+          "operator": "equal",
+          "expected": "stale"
+        },
+        {
+          "path": "sourceAvailability",
+          "operator": "equal",
+          "expected": "unavailable"
+        },
+        {
+          "path": "recipientCanVerifySource",
+          "operator": "equal",
+          "expected": false
+        },
+        {
+          "path": "erasedContentRetained",
+          "operator": "equal",
+          "expected": false
+        }
+      ]
+    },
+    {
+      "id": "CEP-ACC-007",
+      "title": "Versioned typed framework mapping and multilingual concept",
+      "status": "planned",
+      "category": "conformance",
+      "technique": "black_box_scenario",
+      "claims": [
+        "ACC-CEP-007",
+        "REQ-CEP-019",
+        "REQ-CEP-020",
+        "REQ-CEP-021",
+        "REQ-CEP-022",
+        "REQ-CEP-023",
+        "INV-CEP-009",
+        "POL-CEP-003"
+      ],
+      "fixture": "synthetic-career-v1",
+      "steps": [
+        {
+          "operation": "execute",
+          "name": "map-concept",
+          "arguments": {}
+        },
+        {
+          "operation": "execute",
+          "name": "propose-mapping-update",
+          "arguments": {
+            "version": "fixture-2",
+            "relation": "exact",
+            "status": "candidate"
+          }
+        },
+        {
+          "operation": "execute",
+          "name": "change-language",
+          "arguments": {
+            "language": "fr"
+          }
+        },
+        {
+          "operation": "inspect",
+          "name": "CEP-ACC-007",
+          "arguments": {}
+        }
+      ],
+      "assertions": [
+        {
+          "path": "conceptId",
+          "operator": "equal",
+          "expected": "internal:team-management"
+        },
+        {
+          "path": "assertionId",
+          "operator": "equal",
+          "expected": "assertion-a"
+        },
+        {
+          "path": "assessmentId",
+          "operator": "equal",
+          "expected": "assessment-a"
+        },
+        {
+          "path": "priorFrameworkVersion",
+          "operator": "equal",
+          "expected": "fixture-1"
+        },
+        {
+          "path": "priorRelation",
+          "operator": "equal",
+          "expected": "close"
+        },
+        {
+          "path": "candidateFrameworkVersion",
+          "operator": "equal",
+          "expected": "fixture-2"
+        },
+        {
+          "path": "candidateRelation",
+          "operator": "equal",
+          "expected": "exact"
+        },
+        {
+          "path": "candidateStatus",
+          "operator": "equal",
+          "expected": "candidate"
+        },
+        {
+          "path": "needsReview",
+          "operator": "equal",
+          "expected": true
+        },
+        {
+          "path": "testimonyLanguage",
+          "operator": "equal",
+          "expected": "original"
+        }
+      ]
+    },
+    {
+      "id": "CEP-ACC-008",
+      "title": "Direct controls and durable task state",
+      "status": "planned",
+      "category": "conformance",
+      "technique": "black_box_scenario",
+      "claims": [
+        "ACC-CEP-008",
+        "REQ-CEP-024",
+        "REQ-CEP-025",
+        "REQ-CEP-026",
+        "POL-CEP-002"
+      ],
+      "fixture": "synthetic-career-v1",
+      "steps": [
+        {
+          "operation": "execute",
+          "name": "task-through-direct-controls",
+          "arguments": {}
+        },
+        {
+          "operation": "execute",
+          "name": "switch-to-conversation-if-offered",
+          "arguments": {}
+        },
+        {
+          "operation": "execute",
+          "name": "end-session",
+          "arguments": {}
+        },
+        {
+          "operation": "execute",
+          "name": "resume-through-direct-controls",
+          "arguments": {}
+        },
+        {
+          "operation": "inspect",
+          "name": "CEP-ACC-008",
+          "arguments": {}
+        }
+      ],
+      "assertions": [
+        {
+          "path": "taskId",
+          "operator": "equal",
+          "expected": "task-a"
+        },
+        {
+          "path": "confirmedEventId",
+          "operator": "equal",
+          "expected": "event-a"
+        },
+        {
+          "path": "taskState",
+          "operator": "equal",
+          "expected": "in_progress"
+        },
+        {
+          "path": "reconstructedDialogueRequired",
+          "operator": "equal",
+          "expected": false
+        },
+        {
+          "path": "directJourneys",
+          "operator": "equal",
+          "expected": [
+            "intake",
+            "correction",
+            "output",
+            "access-control"
+          ]
+        },
+        {
+          "path": "guidanceSourceIds",
+          "operator": "equal",
+          "expected": [
+            "cv-a"
+          ]
+        },
+        {
+          "path": "missingInformation",
+          "operator": "equal",
+          "expected": [
+            "exact-start-date"
+          ]
+        },
+        {
+          "path": "abstentionAvailable",
+          "operator": "equal",
+          "expected": true
+        }
+      ]
+    },
+    {
+      "id": "CEP-ACC-009",
+      "title": "Prompt injection does not authorize external actions",
+      "status": "planned",
+      "category": "conformance",
+      "technique": "black_box_scenario",
+      "claims": [
+        "ACC-CEP-009",
+        "REQ-CEP-027",
+        "REQ-CEP-028",
+        "INV-CEP-006"
+      ],
+      "fixture": "synthetic-career-v1",
+      "steps": [
+        {
+          "operation": "execute",
+          "name": "process-untrusted-source",
+          "arguments": {
+            "sourceId": "injection-a"
+          }
+        },
+        {
+          "operation": "execute",
+          "name": "request-send-without-approval",
+          "arguments": {}
+        },
+        {
+          "operation": "execute",
+          "name": "preview-send",
+          "arguments": {}
+        },
+        {
+          "operation": "execute",
+          "name": "approve-specific-send",
+          "arguments": {
+            "recipient": "referee-a"
+          }
+        },
+        {
+          "operation": "inspect",
+          "name": "CEP-ACC-009",
+          "arguments": {}
+        }
+      ],
+      "assertions": [
+        {
+          "path": "unapprovedSends",
+          "operator": "equal",
+          "expected": 0
+        },
+        {
+          "path": "unapprovedDisclosures",
+          "operator": "equal",
+          "expected": 0
+        },
+        {
+          "path": "permissionChanges",
+          "operator": "equal",
+          "expected": 0
+        },
+        {
+          "path": "previewRecipient",
+          "operator": "equal",
+          "expected": "referee-a"
+        },
+        {
+          "path": "approvedSends",
+          "operator": "equal",
+          "expected": 1
+        },
+        {
+          "path": "approvalActor",
+          "operator": "equal",
+          "expected": "person-a"
+        },
+        {
+          "path": "approvalScope",
+          "operator": "equal",
+          "expected": [
+            "referee-a"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "CEP-ACC-010",
+      "title": "Explain actionable career directions",
+      "status": "planned",
+      "category": "conformance",
+      "technique": "black_box_scenario",
+      "claims": [
+        "ACC-CEP-010",
+        "REQ-CEP-029",
+        "REQ-CEP-030",
+        "REQ-CEP-031",
+        "REQ-CEP-032"
+      ],
+      "fixture": "synthetic-career-v1",
+      "steps": [
+        {
+          "operation": "execute",
+          "name": "explore-directions",
+          "arguments": {
+            "geography": "FR",
+            "directions": [
+              "direction-a",
+              "direction-b"
+            ]
+          }
+        },
+        {
+          "operation": "execute",
+          "name": "reject-direction",
+          "arguments": {
+            "id": "direction-b",
+            "reason": "owner-preference"
+          }
+        },
+        {
+          "operation": "execute",
+          "name": "select-next-action",
+          "arguments": {
+            "action": "discuss-with-advisor"
+          }
+        },
+        {
+          "operation": "inspect",
+          "name": "CEP-ACC-010",
+          "arguments": {}
+        }
+      ],
+      "assertions": [
+        {
+          "path": "directionCount",
+          "operator": "equal",
+          "expected": 2
+        },
+        {
+          "path": "evidenceSourceIds",
+          "operator": "equal",
+          "expected": [
+            "cv-a"
+          ]
+        },
+        {
+          "path": "evidenceGaps",
+          "operator": "equal",
+          "expected": [
+            "missing-project-detail"
+          ]
+        },
+        {
+          "path": "assessedSkillGaps",
+          "operator": "equal",
+          "expected": []
+        },
+        {
+          "path": "externalDataDatePresent",
+          "operator": "equal",
+          "expected": true
+        },
+        {
+          "path": "coverageLimitsPresent",
+          "operator": "equal",
+          "expected": true
+        },
+        {
+          "path": "liveVacancyClaim",
+          "operator": "equal",
+          "expected": false
+        },
+        {
+          "path": "hiringProbability",
+          "operator": "equal",
+          "expected": null
+        },
+        {
+          "path": "rejectedId",
+          "operator": "equal",
+          "expected": "direction-b"
+        },
+        {
+          "path": "nextAction",
+          "operator": "equal",
+          "expected": "discuss-with-advisor"
+        }
+      ],
+      "requiresCapability": "CAP-CEP-007",
+      "review": {
+        "kind": "career-relevance",
+        "clauses": [
+          "REQ-CEP-030"
+        ],
+        "required": true
+      }
+    },
+    {
+      "id": "CEP-ACC-011",
+      "title": "Owner-reviewed output and scoped recipient preview",
+      "status": "planned",
+      "category": "conformance",
+      "technique": "black_box_scenario",
+      "claims": [
+        "ACC-CEP-011",
+        "REQ-CEP-033",
+        "REQ-CEP-034",
+        "REQ-CEP-037",
+        "POL-CEP-001"
+      ],
+      "fixture": "synthetic-career-v1",
+      "steps": [
+        {
+          "operation": "execute",
+          "name": "prepare-output",
+          "arguments": {}
+        },
+        {
+          "operation": "execute",
+          "name": "edit-narrative",
+          "arguments": {
+            "text": "Owner reviewed narrative"
+          }
+        },
+        {
+          "operation": "execute",
+          "name": "preview-share",
+          "arguments": {
+            "recipient": "reader-a",
+            "fields": [
+              "summary",
+              "assertions"
+            ]
+          }
+        },
+        {
+          "operation": "execute",
+          "name": "approve-output",
+          "arguments": {}
+        },
+        {
+          "operation": "execute",
+          "name": "activate-share",
+          "arguments": {}
+        },
+        {
+          "operation": "execute",
+          "name": "read-as-recipient",
+          "arguments": {}
+        },
+        {
+          "operation": "inspect",
+          "name": "CEP-ACC-011",
+          "arguments": {}
+        }
+      ],
+      "assertions": [
+        {
+          "path": "narrative",
+          "operator": "equal",
+          "expected": "Owner reviewed narrative"
+        },
+        {
+          "path": "outputRevision",
+          "operator": "equal",
+          "expected": "record-r2"
+        },
+        {
+          "path": "outputState",
+          "operator": "equal",
+          "expected": "approved"
+        },
+        {
+          "path": "recipientFields",
+          "operator": "equal",
+          "expected": [
+            "summary",
+            "assertions"
+          ]
+        },
+        {
+          "path": "rawDocumentIds",
+          "operator": "equal",
+          "expected": []
+        },
+        {
+          "path": "contactDetails",
+          "operator": "equal",
+          "expected": []
+        },
+        {
+          "path": "badgeKind",
+          "operator": "equal",
+          "expected": "career-view-link"
+        },
+        {
+          "path": "certificationClaim",
+          "operator": "equal",
+          "expected": false
+        },
+        {
+          "path": "previewMatchesRecipient",
+          "operator": "equal",
+          "expected": true
+        }
+      ]
+    },
+    {
+      "id": "CEP-ACC-012",
+      "title": "Grant expiry, revocation and cached access",
+      "status": "planned",
+      "category": "conformance",
+      "technique": "black_box_scenario",
+      "claims": [
+        "ACC-CEP-012",
+        "REQ-CEP-036",
+        "INV-CEP-007"
+      ],
+      "fixture": "synthetic-career-v1",
+      "steps": [
+        {
+          "operation": "execute",
+          "name": "read-shared-view",
+          "arguments": {}
+        },
+        {
+          "operation": "execute",
+          "name": "expire-grant",
+          "arguments": {}
+        },
+        {
+          "operation": "execute",
+          "name": "read-cached-view",
+          "arguments": {}
+        },
+        {
+          "operation": "execute",
+          "name": "renew-and-revoke-grant",
+          "arguments": {}
+        },
+        {
+          "operation": "execute",
+          "name": "read-cached-view",
+          "arguments": {}
+        },
+        {
+          "operation": "inspect",
+          "name": "CEP-ACC-012",
+          "arguments": {}
+        }
+      ],
+      "assertions": [
+        {
+          "path": "initialAccess",
+          "operator": "equal",
+          "expected": "allowed"
+        },
+        {
+          "path": "expiredAccess",
+          "operator": "equal",
+          "expected": "denied"
+        },
+        {
+          "path": "revokedAccess",
+          "operator": "equal",
+          "expected": "denied"
+        },
+        {
+          "path": "downloadRecallLimitShown",
+          "operator": "equal",
+          "expected": true
+        }
+      ]
+    },
+    {
+      "id": "CEP-ACC-013",
+      "title": "Cross-account isolation across views and retrieval",
+      "status": "planned",
+      "category": "conformance",
+      "technique": "black_box_scenario",
+      "claims": [
+        "ACC-CEP-013",
+        "REQ-CEP-039",
+        "QA-CEP-004"
+      ],
+      "fixture": "synthetic-career-v1",
+      "steps": [
+        {
+          "operation": "execute",
+          "name": "open-as-other-owner",
+          "arguments": {
+            "owner": "person-b"
+          }
+        },
+        {
+          "operation": "execute",
+          "name": "switch-to-owner",
+          "arguments": {
+            "owner": "person-a"
+          }
+        },
+        {
+          "operation": "execute",
+          "name": "inspect-all-surfaces",
+          "arguments": {
+            "surfaces": [
+              "profile",
+              "retrieval",
+              "cache",
+              "guidance",
+              "export"
+            ]
+          }
+        },
+        {
+          "operation": "inspect",
+          "name": "CEP-ACC-013",
+          "arguments": {}
+        }
+      ],
+      "assertions": [
+        {
+          "path": "profileOwner",
+          "operator": "equal",
+          "expected": "person-a"
+        },
+        {
+          "path": "retrievalOwner",
+          "operator": "equal",
+          "expected": "person-a"
+        },
+        {
+          "path": "cacheOwner",
+          "operator": "equal",
+          "expected": "person-a"
+        },
+        {
+          "path": "guidanceOwner",
+          "operator": "equal",
+          "expected": "person-a"
+        },
+        {
+          "path": "exportOwner",
+          "operator": "equal",
+          "expected": "person-a"
+        },
+        {
+          "path": "returnedText",
+          "operator": "not_contains",
+          "expected": "OTHER-OWNER-CANARY"
+        }
+      ]
+    },
+    {
+      "id": "CEP-ACC-014",
+      "title": "Interrupted deletion and restored erasure",
+      "status": "planned",
+      "category": "conformance",
+      "technique": "black_box_scenario",
+      "claims": [
+        "ACC-CEP-014",
+        "REQ-CEP-042",
+        "REQ-CEP-043",
+        "REQ-CEP-065",
+        "INV-CEP-007"
+      ],
+      "fixture": "synthetic-career-v1",
+      "steps": [
+        {
+          "operation": "inject",
+          "name": "derived-store-unavailable",
+          "arguments": {}
+        },
+        {
+          "operation": "execute",
+          "name": "erase-record",
+          "arguments": {}
+        },
+        {
+          "operation": "execute",
+          "name": "inspect-deletion-before-recovery",
+          "arguments": {}
+        },
+        {
+          "operation": "inject",
+          "name": "derived-store-restored",
+          "arguments": {}
+        },
+        {
+          "operation": "inject",
+          "name": "restore-pre-erasure-backup",
+          "arguments": {}
+        },
+        {
+          "operation": "execute",
+          "name": "resume-erasure-and-read",
+          "arguments": {}
+        },
+        {
+          "operation": "inspect",
+          "name": "CEP-ACC-014",
+          "arguments": {}
+        }
+      ],
+      "assertions": [
+        {
+          "path": "beforeRecoveryState",
+          "operator": "equal",
+          "expected": "incomplete"
+        },
+        {
+          "path": "queuedWorkState",
+          "operator": "equal",
+          "expected": "cancelled"
+        },
+        {
+          "path": "afterRecoveryState",
+          "operator": "equal",
+          "expected": "completed"
+        },
+        {
+          "path": "servedErasedSources",
+          "operator": "equal",
+          "expected": []
+        },
+        {
+          "path": "restoredRevokedAccess",
+          "operator": "equal",
+          "expected": "denied"
+        },
+        {
+          "path": "remainingStores",
+          "operator": "equal",
+          "expected": []
+        },
+        {
+          "path": "auditContainsDocumentBody",
+          "operator": "equal",
+          "expected": false
+        },
+        {
+          "path": "projectionAuthority",
+          "operator": "equal",
+          "expected": "derived"
+        }
+      ]
+    },
+    {
+      "id": "CEP-ACC-015",
+      "title": "Idempotency, charge budget and provider failure",
+      "status": "planned",
+      "category": "conformance",
+      "technique": "black_box_scenario",
+      "claims": [
+        "ACC-CEP-015",
+        "REQ-CEP-044",
+        "REQ-CEP-045",
+        "REQ-CEP-046",
+        "REQ-CEP-047",
+        "INV-CEP-008",
+        "QA-CEP-005"
+      ],
+      "fixture": "synthetic-career-v1",
+      "steps": [
+        {
+          "operation": "execute",
+          "name": "preview-metered-action",
+          "arguments": {}
+        },
+        {
+          "operation": "inject",
+          "name": "dependency-timeout",
+          "arguments": {}
+        },
+        {
+          "operation": "execute",
+          "name": "deliver-duplicate-action",
+          "arguments": {
+            "idempotencyKey": "action-a",
+            "deliveries": 3
+          }
+        },
+        {
+          "operation": "execute",
+          "name": "exhaust-budget",
+          "arguments": {}
+        },
+        {
+          "operation": "execute",
+          "name": "attempt-new-action",
+          "arguments": {}
+        },
+        {
+          "operation": "execute",
+          "name": "read-existing-record",
+          "arguments": {}
+        },
+        {
+          "operation": "execute",
+          "name": "revoke-share-during-provider-outage",
+          "arguments": {}
+        },
+        {
+          "operation": "inspect",
+          "name": "CEP-ACC-015",
+          "arguments": {}
+        }
+      ],
+      "assertions": [
+        {
+          "path": "committedChanges",
+          "operator": "equal",
+          "expected": 1
+        },
+        {
+          "path": "charges",
+          "operator": "equal",
+          "expected": 1
+        },
+        {
+          "path": "chargeUnit",
+          "operator": "equal",
+          "expected": "operation"
+        },
+        {
+          "path": "maximumCharge",
+          "operator": "equal",
+          "expected": 1
+        },
+        {
+          "path": "profileQualityIsBalance",
+          "operator": "equal",
+          "expected": false
+        },
+        {
+          "path": "externalCallsAfterExhaustion",
+          "operator": "equal",
+          "expected": 0
+        },
+        {
+          "path": "existingRecordReadable",
+          "operator": "equal",
+          "expected": true
+        },
+        {
+          "path": "correctionHistoryReadable",
+          "operator": "equal",
+          "expected": true
+        },
+        {
+          "path": "shareRevocation",
+          "operator": "equal",
+          "expected": "effective"
+        },
+        {
+          "path": "operationState",
+          "operator": "equal",
+          "expected": "succeeded"
+        }
+      ]
+    },
+    {
+      "id": "CEP-ACC-016",
+      "title": "Bounded invitation, refusal and independent enrollment",
+      "status": "planned",
+      "category": "conformance",
+      "technique": "black_box_scenario",
+      "claims": [
+        "ACC-CEP-016",
+        "REQ-CEP-048",
+        "REQ-CEP-049",
+        "REQ-CEP-050",
+        "INV-CEP-010",
+        "POL-CEP-006"
+      ],
+      "fixture": "synthetic-career-v1",
+      "steps": [
+        {
+          "operation": "execute",
+          "name": "suggest-targeted-testimony",
+          "arguments": {}
+        },
+        {
+          "operation": "execute",
+          "name": "preview-invitation",
+          "arguments": {}
+        },
+        {
+          "operation": "execute",
+          "name": "approve-invitation",
+          "arguments": {}
+        },
+        {
+          "operation": "execute",
+          "name": "decline-as-contributor",
+          "arguments": {}
+        },
+        {
+          "operation": "inspect",
+          "name": "CEP-ACC-016",
+          "arguments": {}
+        }
+      ],
+      "assertions": [
+        {
+          "path": "targetEvent",
+          "operator": "equal",
+          "expected": "event-a"
+        },
+        {
+          "path": "questionPresent",
+          "operator": "equal",
+          "expected": true
+        },
+        {
+          "path": "reasonPresent",
+          "operator": "equal",
+          "expected": true
+        },
+        {
+          "path": "approvedRecipient",
+          "operator": "equal",
+          "expected": "referee-a"
+        },
+        {
+          "path": "sharedContext",
+          "operator": "equal",
+          "expected": [
+            "event-a"
+          ]
+        },
+        {
+          "path": "deliveryState",
+          "operator": "equal",
+          "expected": "delivered"
+        },
+        {
+          "path": "responseState",
+          "operator": "equal",
+          "expected": "declined"
+        },
+        {
+          "path": "createdCareerProfiles",
+          "operator": "equal",
+          "expected": 0
+        },
+        {
+          "path": "marketingEnrollments",
+          "operator": "equal",
+          "expected": 0
+        }
+      ],
+      "requiresCapability": "CAP-CEP-011"
+    },
+    {
+      "id": "CEP-ACC-017",
+      "title": "Contribution provenance, publication and reference consent",
+      "status": "planned",
+      "category": "conformance",
+      "technique": "black_box_scenario",
+      "claims": [
+        "ACC-CEP-017",
+        "REQ-CEP-051",
+        "REQ-CEP-052",
+        "INV-CEP-002",
+        "INV-CEP-010"
+      ],
+      "fixture": "synthetic-career-v1",
+      "steps": [
+        {
+          "operation": "execute",
+          "name": "authenticate-contributor",
+          "arguments": {}
+        },
+        {
+          "operation": "execute",
+          "name": "submit-testimony",
+          "arguments": {}
+        },
+        {
+          "operation": "execute",
+          "name": "preview-contribution-publication",
+          "arguments": {}
+        },
+        {
+          "operation": "execute",
+          "name": "authorize-contribution-publication",
+          "arguments": {}
+        },
+        {
+          "operation": "execute",
+          "name": "withdraw-reference-contact-permission",
+          "arguments": {}
+        },
+        {
+          "operation": "execute",
+          "name": "challenge-testimony",
+          "arguments": {}
+        },
+        {
+          "operation": "execute",
+          "name": "withdraw-testimony",
+          "arguments": {}
+        },
+        {
+          "operation": "inspect",
+          "name": "CEP-ACC-017",
+          "arguments": {}
+        }
+      ],
+      "assertions": [
+        {
+          "path": "relationship",
+          "operator": "equal",
+          "expected": "former-colleague"
+        },
+        {
+          "path": "observationPeriod",
+          "operator": "equal",
+          "expected": "2021–2022"
+        },
+        {
+          "path": "authenticationMethod",
+          "operator": "equal",
+          "expected": "member-login"
+        },
+        {
+          "path": "independentIdentityVerified",
+          "operator": "equal",
+          "expected": false
+        },
+        {
+          "path": "assessmentMethod",
+          "operator": "equal",
+          "expected": null
+        },
+        {
+          "path": "publicationWasAuthorized",
+          "operator": "equal",
+          "expected": true
+        },
+        {
+          "path": "referenceContactAuthorized",
+          "operator": "equal",
+          "expected": false
+        },
+        {
+          "path": "challengeRecorded",
+          "operator": "equal",
+          "expected": true
+        },
+        {
+          "path": "withdrawalState",
+          "operator": "equal",
+          "expected": "withdrawn"
+        },
+        {
+          "path": "recipientAccessAfterWithdrawal",
+          "operator": "equal",
+          "expected": "denied"
+        }
+      ],
+      "requiresCapability": "CAP-CEP-011"
+    },
+    {
+      "id": "CEP-ACC-018",
+      "title": "Restricted network access and manual nomination",
+      "status": "planned",
+      "category": "conformance",
+      "technique": "black_box_scenario",
+      "claims": [
+        "ACC-CEP-018",
+        "REQ-CEP-053",
+        "REQ-CEP-054",
+        "REQ-CEP-055",
+        "INV-CEP-010"
+      ],
+      "fixture": "synthetic-career-v1",
+      "steps": [
+        {
+          "operation": "inject",
+          "name": "network-provider-not-approved",
+          "arguments": {}
+        },
+        {
+          "operation": "execute",
+          "name": "connect-with-login-only",
+          "arguments": {}
+        },
+        {
+          "operation": "execute",
+          "name": "suggest-contacts",
+          "arguments": {}
+        },
+        {
+          "operation": "execute",
+          "name": "nominate-manually",
+          "arguments": {
+            "recipient": "referee-a",
+            "eventId": "event-a"
+          }
+        },
+        {
+          "operation": "inspect",
+          "name": "CEP-ACC-018",
+          "arguments": {}
+        }
+      ],
+      "assertions": [
+        {
+          "path": "networkAccess",
+          "operator": "equal",
+          "expected": "unavailable"
+        },
+        {
+          "path": "networkImported",
+          "operator": "equal",
+          "expected": false
+        },
+        {
+          "path": "manualRecipient",
+          "operator": "equal",
+          "expected": "referee-a"
+        },
+        {
+          "path": "nominationOrigin",
+          "operator": "equal",
+          "expected": "owner-manual"
+        },
+        {
+          "path": "suggestedEvent",
+          "operator": "equal",
+          "expected": "event-a"
+        },
+        {
+          "path": "limitationShown",
+          "operator": "equal",
+          "expected": true
+        },
+        {
+          "path": "sentMessages",
+          "operator": "equal",
+          "expected": 0
+        },
+        {
+          "path": "marketingEnrollments",
+          "operator": "equal",
+          "expected": 0
+        }
+      ],
+      "requiresCapability": "CAP-CEP-012"
+    },
+    {
+      "id": "CEP-ACC-019",
+      "title": "Credential status, issuer context and private evidence",
+      "status": "planned",
+      "category": "conformance",
+      "technique": "black_box_scenario",
+      "claims": [
+        "ACC-CEP-019",
+        "REQ-CEP-056",
+        "REQ-CEP-057",
+        "REQ-CEP-058",
+        "INV-CEP-002"
+      ],
+      "fixture": "synthetic-career-v1",
+      "steps": [
+        {
+          "operation": "execute",
+          "name": "import-expired-and-unsupported-credentials",
+          "arguments": {}
+        },
+        {
+          "operation": "execute",
+          "name": "export-credential-view",
+          "arguments": {}
+        },
+        {
+          "operation": "inspect",
+          "name": "CEP-ACC-019",
+          "arguments": {}
+        }
+      ],
+      "assertions": [
+        {
+          "path": "issuer",
+          "operator": "equal",
+          "expected": "fixture-issuer"
+        },
+        {
+          "path": "subject",
+          "operator": "equal",
+          "expected": "person-a"
+        },
+        {
+          "path": "achievement",
+          "operator": "equal",
+          "expected": "fixture-achievement"
+        },
+        {
+          "path": "status",
+          "operator": "equal",
+          "expected": "expired"
+        },
+        {
+          "path": "unsupportedStatus",
+          "operator": "equal",
+          "expected": "unsupported"
+        },
+        {
+          "path": "modelAssertionExportedAsIssuerCertified",
+          "operator": "equal",
+          "expected": false
+        },
+        {
+          "path": "publicEvidenceIds",
+          "operator": "equal",
+          "expected": []
+        },
+        {
+          "path": "issuerEvidenceReference",
+          "operator": "equal",
+          "expected": "fixture-evidence"
+        }
+      ],
+      "requiresCapability": "CAP-CEP-013"
+    },
+    {
+      "id": "CEP-ACC-020",
+      "title": "Trial migration, reconciliation and safe rollback",
+      "status": "planned",
+      "category": "conformance",
+      "technique": "black_box_scenario",
+      "claims": [
+        "ACC-CEP-020",
+        "REQ-CEP-059",
+        "REQ-CEP-060",
+        "REQ-CEP-061",
+        "INV-CEP-007"
+      ],
+      "fixture": "synthetic-career-v1",
+      "steps": [
+        {
+          "operation": "execute",
+          "name": "inventory-legacy",
+          "arguments": {}
+        },
+        {
+          "operation": "execute",
+          "name": "trial-migration",
+          "arguments": {}
+        },
+        {
+          "operation": "execute",
+          "name": "cutover",
+          "arguments": {}
+        },
+        {
+          "operation": "execute",
+          "name": "rollback-and-reconcile",
+          "arguments": {}
+        },
+        {
+          "operation": "inspect",
+          "name": "CEP-ACC-020",
+          "arguments": {}
+        }
+      ],
+      "assertions": [
+        {
+          "path": "sourceRevision",
+          "operator": "equal",
+          "expected": "fixture-legacy-r1"
+        },
+        {
+          "path": "owner",
+          "operator": "equal",
+          "expected": "person-a"
+        },
+        {
+          "path": "expectedSourceCount",
+          "operator": "equal",
+          "expected": 2
+        },
+        {
+          "path": "reconciledSourceCount",
+          "operator": "equal",
+          "expected": 2
+        },
+        {
+          "path": "missingSourceIds",
+          "operator": "equal",
+          "expected": [
+            "missing-source"
+          ]
+        },
+        {
+          "path": "inventedConsentCount",
+          "operator": "equal",
+          "expected": 0
+        },
+        {
+          "path": "legacyClaimBasis",
+          "operator": "equal",
+          "expected": "incomplete-provenance"
+        },
+        {
+          "path": "sourceLinksPreserved",
+          "operator": "equal",
+          "expected": true
+        },
+        {
+          "path": "cutoverResumable",
+          "operator": "equal",
+          "expected": true
+        },
+        {
+          "path": "revokedAccess",
+          "operator": "equal",
+          "expected": "denied"
+        },
+        {
+          "path": "resurrectedErasedSources",
+          "operator": "equal",
+          "expected": []
+        },
+        {
+          "path": "usableOutputVerified",
+          "operator": "equal",
+          "expected": true
+        }
+      ]
+    },
+    {
+      "id": "CEP-ACC-021",
+      "title": "Versioned held-out quality and cost comparison",
+      "status": "planned",
+      "category": "conformance",
+      "technique": "black_box_scenario",
+      "claims": [
+        "ACC-CEP-021",
+        "REQ-CEP-062",
+        "REQ-CEP-063",
+        "REQ-CEP-064",
+        "QA-CEP-007"
+      ],
+      "fixture": "synthetic-career-v1",
+      "steps": [
+        {
+          "operation": "execute",
+          "name": "evaluate-baseline-and-candidate",
+          "arguments": {}
+        },
+        {
+          "operation": "inspect",
+          "name": "CEP-ACC-021",
+          "arguments": {}
+        }
+      ],
+      "assertions": [
+        {
+          "path": "$",
+          "operator": "benchmark"
+        },
+        {
+          "path": "promptVersion",
+          "operator": "nonempty",
+          "expected": true
+        },
+        {
+          "path": "mappingVersion",
+          "operator": "nonempty",
+          "expected": true
+        },
+        {
+          "path": "sourceRevision",
+          "operator": "nonempty",
+          "expected": true
+        }
+      ],
+      "review": {
+        "kind": "evaluation-corpus",
+        "clauses": [
+          "REQ-CEP-063",
+          "REQ-CEP-064",
+          "QA-CEP-007"
+        ],
+        "required": true
+      }
+    },
+    {
+      "id": "CEP-ACC-022",
+      "title": "Keyboard and non-graphical equivalent tasks",
+      "status": "planned",
+      "category": "conformance",
+      "technique": "black_box_scenario",
+      "claims": [
+        "ACC-CEP-022",
+        "QA-CEP-002"
+      ],
+      "fixture": "synthetic-career-v1",
+      "steps": [
+        {
+          "operation": "execute",
+          "name": "inspect-correct-and-prepare-with-keyboard",
+          "arguments": {}
+        },
+        {
+          "operation": "inspect",
+          "name": "CEP-ACC-022",
+          "arguments": {}
+        }
+      ],
+      "assertions": [
+        {
+          "path": "completedTasks",
+          "operator": "equal",
+          "expected": [
+            "inspect-evidence",
+            "correct-record",
+            "prepare-output"
+          ]
+        },
+        {
+          "path": "graphRequired",
+          "operator": "equal",
+          "expected": false
+        },
+        {
+          "path": "labelsPresent",
+          "operator": "equal",
+          "expected": true
+        },
+        {
+          "path": "statusFeedbackPresent",
+          "operator": "equal",
+          "expected": true
+        }
+      ],
+      "review": {
+        "kind": "accessibility",
+        "clauses": [
+          "QA-CEP-002"
+        ],
+        "required": true
+      }
+    },
+    {
+      "id": "CEP-QA-001",
+      "title": "Observed first-time usability study",
+      "status": "planned",
+      "category": "conformance",
+      "technique": "black_box_scenario",
+      "claims": [
+        "QA-CEP-001",
+        "POL-CEP-009"
+      ],
+      "fixture": "synthetic-career-v1",
+      "steps": [
+        {
+          "operation": "execute",
+          "name": "provide-usability-study-context",
+          "arguments": {}
+        },
+        {
+          "operation": "inspect",
+          "name": "CEP-QA-001",
+          "arguments": {}
+        }
+      ],
+      "assertions": [
+        {
+          "path": "metricOrigin",
+          "operator": "equal",
+          "expected": "proposed-contract-threshold"
+        },
+        {
+          "path": "populationDeclared",
+          "operator": "equal",
+          "expected": true
+        }
+      ],
+      "review": {
+        "kind": "usability",
+        "clauses": [
+          "QA-CEP-001"
+        ],
+        "required": true
+      }
+    },
+    {
+      "id": "CEP-QA-006",
+      "title": "Structured export and independent-reader reconciliation",
+      "status": "planned",
+      "category": "conformance",
+      "technique": "black_box_scenario",
+      "claims": [
+        "REQ-CEP-035",
+        "QA-CEP-006"
+      ],
+      "fixture": "synthetic-career-v1",
+      "steps": [
+        {
+          "operation": "execute",
+          "name": "export-readable-and-structured-record",
+          "arguments": {}
+        },
+        {
+          "operation": "execute",
+          "name": "read-export-with-independent-reader",
+          "arguments": {}
+        },
+        {
+          "operation": "inspect",
+          "name": "CEP-QA-006",
+          "arguments": {}
+        }
+      ],
+      "assertions": [
+        {
+          "path": "readableOutputSelfContained",
+          "operator": "equal",
+          "expected": true
+        },
+        {
+          "path": "expectedEntities",
+          "operator": "gte",
+          "expected": 4
+        },
+        {
+          "path": "readEntities",
+          "operator": "gte",
+          "expected": 4
+        },
+        {
+          "path": "unreconciledEntities",
+          "operator": "equal",
+          "expected": 0
+        },
+        {
+          "path": "expectedTypedLinks",
+          "operator": "gte",
+          "expected": 3
+        },
+        {
+          "path": "readTypedLinks",
+          "operator": "gte",
+          "expected": 3
+        },
+        {
+          "path": "unreconciledTypedLinks",
+          "operator": "equal",
+          "expected": 0
+        },
+        {
+          "path": "expectedVersions",
+          "operator": "gte",
+          "expected": 2
+        },
+        {
+          "path": "readVersions",
+          "operator": "gte",
+          "expected": 2
+        },
+        {
+          "path": "unreconciledVersions",
+          "operator": "equal",
+          "expected": 0
+        },
+        {
+          "path": "expectedMarkers",
+          "operator": "gte",
+          "expected": 3
+        },
+        {
+          "path": "readMarkers",
+          "operator": "gte",
+          "expected": 3
+        },
+        {
+          "path": "unreconciledMarkers",
+          "operator": "equal",
+          "expected": 0
+        },
+        {
+          "path": "originalApplicationRequired",
+          "operator": "equal",
+          "expected": false
+        },
+        {
+          "path": "originalModelProviderRequired",
+          "operator": "equal",
+          "expected": false
+        },
+        {
+          "path": "reader",
+          "operator": "equal",
+          "expected": "independent-fixture-reader-v1"
+        },
+        {
+          "path": "correctionsPreserved",
+          "operator": "equal",
+          "expected": true
+        }
+      ],
+      "review": {
+        "kind": "export-reader",
+        "clauses": [
+          "REQ-CEP-035",
+          "QA-CEP-006"
+        ],
+        "required": true
+      }
+    },
+    {
+      "id": "CEP-QA-008",
+      "title": "Reference workload acknowledgement latency",
+      "status": "planned",
+      "category": "conformance",
+      "technique": "black_box_scenario",
+      "claims": [
+        "QA-CEP-008"
+      ],
+      "fixture": "synthetic-career-v1",
+      "steps": [
+        {
+          "operation": "execute",
+          "name": "acknowledge-interactive-task",
+          "arguments": {
+            "sample": 0
+          }
+        },
+        {
+          "operation": "execute",
+          "name": "acknowledge-interactive-task",
+          "arguments": {
+            "sample": 1
+          }
+        },
+        {
+          "operation": "execute",
+          "name": "acknowledge-interactive-task",
+          "arguments": {
+            "sample": 2
+          }
+        },
+        {
+          "operation": "execute",
+          "name": "acknowledge-interactive-task",
+          "arguments": {
+            "sample": 3
+          }
+        },
+        {
+          "operation": "execute",
+          "name": "acknowledge-interactive-task",
+          "arguments": {
+            "sample": 4
+          }
+        },
+        {
+          "operation": "execute",
+          "name": "acknowledge-interactive-task",
+          "arguments": {
+            "sample": 5
+          }
+        },
+        {
+          "operation": "execute",
+          "name": "acknowledge-interactive-task",
+          "arguments": {
+            "sample": 6
+          }
+        },
+        {
+          "operation": "execute",
+          "name": "acknowledge-interactive-task",
+          "arguments": {
+            "sample": 7
+          }
+        },
+        {
+          "operation": "execute",
+          "name": "acknowledge-interactive-task",
+          "arguments": {
+            "sample": 8
+          }
+        },
+        {
+          "operation": "execute",
+          "name": "acknowledge-interactive-task",
+          "arguments": {
+            "sample": 9
+          }
+        },
+        {
+          "operation": "execute",
+          "name": "acknowledge-interactive-task",
+          "arguments": {
+            "sample": 10
+          }
+        },
+        {
+          "operation": "execute",
+          "name": "acknowledge-interactive-task",
+          "arguments": {
+            "sample": 11
+          }
+        },
+        {
+          "operation": "execute",
+          "name": "acknowledge-interactive-task",
+          "arguments": {
+            "sample": 12
+          }
+        },
+        {
+          "operation": "execute",
+          "name": "acknowledge-interactive-task",
+          "arguments": {
+            "sample": 13
+          }
+        },
+        {
+          "operation": "execute",
+          "name": "acknowledge-interactive-task",
+          "arguments": {
+            "sample": 14
+          }
+        },
+        {
+          "operation": "execute",
+          "name": "acknowledge-interactive-task",
+          "arguments": {
+            "sample": 15
+          }
+        },
+        {
+          "operation": "execute",
+          "name": "acknowledge-interactive-task",
+          "arguments": {
+            "sample": 16
+          }
+        },
+        {
+          "operation": "execute",
+          "name": "acknowledge-interactive-task",
+          "arguments": {
+            "sample": 17
+          }
+        },
+        {
+          "operation": "execute",
+          "name": "acknowledge-interactive-task",
+          "arguments": {
+            "sample": 18
+          }
+        },
+        {
+          "operation": "execute",
+          "name": "acknowledge-interactive-task",
+          "arguments": {
+            "sample": 19
+          }
+        },
+        {
+          "operation": "inspect",
+          "name": "CEP-QA-008",
+          "arguments": {}
+        }
+      ],
+      "assertions": [
+        {
+          "path": "operationIdsPresent",
+          "operator": "equal",
+          "expected": true
+        },
+        {
+          "path": "longWorkProgressAvailable",
+          "operator": "equal",
+          "expected": true
+        },
+        {
+          "path": "$timings",
+          "operator": "p95_lte",
+          "expected": 2000
+        }
+      ]
+    },
+    {
+      "id": "CEP-RETENTION-001",
+      "title": "Retention across source, derived, temporary and provider stores",
+      "status": "planned",
+      "category": "conformance",
+      "technique": "black_box_scenario",
+      "claims": [
+        "REQ-CEP-041",
+        "POL-CEP-008"
+      ],
+      "fixture": "synthetic-career-v1",
+      "steps": [
+        {
+          "operation": "execute",
+          "name": "show-retention-policy",
+          "arguments": {}
+        },
+        {
+          "operation": "execute",
+          "name": "expire-source-retention",
+          "arguments": {}
+        },
+        {
+          "operation": "execute",
+          "name": "reconcile-retention",
+          "arguments": {}
+        },
+        {
+          "operation": "inspect",
+          "name": "CEP-RETENTION-001",
+          "arguments": {}
+        }
+      ],
+      "assertions": [
+        {
+          "path": "storesCovered",
+          "operator": "equal",
+          "expected": [
+            "original",
+            "extracted",
+            "derived",
+            "temporary",
+            "provider"
+          ]
+        },
+        {
+          "path": "profileStillAvailable",
+          "operator": "equal",
+          "expected": true
+        },
+        {
+          "path": "sourceAvailability",
+          "operator": "equal",
+          "expected": "unavailable"
+        },
+        {
+          "path": "exceptions",
+          "operator": "equal",
+          "expected": [
+            {
+              "purpose": "minimal-audit",
+              "retention": "declared-limited"
+            }
+          ]
+        },
+        {
+          "path": "indefiniteVaultPromise",
+          "operator": "equal",
+          "expected": false
+        },
+        {
+          "path": "retentionShownBeforeCollection",
+          "operator": "equal",
+          "expected": true
+        }
+      ]
+    },
+    {
+      "id": "CEP-ACCESS-001",
+      "title": "Advisor revocation, operator scope and distinct permissions",
+      "status": "planned",
+      "category": "conformance",
+      "technique": "black_box_scenario",
+      "claims": [
+        "REQ-CEP-038",
+        "REQ-CEP-040",
+        "INV-CEP-001",
+        "POL-CEP-001"
+      ],
+      "fixture": "synthetic-career-v1",
+      "steps": [
+        {
+          "operation": "execute",
+          "name": "grant-advisor-read",
+          "arguments": {}
+        },
+        {
+          "operation": "execute",
+          "name": "revoke-advisor",
+          "arguments": {}
+        },
+        {
+          "operation": "execute",
+          "name": "attempt-advisor-change",
+          "arguments": {}
+        },
+        {
+          "operation": "execute",
+          "name": "attempt-operator-content-without-grant",
+          "arguments": {}
+        },
+        {
+          "operation": "execute",
+          "name": "decline-optional-permissions",
+          "arguments": {}
+        },
+        {
+          "operation": "inspect",
+          "name": "CEP-ACCESS-001",
+          "arguments": {}
+        }
+      ],
+      "assertions": [
+        {
+          "path": "advisorReadBeforeRevocation",
+          "operator": "equal",
+          "expected": "allowed"
+        },
+        {
+          "path": "advisorChangeAfterRevocation",
+          "operator": "equal",
+          "expected": "denied"
+        },
+        {
+          "path": "operatorContentWithoutGrant",
+          "operator": "equal",
+          "expected": "denied"
+        },
+        {
+          "path": "ownerCorrectionAvailable",
+          "operator": "equal",
+          "expected": true
+        },
+        {
+          "path": "requiredProcessingPermission",
+          "operator": "equal",
+          "expected": true
+        },
+        {
+          "path": "optionalDisclosurePermission",
+          "operator": "equal",
+          "expected": false
+        },
+        {
+          "path": "testimonyParticipation",
+          "operator": "equal",
+          "expected": false
+        },
+        {
+          "path": "marketingEnrollment",
+          "operator": "equal",
+          "expected": false
+        },
+        {
+          "path": "operatorAccessAttributionRequired",
+          "operator": "equal",
+          "expected": true
+        }
+      ]
+    },
+    {
+      "id": "CEP-POL-007",
+      "title": "Declared deployment and generic contract boundaries",
+      "status": "planned",
+      "category": "conformance",
+      "technique": "black_box_scenario",
+      "claims": [
+        "POL-CEP-007"
+      ],
+      "fixture": "synthetic-career-v1",
+      "steps": [
+        {
+          "operation": "execute",
+          "name": "describe-deployment-artifacts",
+          "arguments": {}
+        },
+        {
+          "operation": "inspect",
+          "name": "CEP-POL-007",
+          "arguments": {}
+        }
+      ],
+      "assertions": [
+        {
+          "path": "deploymentDocumentId",
+          "operator": "equal",
+          "expected": "deployment-r1"
+        }
+      ],
+      "review": {
+        "kind": "deployment-boundary",
+        "clauses": [
+          "POL-CEP-007"
+        ],
+        "required": true
+      }
+    }
+  ]
+}

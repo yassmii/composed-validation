@@ -1,0 +1,21 @@
+{
+  "name": "composed-validation",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "description": "Independent, version-pinned conformance and resilience validation for Composed contracts.",
+  "scripts": {
+    "test": "node --test test/validation.test.mjs test/career.test.mjs test/prospecting.test.mjs test/wealth.test.mjs",
+    "validate": "npm run validate:contract && npm run validate:suites && npm run validate:profiles && npm test",
+    "validate:contract": "node src/validate-contract.mjs",
+    "validate:suites": "node src/validate-suite.mjs",
+    "validate:profiles": "node src/validate-profile.mjs",
+    "validate:career": "node src/run-career.mjs"
+  },
+  "engines": {
+    "node": ">=20"
+  },
+  "dependencies": {
+    "yaml": "2.9.0"
+  }
+}

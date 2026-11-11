@@ -1,0 +1,32 @@
+{
+  "format": "composed-validation-profile/v1",
+  "id": "collaborative-workspace/conformance",
+  "version": "0.1.0",
+  "contract": {
+    "id": "collaborative-workspace",
+    "version": "0.1.0",
+    "revision": "bc9c70659e5a4a1f99fd8ecaaaa4736b1dda24c9"
+  },
+  "suite": "collaborative-workspace/0.1.0",
+  "adapter": {
+    "boundary": "black_box",
+    "requiredOperations": ["describe", "reset", "execute", "inspect", "inject", "dispose"],
+    "constraints": [
+      "Translate only documented public product operations.",
+      "Use fixture-scoped, disposable workspaces, identities, credentials, repositories, and storage.",
+      "Do not provide a privileged path that a production principal or operator lacks.",
+      "Redact secrets, protected values, and inaccessible content before returning diagnostics or artifacts.",
+      "Exercise Git, derived-store, offline, identity, and network observations only through documented deployment and public administration boundaries."
+    ]
+  },
+  "execution": {
+    "targetRevisionRequired": true,
+    "reportRequired": true,
+    "allowedVerdicts": ["pass", "fail", "blocked", "not_run"],
+    "plannedIsNotEvidence": true
+  },
+  "requiredCases": [
+    "CWS-CAP-001", "CWS-CAP-002", "CWS-CAP-003", "CWS-CAP-004", "CWS-CAP-005", "CWS-CAP-006", "CWS-CAP-007", "CWS-CAP-008", "CWS-CAP-009", "CWS-CAP-010", "CWS-CAP-011", "CWS-CAP-012", "CWS-CAP-013", "CWS-CAP-014", "CWS-CAP-015", "CWS-CAP-016", "CWS-CAP-017", "CWS-CAP-018", "CWS-CAP-019",
+    "CWS-ACC-001", "CWS-ACC-002", "CWS-ACC-003", "CWS-ACC-004", "CWS-ACC-005", "CWS-ACC-006", "CWS-ACC-007", "CWS-ACC-008", "CWS-ACC-009", "CWS-ACC-010", "CWS-ACC-011", "CWS-ACC-012", "CWS-ACC-013", "CWS-ACC-014", "CWS-ACC-015", "CWS-ACC-016", "CWS-ACC-017", "CWS-ACC-018", "CWS-ACC-019", "CWS-ACC-020", "CWS-ACC-021", "CWS-ACC-022"
+  ]
+}

@@ -1,0 +1,58 @@
+{
+  "id": "reference-interview",
+  "version": "0.1.0",
+  "synthetic": true,
+  "mediaGenerator": "generate-media.mjs",
+  "durationSeconds": 8,
+  "actors": {
+    "operator": "fixture-operator",
+    "editor": "fixture-editor",
+    "admin": "fixture-admin"
+  },
+  "assets": [
+    {
+      "id": "asset-a",
+      "file": "asset-a.wav",
+      "format": "audio/wav",
+      "transcript": "Synthetic interview segment A; supplied editorial text, not an ASR accuracy reference."
+    },
+    {
+      "id": "asset-b",
+      "file": "asset-b.wav",
+      "format": "audio/wav",
+      "transcript": "Synthetic interview segment B; supplied editorial text, not an ASR accuracy reference."
+    }
+  ],
+  "selection": [
+    {
+      "source": "asset-b",
+      "startSeconds": 1,
+      "endSeconds": 3
+    },
+    {
+      "source": "asset-a",
+      "startSeconds": 2,
+      "endSeconds": 4
+    }
+  ],
+  "note": {
+    "source": "asset-b",
+    "positionSeconds": 1.5,
+    "text": "Fixture review note"
+  },
+  "egressCanary": "COMPOSED-VIDEO-FIXTURE-ONLY-DO-NOT-TRANSMIT",
+  "faults": [
+    "source_unavailable",
+    "source_withdrawn",
+    "source_altered",
+    "processing_failed",
+    "processing_cancelled",
+    "processing_indeterminate"
+  ],
+  "normalisation": [
+    "Compare asset and selection relationships rather than generated IDs.",
+    "Map returned source IDs back to fixture source identities.",
+    "Preserve segment order, boundaries, provenance and state semantics.",
+    "Do not require equal byte encodings, paths, timestamps or IDs across implementations."
+  ]
+}

@@ -1,0 +1,73 @@
+{
+  "format": "composed-validation-profile/v1",
+  "id": "career-evidence-platform/conformance",
+  "version": "0.1.0",
+  "contract": {
+    "id": "career-evidence-platform",
+    "version": "0.1.0",
+    "revision": "b2c097c5022be06534aa12255b78d938b36b17b5"
+  },
+  "suite": "career-evidence-platform/0.1.0",
+  "adapter": {
+    "boundary": "black_box",
+    "requiredOperations": [
+      "describe",
+      "reset",
+      "execute",
+      "inspect",
+      "inject",
+      "dispose"
+    ],
+    "constraints": [
+      "Translate named actions to public operations using only disposable, fixture-scoped identities and resources.",
+      "Describe unsupported optional capabilities explicitly; they are not passing cases.",
+      "Do not modify candidate internals to fabricate observations or failure injection.",
+      "Provide normalized observations of actual actions, never computed expected assertions.",
+      "Human review evidence comes from an external reviewer bundle, not adapter self-approval."
+    ]
+  },
+  "execution": {
+    "targetRevisionRequired": true,
+    "reportRequired": true,
+    "allowedVerdicts": [
+      "pass",
+      "fail",
+      "blocked",
+      "not_run"
+    ],
+    "plannedIsNotEvidence": true,
+    "conditionalCases": "Unsupported optional modules are not_run; core claims are bounded and complete profile coverage requires every case.",
+    "transport": "jsonl-stdio/v1; validation adapter only",
+    "manualEvidence": "External, target-bound, hashed review artifacts; absent or unreproducible evidence is blocked."
+  },
+  "requiredCases": [
+    "CEP-ACC-001",
+    "CEP-ACC-002",
+    "CEP-ACC-003",
+    "CEP-ACC-004",
+    "CEP-ACC-005",
+    "CEP-ACC-006",
+    "CEP-ACC-007",
+    "CEP-ACC-008",
+    "CEP-ACC-009",
+    "CEP-ACC-010",
+    "CEP-ACC-011",
+    "CEP-ACC-012",
+    "CEP-ACC-013",
+    "CEP-ACC-014",
+    "CEP-ACC-015",
+    "CEP-ACC-016",
+    "CEP-ACC-017",
+    "CEP-ACC-018",
+    "CEP-ACC-019",
+    "CEP-ACC-020",
+    "CEP-ACC-021",
+    "CEP-ACC-022",
+    "CEP-QA-001",
+    "CEP-QA-006",
+    "CEP-QA-008",
+    "CEP-RETENTION-001",
+    "CEP-ACCESS-001",
+    "CEP-POL-007"
+  ]
+}
