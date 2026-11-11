@@ -17,7 +17,7 @@ test('prospecting contract is pinned to the supplied commit and covers every nor
   const target = lockedContract('prospecting-workspace', '0.1.0');
   const lock = validateContractLock('prospecting-workspace', '0.1.0');
   assert.deepEqual(lock.errors, []);
-  assert.equal(lock.actualRevision, '3b6372dada8dd10ad4eb474ae77620ad4699a37f');
+  assert.equal(lock.actualRevision, '30956f542581d5ca80ff5b9fcd7c850a7143f413');
   assert.equal(lock.actualBlob, target.contentBlob);
   assert.equal(lock.metadata.version, '0.1.0');
   assert.equal(lock.clauses.length, 118);

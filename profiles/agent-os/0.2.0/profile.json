@@ -5,7 +5,7 @@
   "contract": {
     "id": "agent-os",
     "version": "0.2.0",
-    "revision": "2743b72bd38d64b209c75df2b4a35d3a70a2dfd0"
+    "revision": "30956f542581d5ca80ff5b9fcd7c850a7143f413"
   },
   "suite": "agent-os/0.2.0",
   "adapter": {

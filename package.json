@@ -2,6 +2,7 @@
   "name": "composed-validation",
   "version": "0.1.0",
   "private": true,
+  "license": "MIT",
   "type": "module",
   "description": "Independent, version-pinned conformance and resilience validation for Composed contracts.",
   "scripts": {

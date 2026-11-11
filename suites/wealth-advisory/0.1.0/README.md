@@ -1,7 +1,7 @@
 # Wealth advisory — suite 0.1.0
 
 Target: **`wealth-advisory@0.1.0`**, format **0.2**, maturity **draft**.
-Composed revision: `a6c6a7c3fb6e540913376c326a3b130af6d147e5`.
+Composed revision: `30956f542581d5ca80ff5b9fcd7c850a7143f413`.
 Contract blob: `63ee2c21a1d928fa79207448de6d165d41d62f9c`.
 Contract SHA-256: `d51dcabc5031a5f8cb75e374daeeef303c65e2821efd8670d9ced4c7c601265f`.
 

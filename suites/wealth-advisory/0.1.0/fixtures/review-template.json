@@ -4,7 +4,7 @@
   "contract": {
     "id": "wealth-advisory",
     "version": "0.1.0",
-    "revision": "a6c6a7c3fb6e540913376c326a3b130af6d147e5",
+    "revision": "30956f542581d5ca80ff5b9fcd7c850a7143f413",
     "contentBlob": "63ee2c21a1d928fa79207448de6d165d41d62f9c",
     "sha256": "d51dcabc5031a5f8cb75e374daeeef303c65e2821efd8670d9ced4c7c601265f",
     "schemaVersion": "0.2",

@@ -7,7 +7,7 @@
       "id": "commerces-locaux",
       "path": "profiles/commerces-locaux.yaml",
       "sourceRepository": "https://github.com/yassmii/composed",
-      "revision": "3b6372dada8dd10ad4eb474ae77620ad4699a37f",
+      "revision": "30956f542581d5ca80ff5b9fcd7c850a7143f413",
       "sourcePath": "contracts/product-types/prospecting-workspace/examples/commerces-locaux.yaml",
       "contentBlob": "31b4dc0f782aebdc5c5fa63a177bb87d45f54c68",
       "sha256": "5b425450a2d0306f0c468a2bd849bfa10ae2f23b693148491fb1c1305317bda2"
@@ -16,7 +16,7 @@
       "id": "coproprietes-fr",
       "path": "profiles/coproprietes-fr.yaml",
       "sourceRepository": "https://github.com/yassmii/composed",
-      "revision": "3b6372dada8dd10ad4eb474ae77620ad4699a37f",
+      "revision": "30956f542581d5ca80ff5b9fcd7c850a7143f413",
       "sourcePath": "contracts/product-types/prospecting-workspace/examples/coproprietes-fr.yaml",
       "contentBlob": "ed68e2e0e1142b57bcf8d7d3636ff9e9d3dae755",
       "sha256": "c487e2aaaa840f23f715e4d024e2e7f773c5eddeab4cee22a74db9aec0d359a5"
@@ -25,7 +25,7 @@
       "id": "projets-numeriques",
       "path": "profiles/projets-numeriques.yaml",
       "sourceRepository": "https://github.com/yassmii/composed",
-      "revision": "3b6372dada8dd10ad4eb474ae77620ad4699a37f",
+      "revision": "30956f542581d5ca80ff5b9fcd7c850a7143f413",
       "sourcePath": "contracts/product-types/prospecting-workspace/examples/projets-numeriques.yaml",
       "contentBlob": "b3976329943d2baf3f9b50323eb94d6c93471190",
       "sha256": "7d8760b2da2dd6b8b884174a0aeeb356b130ccc819becd8ede9507467e240e67"

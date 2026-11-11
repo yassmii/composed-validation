@@ -18,7 +18,7 @@ test('wealth draft uses immutable committed bytes, with 45 normative and 26 acce
   const target = lockedContract(id, version);
   const result = validateContractLock(id, version);
   assert.deepEqual(result.errors, []);
-  assert.equal(target.revision, 'a6c6a7c3fb6e540913376c326a3b130af6d147e5');
+  assert.equal(target.revision, '30956f542581d5ca80ff5b9fcd7c850a7143f413');
   assert.equal(target.contentBlob, '63ee2c21a1d928fa79207448de6d165d41d62f9c');
   assert.equal(createHash('sha256').update(source).digest('hex'), target.contentSha256);
   assert.equal(result.clauses.filter((clause) => !clause.startsWith('ACC-')).length, 45);

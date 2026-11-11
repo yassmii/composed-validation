@@ -5,7 +5,7 @@
   "contract": {
     "id": "video-editorial-workflow",
     "version": "0.3.1",
-    "revision": "1e2caf32f0ee03afb782d2a29393b87b90eebff2"
+    "revision": "30956f542581d5ca80ff5b9fcd7c850a7143f413"
   },
   "suite": "video-editorial-workflow/0.3.1",
   "adapter": {

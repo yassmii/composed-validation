@@ -5,7 +5,7 @@
   "contract": {
     "id": "collaborative-workspace",
     "version": "0.1.0",
-    "revision": "bc9c70659e5a4a1f99fd8ecaaaa4736b1dda24c9"
+    "revision": "30956f542581d5ca80ff5b9fcd7c850a7143f413"
   },
   "suite": "collaborative-workspace/0.1.0",
   "adapter": {
