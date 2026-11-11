@@ -2,7 +2,7 @@
 
 Profile: [`prospecting-workspace/conformance@0.1.0`](../../../profiles/prospecting-workspace/0.1.0/profile.json).
 The contract is pinned in `contracts.lock.json` to Composed commit
-`30956f542581d5ca80ff5b9fcd7c850a7143f413`, blob
+`225959afc3836dc0fca86d8491e0c5f551071f6f`, blob
 `f50d3b25f69990ce91b4f35d9b46a34e0fea4f4d`.
 This is an independent consumer profile. The locked product contract does not
 declare a `delivery.validation_profile` or prescribe this adapter protocol.
