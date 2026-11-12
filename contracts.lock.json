@@ -39,6 +39,14 @@
         "contentBlob": "10116dafb95cf2b9ff32e1330407110a2d9f2443",
         "path": "contracts/product-types/career-evidence-platform/history/0.1.0/contracts/contract.yaml",
         "profileVersion": "0.1.0"
+      },
+      "1.0.1": {
+        "sourceRepository": "https://github.com/yassmii/composed",
+        "revision": "7e1dacdbaf5ad14771ebb744103828f9e64d690d",
+        "contentBlob": "c89a66d942c70d075058865e692ed0a3a424a94e",
+        "contentSha256": "51059aeef5b32f7e74ddd414ffac6e39e24eb5b474ea280e745dd80c95cafee4",
+        "path": "contracts/product-types/career-evidence-platform/contracts/contract.yaml",
+        "profileVersion": "1.0.0"
       }
     },
     "prospecting-workspace": {

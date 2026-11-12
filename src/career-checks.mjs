@@ -3,7 +3,7 @@ import { createHash } from 'node:crypto';
 import { readFileSync, realpathSync } from 'node:fs';
 import { dirname, isAbsolute, relative, resolve } from 'node:path';
 
-const operators = new Set(['equal', 'not_contains', 'nonempty', 'gte', 'lte', 'p95_lte', 'benchmark']);
+const operators = new Set(['equal', 'not_contains', 'nonempty', 'gte', 'lte', 'p95_lte', 'benchmark', 'scorer_controls', 'slice_confirmation']);
 const operations = new Set(['execute', 'inspect', 'inject']);
 export const immutableRevision = /^(?:[a-f0-9]{40}|[a-f0-9]{64}|sha256:[a-f0-9]{64})$/;
 export const digest = (value) => createHash('sha256').update(value).digest('hex');
@@ -42,6 +42,52 @@ function benchmark(value) {
   return value.blanketSotaClaim === false && value.routineTelemetryContainsBodies === false;
 }
 
+const text = (value) => typeof value === 'string' && value.trim().length > 0;
+const rate = (value) => finiteNonnegative(value) && value <= 1;
+// An unknown measure carries no number at all: a zero or a one would read as a result.
+const unknown = (measure) => measure?.status === 'unknown' && (measure.value === null || measure.value === undefined)
+  && measure.numerator === undefined && measure.denominator === undefined;
+const fraction = (measure, [numerator, denominator]) => measure?.numerator === numerator && measure?.denominator === denominator;
+
+/** ACC-CEP-024 / REQ-CEP-063: known counts, empty denominators and abstentions stay distinguishable. */
+function scorerControls(value, expected) {
+  if (!value || !text(value.matchingRule)) return false;
+  const [truePositive, predicted] = expected.precision;
+  const [, gold] = expected.recall;
+  const counts = value.known?.counts;
+  if (counts?.truePositive !== truePositive || counts?.falsePositive !== predicted - truePositive || counts?.falseNegative !== gold - truePositive) return false;
+  if (!fraction(value.known.precision, expected.precision) || !fraction(value.known.recall, expected.recall)) return false;
+  const abstention = value.allAbstention;
+  if (!abstention || abstention.caseCount !== expected.abstentionCases || abstention.abstentions !== abstention.caseCount || abstention.supportedAnswers !== 0) return false;
+  if (!unknown(abstention.supportedAnswerQuality)) return false;
+  const unexecuted = value.unexecuted;
+  if (!unexecuted || unexecuted.observations !== 0 || !unknown(unexecuted.precision) || !unknown(unexecuted.recall)) return false;
+  const tasks = ['extraction', 'linking', 'grounding', 'relevance'];
+  const measures = value.separateMeasures;
+  if (!measures || !isDeepStrictEqual(Object.keys(measures).sort(), [...tasks].sort())) return false;
+  return tasks.every((task) => measures[task]?.task === task && ['reported', 'unknown'].includes(measures[task].status)
+    && (measures[task].status === 'reported' ? finiteNonnegative(measures[task].sampleCount) && measures[task].sampleCount > 0 : unknown(measures[task])));
+}
+
+/** ACC-CEP-023 / REQ-CEP-064: a mandatory slice regression defeats an aggregate gain. */
+function sliceConfirmation(value, expected) {
+  const declaration = value?.declaration;
+  if (!declaration || declaration.frozenBeforeComparison !== true || !['corpusId', 'splitId', 'scorerVersion', 'thresholdsVersion'].every((name) => text(declaration[name]))) return false;
+  const declared = Object.keys(expected.slices).sort();
+  if (!isDeepStrictEqual([...(declaration.slices ?? [])].sort(), declared)) return false;
+  const rows = value.slices;
+  if (!Array.isArray(rows) || !isDeepStrictEqual(rows.map((row) => row?.id).sort(), declared)) return false;
+  for (const row of rows) {
+    if (row.sampleCount !== expected.slices[row.id] || !rate(row.baseline) || !rate(row.candidate) || !rate(row.mandatoryMinimum) || typeof row.passed !== 'boolean') return false;
+    if (row.passed !== (row.candidate >= row.mandatoryMinimum)) return false;
+  }
+  if (rows.find((row) => row.id === expected.failingSlice).passed !== false) return false;
+  if (!rate(value.aggregate?.baseline) || !rate(value.aggregate?.candidate) || !(value.aggregate.candidate > value.aggregate.baseline)) return false;
+  if (value.verdict !== 'not_confirmed' || !Array.isArray(value.regressions) || !value.regressions.includes(expected.failingSlice)) return false;
+  if (value.tuningCasesAttempt?.accepted !== false || value.dropSliceAttempt?.accepted !== false) return false;
+  return value.tuningCasesInConfirmation === 0;
+}
+
 export function evaluateAssertions(assertions, observation, timings = []) {
   return assertions.map((check) => {
     const actual = check.path === '$timings' ? timings : at(observation, check.path);
@@ -58,6 +104,8 @@ export function evaluateAssertions(assertions, observation, timings = []) {
         break;
       }
       case 'benchmark': pass = benchmark(actual); break;
+      case 'scorer_controls': pass = scorerControls(actual, check.expected); break;
+      case 'slice_confirmation': pass = sliceConfirmation(actual, check.expected); break;
       default: throw new Error(`Unknown assertion operator: ${check.operator}`);
     }
     // Do not copy potentially private candidate values into failure messages.

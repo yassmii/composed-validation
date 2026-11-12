@@ -109,7 +109,7 @@ export function validateAllContractLocks() {
   );
 }
 
-function suiteManifest(contractId, version) {
+export function suiteManifest(contractId, version) {
   const manifest = readJson(`suites/${contractId}/${version}/manifest.json`);
   if (!manifest.extends) return manifest;
   const parent = suiteManifest(contractId, manifest.extends);

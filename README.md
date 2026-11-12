@@ -42,6 +42,7 @@ working-tree contract may be newer; validation reads the locked objects. See
 | Collaborative Workspace 0.1.0 | Planned cases; no runner supplied. | Review the [profile](profiles/collaborative-workspace/0.1.0/profile.json) and prepare runner/adapter. |
 | Video Editorial Workflow 0.3.1 | Planned cases; no runner supplied. | Use the [suite and fixtures](suites/video-editorial-workflow/0.3.1/README.md) to prepare execution. |
 | Career Evidence Platform 0.1.0 | Runner available; requires a candidate adapter and six external reviews for a complete run. | [Run a candidate](#run-a-career-candidate). |
+| Career Evidence Platform 1.0.1 candidate | Runner available with `--contract-version 1.0.1`; profile 1.0.0 extends 0.1.0 with two evaluation-control cases (30 cases). | Read the [1.0.1 suite guide](suites/career-evidence-platform/1.0.1/README.md). |
 | Prospecting Workspace 0.1.0 | Planned cases; no runner supplied. | Use the [suite](suites/prospecting-workspace/0.1.0/README.md) to prepare execution. |
 | Wealth Advisory 0.1.0 draft | 26 planned groups / 54 proof dimensions; no runner or adapter supplied. | Use the [suite](suites/wealth-advisory/0.1.0/README.md) to prepare execution and required professional/human evidence. |
 
@@ -63,6 +64,9 @@ append `-- /absolute/path/to/adapter.mjs`. Include `--reviews /absolute/path/to/
 that separator when real external review evidence is available. Missing required reviews remain
 blocked. The [suite guide](suites/career-evidence-platform/0.1.0/README.md) and
 [adapter protocol](suites/career-evidence-platform/0.1.0/adapter.md) define the required operations.
+
+The runner judges contract 0.1.0 unless `--contract-version 1.0.1` is given; results for one version
+are not results for the other.
 
 The command prints the report path, verdict, counts and `fullProfilePassed`. Start with its
 [interpretation](docs/evidence-model.md#read-a-career-run), then inspect the affected case reasons.

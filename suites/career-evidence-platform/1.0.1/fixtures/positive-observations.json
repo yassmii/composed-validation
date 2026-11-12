@@ -1,0 +1,122 @@
+{
+  "purpose": "Synthetic positive control for the two cases added by profile 1.0.0. Earlier cases replay the 0.1.0 recording. Not a product result.",
+  "observations": {
+    "CEP-ACC-023": {
+      "declaration": {
+        "frozenBeforeComparison": true,
+        "corpusId": "synthetic-confirmation-v1",
+        "splitId": "confirmation-r1",
+        "scorerVersion": "scorer-r1",
+        "thresholdsVersion": "thresholds-r1",
+        "slices": [
+          "fr/engineering",
+          "en/engineering",
+          "fr/care"
+        ]
+      },
+      "slices": [
+        {
+          "id": "fr/engineering",
+          "sampleCount": 10,
+          "baseline": 0.7,
+          "candidate": 1,
+          "mandatoryMinimum": 0.8,
+          "passed": true
+        },
+        {
+          "id": "en/engineering",
+          "sampleCount": 10,
+          "baseline": 0.7,
+          "candidate": 1,
+          "mandatoryMinimum": 0.8,
+          "passed": true
+        },
+        {
+          "id": "fr/care",
+          "sampleCount": 5,
+          "baseline": 0.8,
+          "candidate": 0.6,
+          "mandatoryMinimum": 0.8,
+          "passed": false
+        }
+      ],
+      "aggregate": {
+        "baseline": 0.72,
+        "candidate": 0.92
+      },
+      "verdict": "not_confirmed",
+      "regressions": [
+        "fr/care"
+      ],
+      "tuningCasesAttempt": {
+        "accepted": false,
+        "reason": "tuning cases are not confirmation cases"
+      },
+      "dropSliceAttempt": {
+        "accepted": false,
+        "reason": "declared slices are frozen"
+      },
+      "tuningCasesInConfirmation": 0
+    },
+    "CEP-ACC-024": {
+      "matchingRule": "exact case, start and end offsets",
+      "known": {
+        "counts": {
+          "truePositive": 3,
+          "falsePositive": 1,
+          "falseNegative": 2
+        },
+        "precision": {
+          "numerator": 3,
+          "denominator": 4
+        },
+        "recall": {
+          "numerator": 3,
+          "denominator": 5
+        }
+      },
+      "allAbstention": {
+        "caseCount": 3,
+        "abstentions": 3,
+        "supportedAnswers": 0,
+        "supportedAnswerQuality": {
+          "status": "unknown",
+          "value": null
+        }
+      },
+      "unexecuted": {
+        "observations": 0,
+        "precision": {
+          "status": "unknown",
+          "value": null
+        },
+        "recall": {
+          "status": "unknown",
+          "value": null
+        }
+      },
+      "separateMeasures": {
+        "extraction": {
+          "task": "extraction",
+          "status": "reported",
+          "sampleCount": 5
+        },
+        "linking": {
+          "task": "linking",
+          "status": "unknown",
+          "value": null
+        },
+        "grounding": {
+          "task": "grounding",
+          "status": "unknown",
+          "value": null
+        },
+        "relevance": {
+          "task": "relevance",
+          "status": "unknown",
+          "value": null
+        }
+      }
+    }
+  }
+}

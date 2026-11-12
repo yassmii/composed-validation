@@ -2,13 +2,13 @@ import { mkdirSync, readFileSync, writeFileSync, copyFileSync } from 'node:fs';
 import { resolve, dirname } from 'node:path';
 import { fileURLToPath, pathToFileURL } from 'node:url';
 import { JsonlAdapter } from './jsonl-adapter.mjs';
-import { contractLock, validateContractLock, validateSuite, validateProfile, readJson } from './lib.mjs';
+import { contractLock, suiteManifest, validateContractLock, validateSuite, validateProfile, readJson } from './lib.mjs';
 import { digest, evaluateAssertions, evaluateReview, immutableRevision, loadReviews, validateCareerCases } from './career-checks.mjs';
 
 const root = resolve(dirname(fileURLToPath(import.meta.url)), '..');
 const contractId = 'career-evidence-platform';
-const version = '0.1.0';
-const suitePath = `suites/${contractId}/${version}`;
+// The default stays the first published profile so existing commands keep their meaning.
+const defaultVersion = '0.1.0';
 const timestamp = () => new Date().toISOString();
 
 function secrets(value) {
@@ -17,13 +17,20 @@ function secrets(value) {
     (/^(password|secret|token|accessToken|refreshToken|apiKey|authorization)$/i.test(key) && child !== null && !['[redacted]', '<redacted>', 'REDACTED'].includes(child)) || secrets(child));
 }
 
-export async function runCareer({ command, args = [], output, reviewsPath, timeoutMs = 30_000 }) {
+export async function runCareer({ command, args = [], output, reviewsPath, timeoutMs = 30_000, contractVersion = defaultVersion }) {
   if (!command || !output) throw new Error('Adapter command and report directory are required.');
-  const manifest = readJson(`${suitePath}/manifest.json`);
+  const version = contractVersion;
+  if (!contractLock().contracts[contractId]?.[version]) throw new Error(`No ${contractId} lock exists for ${version}.`);
+  const suitePath = `suites/${contractId}/${version}`;
+  const manifest = suiteManifest(contractId, version);
+  // A suite that extends an earlier one is judged with every manifest and matrix it inherits.
+  const inherited = [];
+  for (let parent = readJson(`${suitePath}/manifest.json`).extends; parent; parent = readJson(`suites/${contractId}/${parent}/manifest.json`).extends) inherited.push(`suites/${contractId}/${parent}/manifest.json`, `suites/${contractId}/${parent}/conformance-matrix.json`);
   const fixture = readJson(`${suitePath}/fixtures/synthetic-career.json`);
   const errors = [validateContractLock(contractId, version), validateSuite(contractId, version), validateProfile(contractId, version)].flatMap((entry) => entry.errors).concat(validateCareerCases(manifest));
   if (errors.length) throw new Error(`Invalid locked suite: ${errors.join(' ')}`);
   const target = contractLock().contracts[contractId][version];
+  const profileVersion = target.profileVersion ?? version;
   const outputPath = resolve(output);
   // Refuse to overwrite a prior evidence run, including from parallel runners.
   mkdirSync(outputPath, { recursive: false });
@@ -39,7 +46,7 @@ export async function runCareer({ command, args = [], output, reviewsPath, timeo
   }
   const report = {
     format: 'composed-validation-evidence/v1', suite: manifest.suite,
-    profile: `${contractId}/conformance@${version}`,
+    profile: `${contractId}/conformance@${profileVersion}`,
     contract: { id: contractId, version, revision: target.revision, contentBlob: target.contentBlob },
     command: [command, ...args], adapterVersion: null, target: null,
     environment: { node: process.version, platform: process.platform, architecture: process.arch, inheritedEnvironment: 'PATH, SystemRoot, WINDIR, TEMP, TMP, TMPDIR, LANG, TZ only' },
@@ -47,7 +54,7 @@ export async function runCareer({ command, args = [], output, reviewsPath, timeo
     fullProfilePassed: false, corePassed: false,
     limitations: ['Black-box observations are supplied through an implementation-owned adapter; validate its translation separately.', 'Synthetic fixture runs are not an estimate of career-model effectiveness.', 'External human judgments remain attributable to their reviewers.'],
   };
-  const sourcePaths = ['src/run-career.mjs', 'src/jsonl-adapter.mjs', 'src/career-checks.mjs', 'src/lib.mjs', 'package.json', 'contracts.lock.json', `${suitePath}/manifest.json`, `${suitePath}/conformance-matrix.json`, `${suitePath}/fixtures/synthetic-career.json`, `profiles/${contractId}/${version}/profile.json`];
+  const sourcePaths = ['src/run-career.mjs', 'src/jsonl-adapter.mjs', 'src/career-checks.mjs', 'src/lib.mjs', 'package.json', 'contracts.lock.json', `${suitePath}/manifest.json`, `${suitePath}/conformance-matrix.json`, `${suitePath}/fixtures/synthetic-career.json`, `profiles/${contractId}/${profileVersion}/profile.json`, ...inherited];
   report.harnessInputs = save('harness-inputs.json', sourcePaths.map((path) => ({ path, sha256: digest(readFileSync(resolve(root, path))) })));
   const adapter = new JsonlAdapter(command, args, { timeoutMs });
   let targetRevision;
@@ -154,12 +161,12 @@ async function main() {
   const args = separator < 0 ? [] : input.slice(separator + 1);
   const values = {};
   for (let index = 0; index < options.length; index += 2) {
-    if (!['--adapter', '--output', '--reviews', '--timeout-ms'].includes(options[index]) || !options[index + 1]) throw new Error('Usage: node src/run-career.mjs --adapter EXECUTABLE --output NEW_DIRECTORY [--reviews BUNDLE] [--timeout-ms N] -- [ADAPTER_ARGS...]');
+    if (!['--adapter', '--output', '--reviews', '--timeout-ms', '--contract-version'].includes(options[index]) || !options[index + 1]) throw new Error('Usage: node src/run-career.mjs --adapter EXECUTABLE --output NEW_DIRECTORY [--contract-version VERSION] [--reviews BUNDLE] [--timeout-ms N] -- [ADAPTER_ARGS...]');
     values[options[index]] = options[index + 1];
   }
   const timeoutMs = Number(values['--timeout-ms'] ?? 30_000);
   if (!Number.isFinite(timeoutMs) || timeoutMs < 1) throw new Error('Timeout must be a positive number of milliseconds.');
-  const report = await runCareer({ command: values['--adapter'], args, output: values['--output'], reviewsPath: values['--reviews'], timeoutMs });
+  const report = await runCareer({ command: values['--adapter'], args, output: values['--output'], reviewsPath: values['--reviews'], timeoutMs, contractVersion: values['--contract-version'] ?? defaultVersion });
   console.log(JSON.stringify({ report: resolve(values['--output'], 'report.json'), verdict: report.verdict, summary: report.summary, fullProfilePassed: report.fullProfilePassed }));
   process.exitCode = report.verdict === 'pass' ? 0 : 1;
 }

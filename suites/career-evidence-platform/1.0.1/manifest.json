@@ -1,0 +1,118 @@
+{
+  "suite": "career-evidence-platform/1.0.1",
+  "contract": "career-evidence-platform",
+  "contractVersion": "1.0.1",
+  "status": "planned",
+  "extends": "0.1.0",
+  "proofClaimsRequired": true,
+  "executableFormat": "composed-validation-scenario/v1",
+  "runner": "src/run-career.mjs",
+  "fixtures": [
+    "synthetic-career-v2"
+  ],
+  "cases": [
+    {
+      "id": "CEP-ACC-023",
+      "title": "Mandatory slice regression defeats an aggregate gain",
+      "status": "planned",
+      "category": "conformance",
+      "technique": "negative_control",
+      "claims": [
+        "ACC-CEP-023",
+        "REQ-CEP-064",
+        "QA-CEP-007"
+      ],
+      "fixture": "synthetic-career-v2",
+      "steps": [
+        {
+          "operation": "execute",
+          "name": "freeze-confirmation-declaration",
+          "arguments": {}
+        },
+        {
+          "operation": "execute",
+          "name": "compare-on-confirmation-split",
+          "arguments": {}
+        },
+        {
+          "operation": "execute",
+          "name": "attempt-include-tuning-cases",
+          "arguments": {
+            "caseIds": [
+              "tune-a",
+              "tune-b"
+            ]
+          }
+        },
+        {
+          "operation": "execute",
+          "name": "attempt-drop-slice",
+          "arguments": {
+            "slice": "fr/care"
+          }
+        },
+        {
+          "operation": "inspect",
+          "name": "CEP-ACC-023",
+          "arguments": {}
+        }
+      ],
+      "assertions": [
+        {
+          "path": "$",
+          "operator": "slice_confirmation",
+          "expected": {
+            "slices": {
+              "fr/engineering": 10,
+              "en/engineering": 10,
+              "fr/care": 5
+            },
+            "failingSlice": "fr/care"
+          }
+        }
+      ]
+    },
+    {
+      "id": "CEP-ACC-024",
+      "title": "Scorer controls keep counts, unknowns and abstentions distinct",
+      "status": "planned",
+      "category": "conformance",
+      "technique": "scorer_control",
+      "claims": [
+        "ACC-CEP-024",
+        "REQ-CEP-063",
+        "QA-CEP-007"
+      ],
+      "fixture": "synthetic-career-v2",
+      "steps": [
+        {
+          "operation": "execute",
+          "name": "score-extraction-controls",
+          "arguments": {}
+        },
+        {
+          "operation": "inspect",
+          "name": "CEP-ACC-024",
+          "arguments": {}
+        }
+      ],
+      "assertions": [
+        {
+          "path": "$",
+          "operator": "scorer_controls",
+          "expected": {
+            "precision": [
+              3,
+              4
+            ],
+            "recall": [
+              3,
+              5
+            ],
+            "abstentionCases": 3
+          }
+        }
+      ]
+    }
+  ]
+}

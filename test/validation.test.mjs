@@ -29,8 +29,8 @@ test('the current Agent OS contract is pinned by revision and content', () => {
 test('every locked suite covers its own contract revision', () => {
   const results = validateAllSuites();
   assert.deepEqual(results.flatMap((result) => result.errors), []);
-  assert.deepEqual(results.map((result) => result.contractCount), [65, 69, 153, 34, 114, 118, 71]);
-  assert.deepEqual(results.map((result) => result.matrixCount), [65, 69, 153, 34, 114, 118, 71]);
+  assert.deepEqual(results.map((result) => result.contractCount), [65, 69, 153, 34, 114, 116, 118, 71]);
+  assert.deepEqual(results.map((result) => result.matrixCount), [65, 69, 153, 34, 114, 116, 118, 71]);
 });
 
 test('contract discovery supports quoted and plain YAML identifiers', () => {

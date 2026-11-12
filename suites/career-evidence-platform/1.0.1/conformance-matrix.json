@@ -1,0 +1,16 @@
+{
+  "suite": "career-evidence-platform/1.0.1",
+  "extends": "0.1.0",
+  "entries": [
+    {
+      "clause": "ACC-CEP-023",
+      "proof": "CEP-ACC-023",
+      "status": "planned"
+    },
+    {
+      "clause": "ACC-CEP-024",
+      "proof": "CEP-ACC-024",
+      "status": "planned"
+    }
+  ]
+}

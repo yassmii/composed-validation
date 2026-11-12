@@ -6,7 +6,7 @@
   "type": "module",
   "description": "Independent, version-pinned conformance and resilience validation for Composed contracts.",
   "scripts": {
-    "test": "node --test test/validation.test.mjs test/career.test.mjs test/prospecting.test.mjs test/wealth.test.mjs",
+    "test": "node --test test/validation.test.mjs test/career.test.mjs test/career-1.0.1.test.mjs test/prospecting.test.mjs test/wealth.test.mjs",
     "validate": "npm run validate:contract && npm run validate:suites && npm run validate:profiles && npm test",
     "validate:contract": "node src/validate-contract.mjs",
     "validate:suites": "node src/validate-suite.mjs",
