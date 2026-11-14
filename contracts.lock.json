@@ -13,6 +13,13 @@
         "revision": "225959afc3836dc0fca86d8491e0c5f551071f6f",
         "contentBlob": "528a03125ff2a1c8b32590ad4e680e4614351ccc",
         "path": "contracts/product-types/agent-os/history/0.2.0/contracts/contract.yaml"
+      },
+      "1.0.0": {
+        "sourceRepository": "https://github.com/yassmii/composed",
+        "revision": "225959afc3836dc0fca86d8491e0c5f551071f6f",
+        "contentBlob": "352fac33aecf7d2eac21159c992889c6b2a25236",
+        "contentSha256": "098c6241428f09812ea59215b46e753e59f0ef3c9ace4b26b9ba6df20bb10f40",
+        "path": "contracts/product-types/agent-os/contracts/contract.yaml"
       }
     },
     "collaborative-workspace": {

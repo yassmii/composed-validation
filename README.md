@@ -39,6 +39,7 @@ working-tree contract may be newer; validation reads the locked objects. See
 | Contract suite | Candidate execution here | Next step |
 | --- | --- | --- |
 | Agent OS 0.1.0 / 0.2.0 | Planned cases; no runner supplied. | Review the [0.2.0 profile](profiles/agent-os/0.2.0/profile.json) and prepare runner/adapter. |
+| Agent OS 1.0.0 candidate | 27 planned cases; profile 1.0.0 extends 0.2.0 with two execution-time authority cases. No runner supplied. | Read the [1.0.0 suite guide](suites/agent-os/1.0.0/README.md) and prepare runner/adapter. |
 | Collaborative Workspace 0.1.0 | Planned cases; no runner supplied. | Review the [profile](profiles/collaborative-workspace/0.1.0/profile.json) and prepare runner/adapter. |
 | Video Editorial Workflow 0.3.1 | Planned cases; no runner supplied. | Use the [suite and fixtures](suites/video-editorial-workflow/0.3.1/README.md) to prepare execution. |
 | Career Evidence Platform 0.1.0 | Runner available; requires a candidate adapter and six external reviews for a complete run. | [Run a candidate](#run-a-career-candidate). |

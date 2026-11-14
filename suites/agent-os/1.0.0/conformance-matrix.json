@@ -1,0 +1,13 @@
+{
+  "suite": "agent-os/1.0.0",
+  "extends": "0.2.0",
+  "statusVocabulary": ["planned", "pass", "fail", "blocked", "not_run"],
+  "overrides": [
+    {"clause":"REQ-AOS-012","proof":"AOS-ACC-019","status":"planned"},
+    {"clause":"REQ-AOS-018","proof":"AOS-ACC-020","status":"planned"}
+  ],
+  "entries": [
+    {"clause":"ACC-AOS-019","proof":"AOS-ACC-019","status":"planned"},
+    {"clause":"ACC-AOS-020","proof":"AOS-ACC-020","status":"planned"}
+  ]
+}

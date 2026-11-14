@@ -1,0 +1,16 @@
+{
+  "suite": "agent-os/1.0.0",
+  "contract": "agent-os",
+  "contractVersion": "1.0.0",
+  "status": "planned",
+  "extends": "0.2.0",
+  "overrides": [
+    {"id":"AOS-ACC-001","fixtureRevision":"1.0.0"},
+    {"id":"AOS-ACC-004","fixtureRevision":"1.0.0"},
+    {"id":"AOS-ADV-003","fixtureRevision":"1.0.0"}
+  ],
+  "cases": [
+    {"id":"AOS-ACC-019","category":"security","technique":"execution_time_grant_check","claims":["ACC-AOS-019","REQ-AOS-012","INV-AOS-001","INV-AOS-002","INV-AOS-007"],"status":"planned"},
+    {"id":"AOS-ACC-020","category":"security","technique":"approval_binding","claims":["ACC-AOS-020","REQ-AOS-018","REQ-AOS-012","REQ-AOS-032"],"status":"planned"}
+  ]
+}

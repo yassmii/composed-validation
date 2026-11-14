@@ -22,15 +22,36 @@ import {
 test('the current Agent OS contract is pinned by revision and content', () => {
   const result = validateContractLock();
   assert.deepEqual(result.errors, []);
-  assert.equal(result.metadata.version, '0.2.0');
+  assert.equal(result.metadata.version, '1.0.0');
+  assert.equal(result.clauses.length, 71);
+});
+
+test('the Agent OS 0.2.0 baseline stays pinned beside the 1.0.0 candidate', () => {
+  const result = validateContractLock('agent-os', '0.2.0');
+  assert.deepEqual(result.errors, []);
   assert.equal(result.clauses.length, 69);
+});
+
+test('the Agent OS 1.0.0 profile adds the execution-time authority cases', () => {
+  const result = validateProfile('agent-os', '1.0.0');
+  assert.deepEqual(result.errors, []);
+  assert.equal(result.requiredCaseCount, 27);
+  const baseline = new Set(validateAgentOsProfile().profile.requiredCases);
+  assert.deepEqual(result.profile.requiredCases.filter((id) => !baseline.has(id)), ['AOS-ACC-019', 'AOS-ACC-020']);
+  assert.deepEqual([...baseline].filter((id) => !result.profile.requiredCases.includes(id)), []);
+
+  const matrix = readJson('suites/agent-os/1.0.0/conformance-matrix.json');
+  assert.deepEqual(matrix.overrides.map((entry) => [entry.clause, entry.proof]), [
+    ['REQ-AOS-012', 'AOS-ACC-019'],
+    ['REQ-AOS-018', 'AOS-ACC-020'],
+  ]);
 });
 
 test('every locked suite covers its own contract revision', () => {
   const results = validateAllSuites();
   assert.deepEqual(results.flatMap((result) => result.errors), []);
-  assert.deepEqual(results.map((result) => result.contractCount), [65, 69, 153, 34, 114, 116, 118, 71]);
-  assert.deepEqual(results.map((result) => result.matrixCount), [65, 69, 153, 34, 114, 116, 118, 71]);
+  assert.deepEqual(results.map((result) => result.contractCount), [65, 69, 71, 153, 34, 114, 116, 118, 71]);
+  assert.deepEqual(results.map((result) => result.matrixCount), [65, 69, 71, 153, 34, 114, 116, 118, 71]);
 });
 
 test('contract discovery supports quoted and plain YAML identifiers', () => {
